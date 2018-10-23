@@ -6,8 +6,8 @@ app.factory("Question", function () {
 
         // Properties und ihre Defaultwerte
         let properties = {
-            frage: "",
-            antworten: ["True", "False"],
+            question: "",
+            answers: ["True", "False"],
             multiple: false
         };
 

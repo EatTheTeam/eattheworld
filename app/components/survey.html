@@ -1,1 +1,15 @@
-<h1>Survey</h1>
+<h1>{{$ctrl.name}}</h1>
+<div>
+    <h3>{{$ctrl.questions[$ctrl.currentQuestion].question}}</h3>
+    <md-radio-group ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.questions[$ctrl.currentQuestion].multiple">
+        <md-radio-button ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-value="$index">
+            {{answer}}
+        </md-radio-button>
+    </md-radio-group>
+    <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.questions[$ctrl.currentQuestion].multiple">
+        <md-checkbox ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-click="$ctrl.toggle($index, $ctrl.answered[$ctrl.currentQuestion])">
+            {{ answer }}
+        </md-checkbox>
+    </div>
+    <md-button ng-click="$ctrl.nextItem()">Next</md-button>
+</div>
