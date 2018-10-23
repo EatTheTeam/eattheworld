@@ -1,13 +1,13 @@
 "use strict";
 
-app.factory("Frage", function () {
+app.factory("Question", function () {
 
-    function Frage(template, modifier) {
+    function Question(template, modifier) {
 
         // Properties und ihre Defaultwerte
         let properties = {
             frage: "",
-            antworten: ["Richtig", "Falsch"],
+            antworten: ["True", "False"],
             multiple: false
         };
 
@@ -16,8 +16,8 @@ app.factory("Frage", function () {
         Object.keys(properties).forEach(k => Object.defineProperty(this, k, {writable: false}));
 
         // Liefert eine neue Instanz dieses Objekts mit den angegebenen Änderungen
-        this.variante = modifier => new Frage(this, modifier);
+        this.variante = modifier => new Question(this, modifier);
     }
 
-    return Frage;
+    return Question;
 });
