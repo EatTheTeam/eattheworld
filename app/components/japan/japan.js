@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('japan', {
-    templateUrl: 'components/japan.html',
+    templateUrl: 'components/japan/japan.html',
     controller: 'JapanController'
 });
 

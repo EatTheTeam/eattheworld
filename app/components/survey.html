@@ -1,13 +1,15 @@
 <style>
     .survey {
-        margin-left: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffffff;
     }
 
     .surveyQuestion {
         height: 200px;
     }
 </style>
-<div class="survey">
+<md-card class="survey">
     <h1>{{$ctrl.name}}</h1>
     <div class="surveyQuestion" layout="column" ng-hide="$ctrl.finish">
     <h3>{{$ctrl.questions[$ctrl.currentQuestion].question}}</h3>
@@ -32,4 +34,4 @@
         <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
         <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
     </div>
-</div>
+</md-card>
