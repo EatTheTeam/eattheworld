@@ -1,4 +1,6 @@
-<md-card layout="column" flex ui-sref="{{$ctrl.state}}" style="text-align: center;">
-    <img ng-src="{{$ctrl.icon}}" style="width: 50px"/>
-    <h3>{{$ctrl.title}}</h3>
+<md-card layout="column" flex ui-sref="{{$ctrl.state}}" ng-style="{ backgroundColor: $ctrl.color }" style="text-align: center; width: 200px; cursor: pointer;">
+    <md-card-content>
+        <img ng-src="{{$ctrl.icon}}" style="width: 50px; margin: auto"/>
+        <h3 style="width: auto; margin-bottom: 0; margin-top: 10px; color: white">{{$ctrl.title}}</h3>
+    </md-card-content>
 </md-card>

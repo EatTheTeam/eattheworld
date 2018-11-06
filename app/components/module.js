@@ -6,12 +6,10 @@ app.component('module', {
     bindings: {
         title: "@",
         icon: "@",
-        state: "@"
+        state: "@",
+        color: "@"
     }
 });
 
-app.controller('ModuleController', function ($state) {
-
-    this.changeToState = () => $state.go(this.state);
-
+app.controller('ModuleController', function () {
 });
