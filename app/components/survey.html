@@ -1,1 +1,37 @@
-<h1>Survey</h1>
+<style>
+    .survey {
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffffff;
+    }
+
+    .surveyQuestion {
+        height: 200px;
+    }
+</style>
+<md-card class="survey">
+    <h1>{{$ctrl.name}}</h1>
+    <div class="surveyQuestion" layout="column" ng-hide="$ctrl.finish">
+    <h3>{{$ctrl.questions[$ctrl.currentQuestion].question}}</h3>
+    <md-radio-group ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="column">
+        <md-radio-button ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-value="$index">
+            {{answer}}
+        </md-radio-button>
+    </md-radio-group>
+    <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="column">
+        <md-checkbox ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-click="$ctrl.toggle($index)" ng-checked="$ctrl.exists($index)" >
+            {{ answer }}
+        </md-checkbox>
+    </div>
+    </div>
+    <div class="surveyQuestion" layout="column" ng-show="$ctrl.finish" layout-align="center center">
+        <h2>You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
+    </div>
+    <div layout="row">
+        <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
+        <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish&&($ctrl.currentQuestion > 0)" class="md-raised md-primary">Previous</md-button>
+        <md-button ng-click="$ctrl.repeat()" ng-if="$ctrl.finish" class="md-raised md-primary">Repeat</md-button>
+        <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
+        <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
+    </div>
+</md-card>
