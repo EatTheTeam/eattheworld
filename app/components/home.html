@@ -1,6 +1,6 @@
 <style>
     home div{
-        width: 1920px;
+        width: 1536px;
         height: 670px;
         background-image: url("resources/images/Worldmap.jpg");
         background-repeat: no-repeat;
@@ -10,10 +10,25 @@
         }
 
 
+    button:hover:after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: 100%;
+        margin-left: 5px;
+        background: rgba(0,0,0,0.54);
+        padding: 12px;
+        border-radius: 3px;
+    }
+
+
 </style>
 
 <div>
-<md-button ui-sref="ethiopia" style="left:885px; top:245px" position:relative><img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
+<md-button class="md-icon-button" ui-sref="ethiopia" style="left:885px; top:245px;background-attachment: fixed;" position:relative>
+    <md-tooltip md-direction="right">Ethiopia</md-tooltip>
+    <img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
 
-    <md-button ui-sref="japan" style="left:1195px; top:120px; " position:relative><img src="resources/images/japan.png" style="width:60px"></md-button>
+    <md-button class="md-icon-button"  ui-sref="japan" style="left:1195px; top:120px" position:relative>
+        <md-tooltip md-direction="right">Japan</md-tooltip>
+        <img src="resources/images/japan.png" style="width:60px"></md-button>
 </div>
