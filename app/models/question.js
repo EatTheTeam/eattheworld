@@ -8,7 +8,7 @@ app.factory("Question", function () {
         let properties = {
             question: "",
             answers: ["True", "False"],
-            multiple: false
+            correct: -1
         };
 
         Object.assign(this, properties, template, modifier);
