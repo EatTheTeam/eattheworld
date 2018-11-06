@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("EatTheWorld", [ "ngMaterial", "ui.router"/*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngSanitize", "ngAnimate", , "ngStorage"*/ ]);
+const app = angular.module("EatTheWorld", [ "ngMaterial", "ui.router" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngSanitize", "ngAnimate", , "ngStorage"*/ ]);
 
 app.config(($stateProvider, $urlRouterProvider) => {
     $stateProvider
@@ -13,6 +13,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'japan',
             url: '/japan',
             component: 'japan'
+        })
+        .state({
+            name: 'japan-general',
+            url: '/japan/general',
+            component: 'japanGeneral'
         })
         .state({
             name: 'ethiopia',
