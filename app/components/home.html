@@ -1,6 +1,5 @@
 <style>
-    home div{
-        width: 1536px;
+
     #worldMap{
         width: 1920px;
         height: 670px;
@@ -14,16 +13,23 @@
 
 </style>
 
+<!--
 <div>
-<md-button class="md-icon-button" ui-sref="ethiopia" style="left:885px; top:245px;background-attachment: fixed;" position:relative>
+<md-button ui-sref="ethiopia" style="left:885px; top:245px;background-attachment: fixed;" position:relative>
     <md-tooltip md-direction="right">Ethiopia</md-tooltip>
     <img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
 
-    <md-button class="md-icon-button"  ui-sref="japan" style="left:1195px; top:120px" position:relative>
+    <md-button ui-sref="japan" style="left:1195px; top:120px" position:relative>
         <md-tooltip md-direction="right">Japan</md-tooltip>
         <img src="resources/images/japan.png" style="width:60px"></md-button>
+    !-->
+
 <div id="worldMap">
-    <md-button ui-sref="ethiopia" style="left:885px; top:245px" position:relative><img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
-    <md-button ui-sref="japan" style="left:1195px; top:120px; " position:relative><img src="resources/images/japan.png" style="width:60px"></md-button>
-</div>
+    <md-button ui-sref="ethiopia" style="left:885px; top:245px; position:relative">
+        <md-tooltip md-direction="right">Ethiopia</md-tooltip>
+        <img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
+    <md-button ui-sref="japan" style="left:1195px; top:120px; position:relative">
+        <md-tooltip md-direction="right">Japan</md-tooltip>
+        <img src="resources/images/japan.png" style="width:60px"></md-button>
+
 </div>
