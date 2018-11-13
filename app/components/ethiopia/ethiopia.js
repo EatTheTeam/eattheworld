@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('ethiopia', {
-    templateUrl: 'components/ethiopia.html',
+    templateUrl: 'components/ethiopia/ethiopia.html',
     controller: 'EthiopiaController'
 });
 

@@ -1,14 +1,40 @@
+<style>
+    #global-sidenav md-list > * {
+        cursor: pointer;
+    }
+</style>
 <div layout="column" style="height: 100%">
     <md-toolbar>
         <span class="md-toolbar-tools" layout="row">
+            <md-icon-button ng-click="$ctrl.toggleNav()" style="margin-right: 10px; cursor: pointer;">
+                <md-icon class="material-icons">menu</md-icon>
+            </md-icon-button>
             <h1 flex ui-sref="home" style="cursor: pointer">EatTheWorld</h1>
-            <div>
+            <!--div>
                 <md-button ui-sref="japan">Japan</md-button>
                 <md-button ui-sref="ethiopia">Ethiopia</md-button>
-            </div>
+            </div-->
         </span>
     </md-toolbar>
-    <md-content ui-view flex="grow" style="position: relative">
-
+    <md-content flex="grow" style="position: relative">
+        <md-sidenav id="global-sidenav" class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left">
+            <md-content layout-padding>
+                <md-list flex>
+                    <md-list-item ng-repeat-start="country in $ctrl.navData" ng-init="expand = []" ng-click="expand[$index] = !expand[$index]">
+                        <span flex>{{country.name}}</span>
+                        <md-icon ng-hide="expand[$index]">expand_more</md-icon>
+                        <md-icon ng-show="expand[$index]">expand_less</md-icon>
+                    </md-list-item>
+                    <md-list-item ui-sref="{{country.state}}" ng-show="expand[$index]">
+                        <span flex-offset="5">Overview</span>
+                    </md-list-item>
+                    <md-list-item ng-show="expand[$index]" ng-repeat="module in country.modules" ui-sref="{{module.state}}">
+                        <span flex-offset="5">{{module.name}}</span>
+                    </md-list-item>
+                    <md-divider ng-repeat-end=""></md-divider>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+        <section ui-view></section>
     </md-content>
 </div>
