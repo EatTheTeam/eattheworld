@@ -5,8 +5,8 @@ app.component('main', {
     controller: 'MainController'
 });
 
-app.controller('MainController', function (NavService) {
-    this.toggleNav = () => NavService.getGlobal().toggle();
+app.controller('MainController', function ($state, $mdSidenav, $mdMedia) {
+    this.toggleNav = () => $mdSidenav('global-left').toggle();
 
     this.navData = [{
         name: "Japan",
@@ -26,6 +26,5 @@ app.controller('MainController', function (NavService) {
         }]
     }];
 
-    this.expand = c => navData[c].expand = true;
-    this.collapse = c => navData[c].expand = false;
+    this.menuLockedOpen = () => $mdMedia('gt-md') && $state.current.name !== 'home';
 });
