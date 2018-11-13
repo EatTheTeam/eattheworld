@@ -3,8 +3,8 @@
 app.component('survey', {
     templateUrl: 'components/survey.html',
     controller: 'SurveyController',
+    transclude: true,
     bindings: {
-        name: "@?",
         questions: "<",
     }
 });
@@ -59,6 +59,17 @@ app.controller('SurveyController', function () {
     this.exists = (item) => {
         if(typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion]=[];
         return this.answered[this.currentQuestion].indexOf(item) > -1;
+    };
+
+    this.checked = (nAnswer) => {
+        return nAnswer;
+    };
+
+    this.isInArray = (number, array) => {
+        for(let i = 0; i < array.length; i++){
+            if(array[i]===number) return true;
+        }
+        return false;
     };
 
     this.repeat = () => {
