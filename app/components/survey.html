@@ -3,25 +3,51 @@
         margin: 10px;
         padding: 10px;
         background-color: #ffffff;
+        max-width: 800px;
+        
+        margin: auto;
+        margin-bottom: 20px;
     }
 
     .surveyQuestion {
-        height: 200px;
+        height: 100px;
+    }
+
+    .surveyOneQuestion {
+        border: 1px solid gray;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .chosen {
+        background-color: rgba(0,0,0,0.12) !important;
+        color: rgba(0,0,0,0.38) !important;
+        box-shadow: none !important;
+    }
+
+    .surveyImage {
     }
 </style>
 <md-card class="survey">
-    <h1>{{$ctrl.name}}</h1>
-    <div class="surveyQuestion" layout="column" ng-hide="$ctrl.finish">
+    <h1 style="margin-top: 10px;"><ng-transclude></ng-transclude></h1>
+        <div class="surveyImage">
+        <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}">
+        </div>
     <h3>{{$ctrl.questions[$ctrl.currentQuestion].question}}</h3>
-    <md-radio-group ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="column">
-        <md-radio-button ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-value="$index">
+    <div class="surveyQuestion" layout="column" ng-hide="$ctrl.finish">
+    <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="row" layout-align="center center" layout-wrap>
+        <div flex="50"  ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row">
+        <md-button flex class="md-raised" ng-click="$ctrl.answered[$ctrl.currentQuestion] = $ctrl.checked($index)" ng-disabled="$index === $ctrl.answered[$ctrl.currentQuestion]">
             {{answer}}
-        </md-radio-button>
-    </md-radio-group>
-    <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="column">
-        <md-checkbox ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" ng-click="$ctrl.toggle($index)" ng-checked="$ctrl.exists($index)" >
-            {{ answer }}
-        </md-checkbox>
+        </md-button>
+        </div>
+    </div>
+    <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout="row" layout-align="center center" layout-wrap>
+        <div flex="50"  ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row">
+        <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])}">
+            {{answer}}
+        </md-button>
+        </div>
     </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-show="$ctrl.finish" layout-align="center center">

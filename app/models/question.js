@@ -7,6 +7,7 @@ app.factory("Question", function () {
         // Properties und ihre Defaultwerte
         let properties = {
             question: "",
+            image: "",
             answers: ["True", "False"],
             correct: -1
         };
