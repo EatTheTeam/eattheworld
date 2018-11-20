@@ -46,13 +46,15 @@ app.controller('SurveyController', function () {
     };
 
     this.toggle = (item) => {
-        if(typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion]=[];
-        var idx = this.answered[this.currentQuestion].indexOf(item);
-        if (idx > -1) {
-            this.answered[this.currentQuestion].splice(idx, 1);
-        }
-        else {
-            this.answered[this.currentQuestion].push(item);
+        if(!this.inResults) {
+            if (typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion] = [];
+            var idx = this.answered[this.currentQuestion].indexOf(item);
+            if (idx > -1) {
+                this.answered[this.currentQuestion].splice(idx, 1);
+            }
+            else {
+                this.answered[this.currentQuestion].push(item);
+            }
         }
     };
 
@@ -62,10 +64,13 @@ app.controller('SurveyController', function () {
     };
 
     this.checked = (nAnswer) => {
-        return nAnswer;
+        if(!this.inResults) {
+            this.answered[this.currentQuestion] = nAnswer;
+        }
     };
 
     this.isInArray = (number, array) => {
+        if(!Array.isArray(array)) return false;
         for(let i = 0; i < array.length; i++){
             if(array[i]===number) return true;
         }
@@ -77,6 +82,7 @@ app.controller('SurveyController', function () {
         this.answered = [];
         this.answeredCorrectly = 0;
         this.finish = false;
+        this.inResults = false;
     };
 
     this.isUndefined = (obj) => {
@@ -99,6 +105,47 @@ app.controller('SurveyController', function () {
         }
 
         return true;
-
     }
+
+    this.showResult = () => {
+        this.inResults = true;
+        this.finish = false;
+        this.currentQuestion = 0;
+    }
+
+    this.wouldTrue = (index) => {
+        if(!Array.isArray(this.answered[this.currentQuestion])) {
+            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] !== index) {
+                return true;
+            }
+        } else {
+            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].correct.includes(index)) {
+                return true;
+            }
+        }
+    };
+
+    this.isFalse = (index) => {
+        if(!Array.isArray(this.answered[this.currentQuestion])) {
+            if (this.inResults && index !== this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
+                return true;
+            }
+        } else {
+            if (this.inResults && !this.questions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
+                return true;
+            }
+        }
+    };
+
+    this.isCorrect = (index) => {
+        if(!Array.isArray(this.answered[this.currentQuestion])) {
+            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === this.questions[this.currentQuestion].correct) {
+                return true;
+            }
+        } else {
+            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && (!(!Array.isArray(this.answered[this.currentQuestion])&&arraysEqual(this.answered[this.currentQuestion],this.questions[this.currentQuestion].correct))|| !this.questions[this.currentQuestion].correct.includes(this.answered[this.currentQuestion]))) {
+                return true;
+            }
+        }
+    };
 });
