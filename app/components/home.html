@@ -1,43 +1,41 @@
-<style>
+<div flex>
+    <h1 style="text-align:center">
+        Eat The World
+    </h1>
+</div>
 
-    #container{
-        position: relative;
-    }
+<div layout-gt-xs="row" layout-xs="collumn" style="height:auto; padding:0">
 
-    #ethiopia{
-        width:auto;
-        max-width:100%;
-        height:auto;
-    }
+    <md-card md-whiteframe="5" flex style="padding:0; margin:20px; height:60%">
+        <md-button ui-sref="ethiopia" style="padding:0; margin:0">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                 viewBox="0 0 720 360">
+                <rect fill="#da121a" height="360" width="720"/>
+                <rect fill="#fcdd09" height="240" width="720"/>
+                <rect fill="#078930" height="120" width="720"/>
+                <g transform="translate(360,180)">
+                    <circle fill="#0f47af" r="120"/>
+                    <g id="t">
+                        <path fill="#fcdd09"
+                              d="M0,-96 -4.205849,-83.055728 13.141645,-29.665631H-9.987258L-12.586616,-21.665631H61.576052L72.587108,-29.665631H21.553343z"/>
+                        <path stroke="#fcdd09" stroke-width="4" d="M0,44V96" transform="rotate(216)"/>
+                    </g>
+                    <use xlink:href="#t" transform="rotate(72)"/>
+                    <use xlink:href="#t" transform="rotate(144)"/>
+                    <use xlink:href="#t" transform="rotate(216)"/>
+                    <use xlink:href="#t" transform="rotate(288)"/>
+                </g>
+            </svg>
+        </md-button>
+    </md-card>
 
-    #japan{
-        width: 100%;
-        height:100%;
-    }
 
-
-</style>
-
-<!--
-<div>
-<md-button ui-sref="ethiopia" style="left:885px; top:245px;background-attachment: fixed;" position:relative>
-    <md-tooltip md-direction="right">Ethiopia</md-tooltip>
-    <img src="resources/images/ethiopia-2.png" style="width:60px"></md-button>
-
-    <md-button ui-sref="japan" style="left:1195px; top:120px" position:relative>
-        <md-tooltip md-direction="right">Japan</md-tooltip>
-        <img src="resources/images/japan.png" style="width:60px"></md-button>
-!-->
-
-<div id="container">
-
-    <img src="resources/images/Worldmap.jpg" style="width:100%; height:auto">
-
-    <md-button ui-sref="ethiopia" style="left:58%; top:40%; width:60px; position:absolute">
-        <md-tooltip md-direction="right">Ethiopia</md-tooltip>
-        <img src="resources/images/ethiopia-2.png" style="width:100%;" id="ethiopia"></md-button>
-    <md-button ui-sref="japan" style="left:85%; top:24%; position:absolute">
-        <md-tooltip md-direction="right">Japan</md-tooltip>
-        <img src="resources/images/japan.png" style="width:60px" id="japan"></md-button>
-
+    <md-card flex style="padding:0; margin:20px">
+        <md-button ui-sref="japan" style="padding:0; margin:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 900 600"> <!-- 0 70 wenn größe kleiner ist -->
+                <rect fill="#fff" height="600" width="900"/>
+                <circle fill="#bc002d" cx="450" cy="300" r="180"/>
+            </svg>
+        </md-button>
+    </md-card>
 </div>

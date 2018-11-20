@@ -2,7 +2,12 @@
 
 app.component('home', {
     templateUrl: 'components/home.html',
-    controller: 'HomeController'
+    controller: 'HomeController',
+    selector: 'app-root',
+    animations: [
+
+    ]
+
 });
 
 app.controller('HomeController', function () {
