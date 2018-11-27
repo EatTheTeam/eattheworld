@@ -1,4 +1,10 @@
 <style>
+
+    .survey .md-button {
+        border-radius: 5px;
+        line-height: unset;
+    }
+
     .survey {
         margin: 10px;
         padding: 20px;
@@ -66,6 +72,11 @@
         padding-bottom: 10px;
     }
 
+    .showEvaluation{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
     @media only screen and (min-width: 600px) {
         .surveyQuestion {
             height: 150px;
@@ -82,6 +93,10 @@
         .showResults {
             padding-left: 10% ;
             padding-right: 10% ;
+        }
+
+        .showEvaluation{
+            height: 150px;
         }
     }
 
@@ -104,6 +119,10 @@
             margin-left: 0;
             margin-right: 0;
         }
+
+        .showEvaluation{
+            height: 51px;
+        }
     }
 
     .showResults .md-button {
@@ -123,25 +142,44 @@
     }
 
     .answerFalse {
-        background-color: red !important;
+        /*
+        background-color: #800000 !important;
         color: rgba(255,255,255,0.87) !important;
+        */
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        border: 6px solid #E53935;
+        border-radius: 2px;
         box-shadow: none !important;
         cursor: default;
     }
 
     .answerCorrect {
-        background-color: green !important;
+        /*
+        background-color: #4A5D23 !important;
         color: rgba(255,255,255,0.87) !important;
+        */
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        border: 6px solid #43A047;
+        border-radius: 2px;
+        box-shadow: none !important;
+        cursor: default;
+
+    }
+
+    .answerWould {
+        /*
+        background-color: #EFCC00 !important;
+        color: rgba(255,255,255,0.87) !important;
+        */
+        border: 6px solid #43A047;
+        border-radius: 2px;
+        box-shadow: none !important;
         box-shadow: none !important;
         cursor: default;
     }
 
-    .answerWould {
-        background-color: yellow !important;
-        color: rgba(255,255,255,0.87) !important;
-        box-shadow: none !important;
-        cursor: default;
-    }
 </style>
 <md-card class="survey">
     <h1 style="margin-top: 10px;"><ng-transclude></ng-transclude></h1>
@@ -158,14 +196,15 @@
     </div>
     <div class="surveyQuestion" layout="column" ng-if="$ctrl.finish" flex>
         <div class="showResults" layout="column" layout-align="center stretch">
-            <md-button ng-click="$ctrl.showResult()" ng-if="$ctrl.finish" class="md-raised md-primary">Show Result</md-button>
+            <p></p>
+            <md-button ng-click="$ctrl.showResult()" ng-if="$ctrl.finish" class="md-raised md-primary showEvaluation">Show Evaluation</md-button>
         </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-sm-xs="column" layout-align="center stretch" layout-wrap flex>
             <div flex-gt-xs="50" class="surveyButtonContainer" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
                 <div class="surveyButton" layout="column" layout-align="center stretch">
-                <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+                <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
                 </div>
@@ -183,9 +222,10 @@
     </div>
     <div layout="row" class="surveyNav">
         <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
+        <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Results</md-button>
         <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish&&($ctrl.currentQuestion > 0)" class="md-raised md-primary">Previous</md-button>
         <md-button ng-click="$ctrl.repeat()" ng-if="$ctrl.finish" class="md-raised md-primary">Repeat</md-button>
-        <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
+        <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish&&!$ctrl.inResults" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
         <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
     </div>
 </md-card>

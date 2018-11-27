@@ -33,11 +33,14 @@ app.controller('SurveyController', function () {
 
     this.finishScreen = () => {
         for(let i = 0; i < this.questions.length; i++){
-            console.log(this.answered[i]+", "+this.questions[i].correct);
             if(arraysEqual(this.answered[i], this.questions[i].correct)|| this.answered[i]===this.questions[i].correct){
                 this.answeredCorrectly++;
             }
         }
+        this.finish = true;
+    };
+
+    this.showCorrect = () => {
         this.finish = true;
     };
 
@@ -119,7 +122,7 @@ app.controller('SurveyController', function () {
                 return true;
             }
         } else {
-            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].correct.includes(index)) {
+            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
         }
@@ -139,11 +142,11 @@ app.controller('SurveyController', function () {
 
     this.isCorrect = (index) => {
         if(!Array.isArray(this.answered[this.currentQuestion])) {
-            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === this.questions[this.currentQuestion].correct) {
+            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
         } else {
-            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && (!(!Array.isArray(this.answered[this.currentQuestion])&&arraysEqual(this.answered[this.currentQuestion],this.questions[this.currentQuestion].correct))|| !this.questions[this.currentQuestion].correct.includes(this.answered[this.currentQuestion]))) {
+            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
         }
