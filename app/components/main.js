@@ -5,7 +5,7 @@ app.component('main', {
     controller: 'MainController'
 });
 
-app.controller('MainController', function ($state, $mdSidenav, $mdMedia) {
+app.controller('MainController', function ($state, $mdSidenav) {
     this.toggleNav = () => $mdSidenav('global-left').toggle();
 
     this.navData = [{

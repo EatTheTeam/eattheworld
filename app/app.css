@@ -11,3 +11,11 @@
     background: url('resources/images/ethiopia_background_01.svg') 0% 60%;
     background-size: cover;
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+[class^="md-display"] {
+    font-weight: 100;
+}
