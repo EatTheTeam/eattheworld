@@ -3,11 +3,9 @@
 app.component('module', {
     templateUrl: 'components/module.html',
     controller: 'ModuleController',
+    transclude: true,
     bindings: {
-        title: "@",
-        icon: "@",
-        state: "@",
-        color: "@"
+        title: "@"
     }
 });
 

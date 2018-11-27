@@ -26,5 +26,5 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia) {
         }]
     }];
 
-    this.menuLockedOpen = () => $mdMedia('gt-md') && $state.current.name !== 'home';
+    this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 });
