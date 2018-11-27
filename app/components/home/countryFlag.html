@@ -4,23 +4,22 @@
     .flag{
         position: relative;
     }
+	
+	.flag > ng-transclude{
+        transition: filter 200ms ease-in;
+        z-index: 1;
+	}
 
     .flag:hover > ng-transclude{
         filter: brightness(50%);
-        transition: 200ms ease-in;
     }
     .flag:hover > div{
         color: white;
-        transition: 200ms ease-in;
-    }
-
-    .flag > svg{
-        z-index: 1;
     }
 
     .flag > div{
         color: transparent;
-        position:absolute;
+        position: absolute;
         top: 10%;
         left: 10%;
         right: 10%;
@@ -29,6 +28,10 @@
         font-size: 24px;
         text-align: center;
         z-index: 2;
+    }
+
+    div.flag > div.flag_trans{
+        transition: color 200ms ease-in;
     }
 
     .flag > div > p{
@@ -42,6 +45,7 @@
     }
 </style>
 
+
 <div class="flag">
     <div layout="column" layout-align="center center">
         <h1>{{$ctrl.name}}</h1>
@@ -50,3 +54,9 @@
 
     <ng-transclude></ng-transclude>
 </div>
+
+<script>
+    setTimeout(function() {
+        $('div.flag > div').addClass('flag_trans'); // line 57 in jquery.sticky.js
+    }, 100);
+</script>
