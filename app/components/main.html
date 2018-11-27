@@ -1,5 +1,6 @@
 <div layout="column" style="height: 100%">
-    <md-toolbar>
+
+    <md-toolbar ng-show="$ctrl.showToolBar()">
         <span class="md-toolbar-tools" layout="row">
             <md-icon-button ng-click="$ctrl.toggleNav()" style="margin-right: 10px; cursor: pointer;">
                 <md-icon class="material-icons">menu</md-icon>
@@ -11,6 +12,11 @@
             </div-->
         </span>
     </md-toolbar>
+
+    <md-icon-button ng-hide="$ctrl.showToolBar()" ng-click="$ctrl.toggleNav()" style="cursor: pointer; margin: 10px;">
+        <md-icon class="material-icons">menu</md-icon>
+    </md-icon-button>
+
     <div layout="row" style="height: 100%">
         <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
             <md-content layout-padding>
