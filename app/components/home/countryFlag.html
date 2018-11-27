@@ -1,0 +1,52 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+    .flag{
+        position: relative;
+    }
+
+    .flag:hover > ng-transclude{
+        filter: brightness(50%);
+        transition: 200ms ease-in;
+    }
+    .flag:hover > div{
+        color: white;
+        transition: 200ms ease-in;
+    }
+
+    .flag > svg{
+        z-index: 1;
+    }
+
+    .flag > div{
+        color: transparent;
+        position:absolute;
+        top: 10%;
+        left: 10%;
+        right: 10%;
+        bottom: 10%;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 24px;
+        text-align: center;
+        z-index: 2;
+    }
+
+    .flag > div > p{
+        margin: 0;
+    }
+
+    @media only screen and (max-width: 1280px) {
+        .flag > div{
+            font-size: 16px;
+        }
+    }
+</style>
+
+<div class="flag">
+    <div layout="column" layout-align="center center">
+        <h1>{{$ctrl.name}}</h1>
+        <p>{{$ctrl.description}}</p>
+    </div>
+
+    <ng-transclude></ng-transclude>
+</div>

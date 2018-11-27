@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('home', {
-    templateUrl: 'components/home.html',
+    templateUrl: 'components/home/home.html',
     controller: 'HomeController',
     selector: 'app-root',
     animations: [
