@@ -5,5 +5,7 @@ app.component('japanGeneral', {
     controller: 'JapanGeneralController'
 });
 
-app.controller('JapanGeneralController', function () {
+app.controller('JapanGeneralController', function (globalData) {
+
+    this.$onInit = () => globalData.showToolBar = true;
 });
