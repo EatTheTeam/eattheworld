@@ -10,7 +10,7 @@
     }
     /* flip the pane when hovered */
     .dialogcard-flipcontainer .flipcard{
-        transform: rotateY(180deg);
+        transform: rotateX(180deg);
     }
 
     .dialogcard-front:focus, .dialogcard-back:focus, .dialogcard-flipcontainer:focus, .dialogcard-flipper:focus{outline:0;}
@@ -33,7 +33,7 @@
         transform-style: preserve-3d;
         transition-timing-function: ease-in-out;
 
-        transform-origin: 300px 100%; /* half of height */
+        transform-origin: 100% 200px; /* half of height */
 
         position: relative;
     }
@@ -51,12 +51,12 @@
     .dialogcard-front {
         z-index: 2;
         /* for firefox 31 */
-        transform: rotateY(0deg);
+        transform: rotateX(0deg);
     }
 
     /* back, initially hidden pane */
     .dialogcard-back {
-        transform: rotateY(180deg);
+        transform: rotateX(180deg);
     }
 
     .dialogcard-reveal-fast {
@@ -75,7 +75,7 @@
 
     .dialogcard-next-in{
         transition: transform 300ms, visibility 300ms, opacity 300ms;
-        transform: translateX(0px) rotateY(0deg);
+        transform: translateX(0px) rotateX(0deg);
         visibility: visible;
         opacity: 1;
         transition-timing-function: ease-in-out;
@@ -91,7 +91,7 @@
 
     .dialogcard-next-betw-flipper{
         transition: transform 1ms;
-        transform: rotateY(0deg);
+        transform: rotateX(0deg);
         visibility: hidden;
         opacity: 0;
         transition-timing-function: ease-in-out;
@@ -108,7 +108,7 @@
 
     .dialogcard-prev-in{
         transition: transform 300ms, visibility 300ms, opacity 300ms;
-        transform: translateX(0px) rotateY(0deg);
+        transform: translateX(0px) rotateX(0deg);
         visibility: visible;
         opacity: 1;
         transition-timing-function: ease-in-out;
@@ -124,7 +124,7 @@
 
     .dialogcard-prev-betw-flipper {
         transition: transform 1ms;
-        transform: rotateY(0deg);
+        transform: rotateX(0deg);
         visibility: hidden;
         opacity: 0;
         transition-timing-function: ease-in-out;
@@ -146,7 +146,18 @@
         }
 
         .dialogcard-flipper {
-            transform-origin: 50% 100%; /* half of height */
+            transform-origin: 100% 33vw; /* half of height */
+        }
+    }
+
+    @media only screen and (max-width: 430px) {
+        .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
+            width: 400px;
+            height: 300px;
+        }
+
+        .dialogcard-flipper {
+            transform-origin: 100% 150px; /* half of height */
         }
     }
 
