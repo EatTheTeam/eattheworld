@@ -24,6 +24,11 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia) {
             name: "General",
             state: "ethiopia-general"
         }]
+    },{
+        name: "Test",
+        state: "test",
+        expand: false,
+        modules: []
     }];
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
