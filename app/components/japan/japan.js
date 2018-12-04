@@ -5,6 +5,5 @@ app.component('japan', {
     controller: 'JapanController'
 });
 
-app.controller('JapanController', function () {
-
+app.controller('JapanController', function (globalData) {
 });
