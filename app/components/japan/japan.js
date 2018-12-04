@@ -6,6 +6,4 @@ app.component('japan', {
 });
 
 app.controller('JapanController', function (globalData) {
-
-    this.$onInit = () => globalData.showToolBar = true;
 });

@@ -28,9 +28,5 @@ app.controller('MainController', function ($state, $mdSidenav, globalData, $log)
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
-    this.showToolBar = () => {
-        $log.debug(globalData.showToolBar);
-
-        return globalData.showToolBar;
-    }
+    this.showToolBar = () => $state.current.name !== "home";
 });

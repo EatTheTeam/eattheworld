@@ -6,7 +6,4 @@ app.component('ethiopia', {
 });
 
 app.controller('EthiopiaController', function (globalData) {
-
-    this.$onInit = () => globalData.showToolBar = true;
-
 });
