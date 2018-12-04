@@ -1,26 +1,26 @@
 <style>
 
-    .flashcard-container {
+    .dialogcard-container {
         margin: 20px;
         width: 600px;
     }
 
-    .flashcard-flipcontainer {
+    .dialogcard-flipcontainer {
         perspective: 1000px;
     }
     /* flip the pane when hovered */
-    .flashcard-flipcontainer .flipcard{
-        transform: rotateX(180deg);
+    .dialogcard-flipcontainer .flipcard{
+        transform: rotateY(180deg);
     }
 
-    .flashcard-front:focus, .flashcard-back:focus, .flashcard-flipcontainer:focus, .flashcard-flipper:focus{outline:0;}
+    .dialogcard-front:focus, .dialogcard-back:focus, .dialogcard-flipcontainer:focus, .dialogcard-flipper:focus{outline:0;}
 
-    .flashcard-flipcontainer, .flashcard-front, .flashcard-back {
+    .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
         width: 600px;
-        height: 300px;
+        height: 400px;
     }
 
-    .flashcard-front, .flashcard-back {
+    .dialogcard-front, .dialogcard-back {
         background-color: rgb(255,255,255);
         border-radius: 2px;
 
@@ -28,18 +28,18 @@
     }
 
     /* flip speed goes here */
-    .flashcard-flipper {
+    .dialogcard-flipper {
         transition: transform 600ms;
         transform-style: preserve-3d;
         transition-timing-function: ease-in-out;
 
-        transform-origin: 100% 150px; /* half of height */
+        transform-origin: 300px 100%; /* half of height */
 
         position: relative;
     }
 
     /* hide back of pane during swap */
-    .flashcard-front, .flashcard-back {
+    .dialogcard-front, .dialogcard-back {
         backface-visibility: hidden;
 
         position: absolute;
@@ -48,24 +48,24 @@
     }
 
     /* front pane, placed above back */
-    .flashcard-front {
+    .dialogcard-front {
         z-index: 2;
         /* for firefox 31 */
-        transform: rotateX(0deg);
+        transform: rotateY(0deg);
     }
 
     /* back, initially hidden pane */
-    .flashcard-back {
-        transform: rotateX(180deg);
+    .dialogcard-back {
+        transform: rotateY(180deg);
     }
 
-    .flashcard-reveal-fast {
+    .dialogcard-reveal-fast {
         transition: transform 150ms;
     }
 
 
     /*fade next animation*/
-    .flashcard-next-out {
+    .dialogcard-next-out {
         transition: transform 300ms, visibility 300ms, opacity 300ms;
         transform: translateX(20px);
         visibility: hidden;
@@ -73,15 +73,15 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-in{
+    .dialogcard-next-in{
         transition: transform 300ms, visibility 300ms, opacity 300ms;
-        transform: translateX(0px) rotateX(0deg);
+        transform: translateX(0px) rotateY(0deg);
         visibility: visible;
         opacity: 1;
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-betw{
+    .dialogcard-next-betw{
         transition: transform 1ms;
         transform: translateX(-20px);
         visibility: hidden;
@@ -89,16 +89,16 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-betw-flipper{
+    .dialogcard-next-betw-flipper{
         transition: transform 1ms;
-        transform: rotateX(0deg);
+        transform: rotateY(0deg);
         visibility: hidden;
         opacity: 0;
         transition-timing-function: ease-in-out;
     }
 
     /*fade prev animation*/
-    .flashcard-prev-out {
+    .dialogcard-prev-out {
         transition: transform 300ms, visibility 300ms, opacity 300ms;
         transform: translateX(-20px);
         visibility: hidden;
@@ -106,15 +106,15 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-prev-in{
+    .dialogcard-prev-in{
         transition: transform 300ms, visibility 300ms, opacity 300ms;
-        transform: translateX(0px) rotateX(0deg);
+        transform: translateX(0px) rotateY(0deg);
         visibility: visible;
         opacity: 1;
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-prev-betw {
+    .dialogcard-prev-betw {
         transition: transform 1ms;
         transform: translateX(20px);
         visibility: hidden;
@@ -122,47 +122,55 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-prev-betw-flipper {
+    .dialogcard-prev-betw-flipper {
         transition: transform 1ms;
-        transform: rotateX(0deg);
+        transform: rotateY(0deg);
         visibility: hidden;
         opacity: 0;
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-answer-text {
+    .dialogcard-answer-text {
         font-size: 1.25em;
     }
 
     @media only screen and (max-width: 640px) {
-        .flashcard-container {
+        .dialogcard-container {
             margin: 2.5%;
             width: 95%;
         }
 
-        .flashcard-flipcontainer, .flashcard-front, .flashcard-back {
+        .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
             width: 100%;
-            height: 50vw;
+            height: 66vw;
         }
 
-        .flashcard-flipper {
-            transform-origin: 100% 25vw; /* half of height */
+        .dialogcard-flipper {
+            transform-origin: 50% 100%; /* half of height */
         }
     }
 
+    .dialogcard-button {
+        text-transform: none;
+        font-size: 1.2em;
+        height: 50px;
+        width: 400px;
+    }
+
 </style>
-<div class="flashcard-container">
-    <div class="flashcard-flipcontainer"
-        ng-class="{'flashcard-reveal-fast': $ctrl.revealeFast, 'flashcard-next-out': $ctrl.transNextOut, 'flashcard-next-in': $ctrl.transNextIn, 'flashcard-next-betw': $ctrl.transNextBetw, 'flashcard-prev-out': $ctrl.transPrevOut, 'flashcard-prev-in': $ctrl.transPrevIn, 'flashcard-prev-betw': $ctrl.transPrevBetw}">
-    <div class="flashcard-flipper" ng-click="$ctrl.reveal()"
-        ng-class="{flipcard: $ctrl.revealed,'flashcard-next-betw-flipper': $ctrl.transNextBetw, 'flashcard-prev-betw-flipper': $ctrl.transPrevBetw}">
-        <div class="flashcard-front" layout="column" layout-align="center center">
-            <h2>{{$ctrl.questions[$ctrl.currentCard].question}}</h2>
+<div class="dialogcard-container">
+    <div class="dialogcard-flipcontainer"
+         ng-class="{'dialogcard-reveal-fast': $ctrl.revealeFast, 'dialogcard-next-out': $ctrl.transNextOut, 'dialogcard-next-in': $ctrl.transNextIn, 'dialogcard-next-betw': $ctrl.transNextBetw, 'dialogcard-prev-out': $ctrl.transPrevOut, 'dialogcard-prev-in': $ctrl.transPrevIn, 'dialogcard-prev-betw': $ctrl.transPrevBetw}">
+        <div class="dialogcard-flipper"
+             ng-class="{flipcard: $ctrl.revealed,'dialogcard-next-betw-flipper': $ctrl.transNextBetw, 'dialogcard-prev-betw-flipper': $ctrl.transPrevBetw}">
+            <div class="dialogcard-front" layout="column" layout-align="center center">
+                <h2>{{$ctrl.questions[$ctrl.currentCard].question}}</h2>
+                <md-button ng-repeat="answer in $ctrl.questions[$ctrl.currentCard].answers" ng-click="$ctrl.reveal(answer)" class="md-raised md-primary dialogcard-button">{{answer.front}}</md-button>
+            </div>
+            <div class="dialogcard-back" layout="column" layout-align="center center" ng-click="$ctrl.reveal()">
+                <div class="dialogcard-answer-text">{{$ctrl.currentAnswer.back}}</div>
+            </div>
         </div>
-        <div class="flashcard-back" layout="column" layout-align="center center">
-            <div class="flashcard-answer-text">{{$ctrl.questions[$ctrl.currentCard].answer}}</div>
-        </div>
-    </div>
     </div>
     <div layout="row" layout-align="center center">
         <md-button class="md-icon-button" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn"><md-icon md-font-icon="material-icons">navigate_before</md-icon></md-button>
