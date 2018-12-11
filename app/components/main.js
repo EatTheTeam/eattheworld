@@ -5,7 +5,7 @@ app.component('main', {
     controller: 'MainController'
 });
 
-app.controller('MainController', function ($state, $mdSidenav, globalData, $mdMedia, $scope) {
+app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope) {
     $scope.$mdMedia = $mdMedia;
 
     this.toggleNav = () => $mdSidenav('global-left').toggle();
@@ -30,5 +30,4 @@ app.controller('MainController', function ($state, $mdSidenav, globalData, $mdMe
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
-    this.showToolBar = () =>  globalData.showToolBar;
 });
