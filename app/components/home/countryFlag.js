@@ -9,10 +9,6 @@ app.component('countryFlag', {
     transclude: true
 });
 
-app.controller('countryFlag', function (globalData) {
-
-    this.$onInit = () => {
-        globalData.showToolBar = false;
-    };
+app.controller('countryFlag', function () {
 
 });

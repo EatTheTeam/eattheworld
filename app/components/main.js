@@ -5,7 +5,7 @@ app.component('main', {
     controller: 'MainController'
 });
 
-app.controller('MainController', function ($state, $mdSidenav, globalData, $log) {
+app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope) {
     this.toggleNav = () => $mdSidenav('global-left').toggle();
 
     this.navData = [{
@@ -24,6 +24,11 @@ app.controller('MainController', function ($state, $mdSidenav, globalData, $log)
             name: "General",
             state: "ethiopia-general"
         }]
+    },{
+        name: "Test",
+        state: "test",
+        expand: false,
+        modules: []
     }];
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';

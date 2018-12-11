@@ -5,9 +5,9 @@ app.component('modulePreview', {
     controller: 'ModulePreviewController',
     bindings: {
         title: "@",
-        icon: "@",
+        image: "@",
         state: "@",
-        color: "@"
+        description: "@"
     }
 });
 
