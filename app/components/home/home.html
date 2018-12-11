@@ -1,44 +1,81 @@
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-<div flex>
-    <h1 class="md-display-3" style="text-align: center; font-weight: 100; margin-bottom: 0">
-        Eat The World
-    </h1>
-    <p class="md-display-1" style="text-align: center; font-weight: 100">
-        A fancy description of Eat the World...
-    </p>
-</div>
+    #world{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        z-index: 0;
+    }
+    #home{
+        position: relative;
+        font-family: 'Ubuntu', sans-serif;
+        color: white;
+        background-color: black;
 
-<div>
-    <div layout-gt-xs="row" style="align-items: center; align-content: center; justify-content: center; justify-items: center; flex-wrap: wrap; padding: 0 5%" >
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
 
-        <country-flag name="Ethiopia" description="Yay, description!" style="margin: 2%;" flex="40" flex-xs="100" ui-sref="ethiopia">
+    #home > div{
+        position: absolute;
 
-            <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                 viewBox="60 0 600 360">
-                <rect fill="#da121a" height="360" width="720"/>
-                <rect fill="#fcdd09" height="240" width="720"/>
-                <rect fill="#078930" height="120" width="720"/>
-                <g transform="translate(360,180)">
-                    <circle fill="#0f47af" r="120"/>
-                    <g id="t">
-                        <path fill="#fcdd09"
-                              d="M0,-96 -4.205849,-83.055728 13.141645,-29.665631H-9.987258L-12.586616,-21.665631H61.576052L72.587108,-29.665631H21.553343z"/>
-                        <path stroke="#fcdd09" stroke-width="4" d="M0,44V96" transform="rotate(216)"/>
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 1;
+    }
+</style>
+
+<div id="home" flex>
+    <video autoplay muted loop id="world">
+        <source src="resources/videos/world.mp4" type="video/mp4">
+    </video>
+
+    <div flex layout="column" child-align="center center">
+        <h1 class="md-display-3" style="text-align: center; font-weight: 100; margin-bottom: 0">
+            Eat The World
+        </h1>
+        <p class="md-display-1" style="text-align: center; font-weight: 100">
+            A fancy description of Eat the World...
+        </p>
+
+        <div layout-gt-xs="row" style="align-items: center; align-content: center; justify-content: center; justify-items: center; flex-wrap: wrap; padding: 0 5%" >
+
+            <country-flag name="Ethiopia" description="Yay, description!" style="margin: 2%;" flex="40" flex-xs="100" ui-sref="ethiopia">
+
+                <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                     viewBox="60 0 600 360">
+                    <rect fill="#da121a" height="360" width="720"/>
+                    <rect fill="#fcdd09" height="240" width="720"/>
+                    <rect fill="#078930" height="120" width="720"/>
+                    <g transform="translate(360,180)">
+                        <circle fill="#0f47af" r="120"/>
+                        <g id="t">
+                            <path fill="#fcdd09"
+                                  d="M0,-96 -4.205849,-83.055728 13.141645,-29.665631H-9.987258L-12.586616,-21.665631H61.576052L72.587108,-29.665631H21.553343z"/>
+                            <path stroke="#fcdd09" stroke-width="4" d="M0,44V96" transform="rotate(216)"/>
+                        </g>
+                        <use xlink:href="#t" transform="rotate(72)"/>
+                        <use xlink:href="#t" transform="rotate(144)"/>
+                        <use xlink:href="#t" transform="rotate(216)"/>
+                        <use xlink:href="#t" transform="rotate(288)"/>
                     </g>
-                    <use xlink:href="#t" transform="rotate(72)"/>
-                    <use xlink:href="#t" transform="rotate(144)"/>
-                    <use xlink:href="#t" transform="rotate(216)"/>
-                    <use xlink:href="#t" transform="rotate(288)"/>
-                </g>
-            </svg>
-        </country-flag>
+                </svg>
+            </country-flag>
 
-        <country-flag name="Japan" description="Another Description!" style="margin: 2%;" flex="40" flex-xs="100" ui-sref="japan">
+            <country-flag name="Japan" description="Another Description!" style="margin: 2%;" flex="40" flex-xs="100" ui-sref="japan">
 
-            <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"> <!-- 0 70 wenn größe kleiner ist -->
-                <rect fill="#fff" height="600" width="1000"/>
-                <circle fill="#bc002d" cx="500" cy="300" r="180"/>
-            </svg>
-        </country-flag>
+                <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"> <!-- 0 70 wenn größe kleiner ist -->
+                    <rect fill="#fff" height="600" width="1000"/>
+                    <circle fill="#bc002d" cx="500" cy="300" r="180"/>
+                </svg>
+            </country-flag>
+        </div>
     </div>
 </div>
