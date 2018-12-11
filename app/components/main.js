@@ -33,4 +33,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
+    this.checkState = (name) => $state.current.name === name;
+
+    this.isJapan = () => this.checkState('japan') || this.checkState('japan-general');
+
+    this.isEthiopia = () => this.checkState('ethiopia') || this.checkState('ethiopia-general');
 });
