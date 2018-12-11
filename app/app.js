@@ -28,7 +28,12 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'ethiopia-general',
             url: '/ethiopia/general',
             component: 'ethiopiaGeneral'
-        });
+        })
+        .state({
+            name: 'test',
+            url: '/test',
+            component: 'test'
+        });;
 
     $urlRouterProvider.otherwise('/');
 });

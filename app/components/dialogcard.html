@@ -1,0 +1,191 @@
+<style>
+
+    .dialogcard-container {
+        margin: 20px;
+        width: 600px;
+    }
+
+    .dialogcard-flipcontainer {
+        perspective: 1000px;
+    }
+    /* flip the pane when hovered */
+    .dialogcard-flipcontainer .flipcard{
+        transform: rotateX(180deg);
+    }
+
+    .dialogcard-front:focus, .dialogcard-back:focus, .dialogcard-flipcontainer:focus, .dialogcard-flipper:focus{outline:0;}
+
+    .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
+        width: 600px;
+        height: 400px;
+    }
+
+    .dialogcard-front, .dialogcard-back {
+        background-color: rgb(255,255,255);
+        border-radius: 2px;
+
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    }
+
+    /* flip speed goes here */
+    .dialogcard-flipper {
+        transition: transform 600ms;
+        transform-style: preserve-3d;
+        transition-timing-function: ease-in-out;
+
+        transform-origin: 100% 200px; /* half of height */
+
+        position: relative;
+    }
+
+    /* hide back of pane during swap */
+    .dialogcard-front, .dialogcard-back {
+        backface-visibility: hidden;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* front pane, placed above back */
+    .dialogcard-front {
+        z-index: 2;
+        /* for firefox 31 */
+        transform: rotateX(0deg);
+    }
+
+    /* back, initially hidden pane */
+    .dialogcard-back {
+        transform: rotateX(180deg);
+    }
+
+    .dialogcard-reveal-fast {
+        transition: transform 150ms;
+    }
+
+
+    /*fade next animation*/
+    .dialogcard-next-out {
+        transition: transform 300ms, visibility 300ms, opacity 300ms;
+        transform: translateX(20px);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-next-in{
+        transition: transform 300ms, visibility 300ms, opacity 300ms;
+        transform: translateX(0px) rotateX(0deg);
+        visibility: visible;
+        opacity: 1;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-next-betw{
+        transition: transform 1ms;
+        transform: translateX(-20px);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-next-betw-flipper{
+        transition: transform 1ms;
+        transform: rotateX(0deg);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    /*fade prev animation*/
+    .dialogcard-prev-out {
+        transition: transform 300ms, visibility 300ms, opacity 300ms;
+        transform: translateX(-20px);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-prev-in{
+        transition: transform 300ms, visibility 300ms, opacity 300ms;
+        transform: translateX(0px) rotateX(0deg);
+        visibility: visible;
+        opacity: 1;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-prev-betw {
+        transition: transform 1ms;
+        transform: translateX(20px);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-prev-betw-flipper {
+        transition: transform 1ms;
+        transform: rotateX(0deg);
+        visibility: hidden;
+        opacity: 0;
+        transition-timing-function: ease-in-out;
+    }
+
+    .dialogcard-answer-text {
+        font-size: 1.25em;
+    }
+
+    @media only screen and (max-width: 640px) {
+        .dialogcard-container {
+            margin: 2.5%;
+            width: 95%;
+        }
+
+        .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
+            width: 100%;
+            height: 66vw;
+        }
+
+        .dialogcard-flipper {
+            transform-origin: 100% 33vw; /* half of height */
+        }
+    }
+
+    @media only screen and (max-width: 430px) {
+        .dialogcard-flipcontainer, .dialogcard-front, .dialogcard-back {
+            width: 400px;
+            height: 300px;
+        }
+
+        .dialogcard-flipper {
+            transform-origin: 100% 150px; /* half of height */
+        }
+    }
+
+    .dialogcard-button {
+        text-transform: none;
+        font-size: 1.2em;
+        height: 50px;
+        width: 400px;
+    }
+
+</style>
+<div class="dialogcard-container">
+    <div class="dialogcard-flipcontainer"
+         ng-class="{'dialogcard-reveal-fast': $ctrl.revealeFast, 'dialogcard-next-out': $ctrl.transNextOut, 'dialogcard-next-in': $ctrl.transNextIn, 'dialogcard-next-betw': $ctrl.transNextBetw, 'dialogcard-prev-out': $ctrl.transPrevOut, 'dialogcard-prev-in': $ctrl.transPrevIn, 'dialogcard-prev-betw': $ctrl.transPrevBetw}">
+        <div class="dialogcard-flipper"
+             ng-class="{flipcard: $ctrl.revealed,'dialogcard-next-betw-flipper': $ctrl.transNextBetw, 'dialogcard-prev-betw-flipper': $ctrl.transPrevBetw}">
+            <div class="dialogcard-front" layout="column" layout-align="center center">
+                <h2>{{$ctrl.questions[$ctrl.currentCard].question}}</h2>
+                <md-button ng-repeat="answer in $ctrl.questions[$ctrl.currentCard].answers" ng-click="$ctrl.reveal(answer)" class="md-raised md-primary dialogcard-button">{{answer.front}}</md-button>
+            </div>
+            <div class="dialogcard-back" layout="column" layout-align="center center" ng-click="$ctrl.reveal()">
+                <div class="dialogcard-answer-text">{{$ctrl.currentAnswer.back}}</div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" layout-align="center center">
+        <md-button class="md-icon-button" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn"><md-icon md-font-icon="material-icons">navigate_before</md-icon></md-button>
+        <p>{{$ctrl.currentCard+1}}/{{$ctrl.questions.length}}</p>
+        <md-button class="md-icon-button" ng-click="$ctrl.next()" ng-disabled="$ctrl.isLast()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn"><md-icon md-font-icon="material-icons">navigate_next</md-icon></md-button>
+    </div>
+</div>

@@ -16,5 +16,4 @@ app.controller('EthiopiaController', function ($element) {
             $(modules[i]).css("transform", "rotate(" + rotateAngle + "deg) translate(0, -200px) rotate(-" + rotateAngle + "deg)")
         }
     };
-
 });
