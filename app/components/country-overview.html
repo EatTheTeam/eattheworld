@@ -1,0 +1,20 @@
+<style>
+    country-overview .modules {
+        margin: auto;
+    }
+
+    .gt-xs country-overview .modules {
+        height: 600px;
+        width: 600px;
+        position: relative;
+    }
+
+    .xs country-overview .modules, .xs country-overview module-preview {
+        animation: unset !important;
+        position: static !important;
+    }
+</style>
+<div layout-fill style="padding: 10px; display: flex; align-items: center; justify-content: center">
+    <section class="modules" circle-rotate circle-rotate-zoom="2" circle-rotate-speed="32" ng-transclude="">
+    </section>
+</div>

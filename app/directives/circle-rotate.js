@@ -12,22 +12,26 @@ app.directive('circleRotate', () => {
             const children = container.children;
             const childCount = children.length;
 
-            scope.$on('$destroy', function() {
+            /*scope.$on('$destroy', function() {
                 for (const e of violatile)
                     e.remove();
-            });
+            });*/
 
-            function addAnimation(name, rules) {
+            function addStyle(content) {
                 const style = document.createElement('style');
                 style.type = 'text/css';
                 container.appendChild(style);
-                style.sheet.insertRule(`
-                @keyframes ${name} {
-                    ${rules.map(e => `${e.state} { ${e.body} }`).join('\n')}
-                }`, 0);
+                style.innerHTML = content;
                 violatile.push(style);
             }
-
+            function addStyleRule(selector, content) {
+                addStyle(`${selector} { ${content} }`);
+            }
+            function addAnimation(name, rules) {
+                addStyle(`@keyframes ${name} {
+                    ${rules.map(e => `${e.state} { ${e.body} }`).join('\n')}
+                }`);
+            }
             function addFromToAnimation(name, from, to) {
                 return addAnimation(name, [
                     { state: 'from', body: from },
@@ -46,7 +50,11 @@ app.directive('circleRotate', () => {
                 child.style.animation = zoom ?
                     `${name} ${speed}s linear ${zoom}s infinite, ${name} ${zoom}s ease-out 0s 1` :
                     `${name} ${speed}s linear`;
-                child.classList.add('circle-rotate');
+                const selector = `${basename}-e${i}`;
+                child.classList.add('circle-rotate', selector);
+                addStyleRule("." + selector, "animation: " + (zoom ?
+                    `${name} ${speed}s linear ${zoom}s infinite, ${name} ${zoom}s ease-out 0s 1` :
+                    `${name} ${speed}s linear`));
             }
 
             if (zoom) {
@@ -68,6 +76,15 @@ app.directive('circleRotate', () => {
                 */
             }
 
+            const observer = new MutationObserver(mutations => {
+                for (const mutation of mutations.filter(e => e.type === 'childList')) {
+                    console.log(mutation);
+                }
+            });
+            observer.observe(container, {
+                childList: true,
+                attributes: true
+            });
         }
     };
 });
