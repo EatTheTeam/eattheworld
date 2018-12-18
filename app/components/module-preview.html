@@ -19,14 +19,13 @@
     module-preview .desktop {
         display: none;
     }
-    @media screen and (min-width: 400px) {
-        module-preview .desktop  {
+    .gt-xs module-preview .desktop  {
             display: unset !important;
         }
-        module-preview .mobile {
+    .gt-xs module-preview .mobile {
             display: none;
         }
-        module-preview md-card {
+    .gt-xs module-preview md-card {
             background-image: url('{{$ctrl.image}}');
             background-size: cover;
             background-clip: content-box;
@@ -38,11 +37,10 @@
             transition: width 1s, height 1s;
             overflow: hidden;
         }
-        module-preview md-card:hover {
+    .gt-xs module-preview md-card:hover {
             width: 200px;
             height: 200px;
         }
-    }
 </style>
 <md-card ui-sref="{{$ctrl.state}}">
     <md-card-content class="mobile" layout="column" layout-align="end center" style="width: 100%; padding: 0;">
