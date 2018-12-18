@@ -27,7 +27,6 @@
             display: none;
         }
         module-preview md-card {
-            background-image: url('{{$ctrl.image}}');
             background-size: cover;
             background-clip: content-box;
             background-repeat: no-repeat;
@@ -44,7 +43,7 @@
         }
     }
 </style>
-<md-card ui-sref="{{$ctrl.state}}">
+<md-card ui-sref="{{$ctrl.state}}" style="background-image: url('{{$ctrl.image}}')">
     <md-card-content class="mobile" layout="column" layout-align="end center" style="width: 100%; padding: 0;">
         <img style="width: 100%; height: auto; margin: 0;" ng-src="{{$ctrl.image}}">
         <div style="width: 100%; padding: 15px;">
