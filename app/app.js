@@ -20,6 +20,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             component: 'japanGeneral'
         })
         .state({
+            name: 'japan-food',
+            url: '/japan/food',
+            component: 'japanFood'
+        })
+        .state({
             name: 'ethiopia',
             url: '/ethiopia',
             component: 'ethiopia'
@@ -33,7 +38,7 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'test',
             url: '/test',
             component: 'test'
-        });;
+        });
 
     $urlRouterProvider.otherwise('/');
 });

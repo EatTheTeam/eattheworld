@@ -15,10 +15,16 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         name: "Japan",
         state: "japan",
         expand: false,
-        modules: [{
-            name: "General",
-            state: "japan-general"
-        }]
+        modules: [
+            {
+                name: "General",
+                state: "japan-general"
+            },
+            {
+                name: "Food",
+                state: "japan-food"
+            }
+        ]
     }, {
         name: "Ethiopia",
         state: "ethiopia",
@@ -38,7 +44,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
 
     this.checkState = (name) => $state.current.name === name;
 
-    this.isJapan = () => this.checkState('japan') || this.checkState('japan-general');
+    this.isJapan = () => this.checkState('japan') || this.checkState('japan-general') || this.checkState('japan-food');
 
     this.isEthiopia = () => this.checkState('ethiopia') || this.checkState('ethiopia-general');
 });
