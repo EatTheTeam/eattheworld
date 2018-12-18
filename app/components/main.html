@@ -97,7 +97,7 @@
                             ng-show="country.expand"
                             ng-repeat="module in country.modules"
                             ui-sref="{{module.state}}"
-                            md-colors="$ctrl.isState(country.state) ? { 'background': 'accent' } : {}">
+                            md-colors="$ctrl.isState(module.state) ? { 'background': 'accent' } : {}">
                         <span flex-offset="5">{{module.name}}</span>
                     </md-list-item>
                     <md-divider ng-repeat-end=""></md-divider>
