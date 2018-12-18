@@ -1,19 +1,23 @@
 <style>
+
     .modules {
-        height: 300px;
-        width: 300px;
+        margin: auto;
+    }
+
+    .gt-xs .modules {
+        height: 600px;
+        width: 600px;
         position: relative;
-
     }
 
-    .modules module-preview {
-        position: absolute;
-        top: 50%;
-        left: 50%;
+    .xs .modules, .xs module-preview {
+        animation-name: unset !important;
+        position: static !important;
     }
+
 </style>
 <div layout-fill class="ethiopia_wallpaper" style="padding: 10px;">
-    <section class="modules" style="">
+    <section class="modules" circle-rotate circle-rotate-zoom="2" circle-rotate-speed="32">
         <module-preview
                 title="General"
                 image="//img.washingtonpost.com/rf/image_1484w/2010-2019/WashingtonPost/2017/07/18/Foreign/Images/_MG_0001.JPG?uuid=ZGYQ2GcQEeeUq1sfD_RZ3w"
@@ -39,5 +43,4 @@
                 state="ethiopia-general">
         </module-preview>
     </section>
-
 </div>

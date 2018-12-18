@@ -24,3 +24,23 @@
 [class^="md-display"] {
     font-weight: 100;
 }
+
+.circle-rotate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.circle-rotate-zoom {
+    animation-name: circle-rotate-zoom-animation;
+    animation-fill-mode: forwards;
+}
+
+@keyframes circle-rotate-zoom-animation {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}

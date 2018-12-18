@@ -6,6 +6,9 @@ app.component('main', {
 });
 
 app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope) {
+
+    $scope.$mdMedia = $mdMedia;
+
     this.toggleNav = () => $mdSidenav('global-left').toggle();
 
     this.navData = [{
