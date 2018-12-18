@@ -15,16 +15,13 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         name: "Japan",
         state: "japan",
         expand: false,
-        modules: [
-            {
-                name: "General",
-                state: "japan-general"
-            },
-            {
-                name: "Food",
-                state: "japan-food"
-            }
-        ]
+        modules: [{
+            name: "General",
+            state: "japan-general"
+        }, {
+            name: "Food",
+            state: "japan-food"
+        }]
     }, {
         name: "Ethiopia",
         state: "ethiopia",
