@@ -12,9 +12,14 @@
 
     <style>
         @media only screen and (max-width: 550px) {
-            h1.flagName {
+            main h1.flagName {
                 display: none;
             }
+        }
+
+        main .md-sidenav-left .current {
+            background-color: gray;
+            cursor: initial;
         }
     </style>
 
@@ -77,23 +82,24 @@
             <md-content layout-padding>
                 <md-list flex>
                     <md-subheader>Eat The World</md-subheader>
-
                     <md-divider></md-divider>
-
-                    <md-list-item ng-repeat-start="country in $ctrl.navData" ng-init="expand = []" ng-click="expand[$index] = !expand[$index]">
+                    <md-list-item ng-repeat-start="country in $ctrl.navData" ng-click="country.expand = !country.expand">
                         <span flex>{{country.name}}</span>
-                        <md-icon ng-hide="expand[$index]">expand_more</md-icon>
-                        <md-icon ng-show="expand[$index]">expand_less</md-icon>
+                        <md-icon ng-hide="country.expand">expand_more</md-icon>
+                        <md-icon ng-show="country.expand">expand_less</md-icon>
                     </md-list-item>
-
-                    <md-list-item ui-sref="{{country.state}}" ng-show="expand[$index]">
+                    <md-list-item ng-show="country.expand"
+                                  ui-sref="{{country.state}}"
+                                  md-colors="$ctrl.isState(country.state) ? { 'background': 'accent' } : {}">
                         <span flex-offset="5">Overview</span>
                     </md-list-item>
-
-                    <md-list-item ng-show="expand[$index]" ng-repeat="module in country.modules" ui-sref="{{module.state}}">
+                    <md-list-item
+                            ng-show="country.expand"
+                            ng-repeat="module in country.modules"
+                            ui-sref="{{module.state}}"
+                            md-colors="$ctrl.isState(module.state) ? { 'background': 'accent' } : {}">
                         <span flex-offset="5">{{module.name}}</span>
                     </md-list-item>
-
                     <md-divider ng-repeat-end=""></md-divider>
                 </md-list>
             </md-content>

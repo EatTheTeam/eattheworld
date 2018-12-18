@@ -40,11 +40,19 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         modules: []
     }];
 
+    for (const country of this.navData) {
+        if ([country, ...country.modules].some(e => e.state === $state.current.name)) {
+            country.expand = true;
+            break;
+        }
+    }
+
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
-    this.checkState = (name) => $state.current.name === name;
+    this.isState = name => $state.current.name === name;
 
-    this.isJapan = () => this.checkState('japan') || this.checkState('japan-general') || this.checkState('japan-food');
-
-    this.isEthiopia = () => this.checkState('ethiopia') || this.checkState('ethiopia-general');
+    this.isCountryState = country =>
+        [country, ...country.modules].some(e => this.isState(e.state));
+    this.isEthiopia = () => this.isCountryState(this.navData.find(e => e.name === 'Ethiopia'));
+    this.isJapan = () => this.isCountryState(this.navData.find(e => e.name === 'Japan'));
 });
