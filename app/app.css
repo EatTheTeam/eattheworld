@@ -8,7 +8,12 @@
 }
 
 .ethiopia_wallpaper{
-    background: url('resources/images/ethiopia_background_01.svg') 0% 60%;
+    background: url('resources/images/ethiopia_background_01.svg') 0% 90%;
+    background-size: cover;
+}
+
+.ethiopia_wallpaper_general{
+    background: url('resources/images/A9.jpg') 0% 60%;
     background-size: cover;
 }
 
@@ -18,4 +23,24 @@
 
 [class^="md-display"] {
     font-weight: 100;
+}
+
+.circle-rotate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.circle-rotate-zoom {
+    animation-name: circle-rotate-zoom-animation;
+    animation-fill-mode: forwards;
+}
+
+@keyframes circle-rotate-zoom-animation {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }

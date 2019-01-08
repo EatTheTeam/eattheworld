@@ -6,6 +6,9 @@ app.component('main', {
 });
 
 app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope) {
+
+    $scope.$mdMedia = $mdMedia;
+
     this.toggleNav = () => $mdSidenav('global-left').toggle();
 
     this.navData = [{
@@ -15,6 +18,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         modules: [{
             name: "General",
             state: "japan-general"
+        }, {
+            name: "Food",
+            state: "japan-food"
         }]
     }, {
         name: "Ethiopia",
@@ -31,6 +37,19 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         modules: []
     }];
 
+    for (const country of this.navData) {
+        if ([country, ...country.modules].some(e => e.state === $state.current.name)) {
+            country.expand = true;
+            break;
+        }
+    }
+
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
+    this.isState = name => $state.current.name === name;
+
+    this.isCountryState = country =>
+        [country, ...country.modules].some(e => this.isState(e.state));
+    this.isEthiopia = () => this.isCountryState(this.navData.find(e => e.name === 'Ethiopia'));
+    this.isJapan = () => this.isCountryState(this.navData.find(e => e.name === 'Japan'));
 });
