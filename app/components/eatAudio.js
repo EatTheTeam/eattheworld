@@ -17,10 +17,7 @@ app.controller('eatAudioController', function ($window, $element, $scope, $log) 
     this.loaded = false;
 
     this.$onInit = () => {
-
         this.audioElement = $element.find("audio").get(0);
-        this.audioElement.volume = 0.5;
-
 
         this.audioElement.addEventListener('ended', () => {
             this.playing = false;
