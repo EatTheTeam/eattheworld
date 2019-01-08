@@ -5,5 +5,10 @@ app.component('test', {
     controller: 'TestController'
 });
 
-app.controller('TestController', function () {
+app.controller('TestController', function (ThreeDObject) {
+    /*
+    this.$onInit = function() {
+        ThreeDObject.create("three-js-project", 500, 300);
+    };
+    */
 });

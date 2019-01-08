@@ -44,13 +44,13 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
     $onDestroy() {
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
-        console.log('dispose renderer!')
+        console.log('dispose renderer!');
         this.Renderer.dispose();
         this.Scene.traverse(object => {
             if (!object.isMesh)
                 return;
 
-            console.log('dispose geometry!')
+            console.log('dispose geometry!');
             object.geometry.dispose();
 
             if (object.material.isMaterial) {
