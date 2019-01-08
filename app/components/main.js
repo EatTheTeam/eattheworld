@@ -35,6 +35,11 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope)
         state: "test",
         expand: false,
         modules: []
+    },{
+        name: "Three",
+        state: "three-test",
+        expand: false,
+        modules: []
     }];
 
     for (const country of this.navData) {
