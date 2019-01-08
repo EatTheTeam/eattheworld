@@ -78,7 +78,7 @@ app.directive('circleRotate', () => {
 
             const observer = new MutationObserver(mutations => {
                 for (const mutation of mutations.filter(e => e.type === 'childList')) {
-                    console.log(mutation);
+                    //console.log(mutation);
                 }
             });
             observer.observe(container, {
