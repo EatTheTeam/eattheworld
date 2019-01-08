@@ -1,0 +1,7 @@
+<div layout="column" layout-align="center center">
+    <md-button class="md-icon-button" ng-click="$ctrl.play()" ng-if="!$ctrl.playing"><md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">play_arrow</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="$ctrl.pause()" ng-if="$ctrl.playing"><md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">pause</md-icon></md-button>
+    <md-slider min="0" max="{{$ctrl.duration}}" ng-model="$ctrl.playingTime" ng-change="$ctrl.changeTime()" ng-disabled="!$ctrl.loaded">
+    </md-slider>
+    <audio ng-src="{{$ctrl.src}}" type="audio/mpeg"></audio>
+</div>
