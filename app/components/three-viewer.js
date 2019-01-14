@@ -116,7 +116,13 @@ app.controller('threeViewerController', class ThreeViewerController {
             // materials.materials.default.map.minFilter = THREE.LinearFilter;
 
             this.ObjectLoader.setMaterials(materials);
-            this.ObjectLoader.load(objectSource, object => this.Scene.add(object));
+            this.ObjectLoader.load(objectSource, object => {
+                const box = new THREE.Box3().setFromObject( object )
+                const boundingBoxSize = box.max.sub(box.min);
+                const height = boundingBoxSize.y;
+                object.position.y = - height / 2;
+                this.Scene.add(object);
+            });
         });
     }
     ResizeView() {
