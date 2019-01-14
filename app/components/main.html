@@ -8,7 +8,7 @@
     'lg': $mdMedia('lg'),
     'gt-lg': $mdMedia('gt-lg'),
     'xl': $mdMedia('xl')
-}">
+}" md-theme="{{$ctrl.theme}}" md-theme-watch>
 
     <style>
         @media only screen and (max-width: 550px) {
@@ -76,7 +76,12 @@
             </div-->
         </span>
         </md-toolbar>
-        <md-content class="main-content" flex ui-view="" style="position: relative; min-width: 100%; max-width: 100%; width: 100%;" ng-class="$ctrl.isJapan()?'japan_wallpaper':'ethiopia_wallpaper'"></md-content>
+        <md-content
+                class="main-content"
+                flex
+                ui-view
+                style="position: relative; min-width: 100%; max-width: 100%; width: 100%;"
+                ng-class="$ctrl.isJapan()?'japan_wallpaper':'ethiopia_wallpaper'"></md-content>
     </div>
 
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
