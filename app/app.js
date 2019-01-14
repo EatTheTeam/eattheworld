@@ -35,6 +35,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             component: 'ethiopiaGeneral'
         })
         .state({
+            name: 'ethiopia-language',
+            url: '/ethiopia/language',
+            component: 'ethiopiaLanguage'
+        })
+        .state({
             name: 'test',
             url: '/test',
             component: 'test'
