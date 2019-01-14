@@ -45,47 +45,51 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Load(this.model);
     }
     $onDestroy() {
-        cancelAnimationFrame(this.CurrentAnimationFrame);
+        if (this.CurrentAnimationFrame)
+            cancelAnimationFrame(this.CurrentAnimationFrame);
 
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
         // https://stackoverflow.com/questions/44736714/vue-deallocating-memory-using-three-js-between-routes?noredirect=1&lq=1
         // console.log('dispose renderer!');
-        this.Renderer.dispose();
-        this.Renderer.forceContextLoss();
-        this.Renderer.context = null;
-        this.Renderer.domElement = null;
-        this.Renderer = null;
-        this.Scene.traverse(object => {
-            if (!object.isMesh)
-                return;
+        if (this.Renderer) {
+            this.Renderer.dispose();
+            this.Renderer.forceContextLoss();
+            this.Renderer.context = null;
+            this.Renderer.domElement = null;
+            this.Renderer = null;
+        }
+        if (this.Scene)
+            this.Scene.traverse(object => {
+                if (!object.isMesh)
+                    return;
 
-            console.log('dispose geometry!');
-            object.geometry.dispose();
+                console.log('dispose geometry!');
+                object.geometry.dispose();
 
-            if (object.material.isMaterial)
-                cleanMaterial(object.material)
-            else for (const material of object.material) cleanMaterial(material)
-        });
-
-        const cleanMaterial = material => {
-            console.log('dispose material!');
-            material.dispose();
-
-            // dispose textures
-            for (const key of Object.keys(material)) {
-                const value = material[key];
-                if (value && typeof value === 'object' && 'minFilter' in value) {
-                    console.log('dispose texture!');
-                    value.dispose()
-                }
-            }
-        };
+                if (object.material.isMaterial)
+                    ThreeViewerController.DisposeMaterial(object.material);
+                else for (const material of object.material)
+                    ThreeViewerController.DisposeMaterial(material)
+            });
         this.Scene = null;
         this.Ambient = null;
         this.Camera = null;
         this.Controls = null;
         this.MaterialLoader = null;
         this.ObjectLoader = null;
+    }
+    static DisposeMaterial(material) {
+        console.log('dispose material!');
+        material.dispose();
+
+        // dispose textures
+        for (const key of Object.keys(material)) {
+            const value = material[key];
+            if (value && typeof value === 'object' && 'minFilter' in value) {
+                console.log('dispose texture!');
+                value.dispose()
+            }
+        }
     }
     InitScene() {
         this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, 1, 1000);
