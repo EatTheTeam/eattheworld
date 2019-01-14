@@ -16,14 +16,18 @@
                 display: none;
             }
         }
-
         main .md-sidenav-left .current {
             background-color: gray;
             cursor: initial;
         }
     </style>
 
-    <md-toolbar ng-hide="$ctrl.isState('home')">
+    <md-icon-button ng-show="$ctrl.isState('home')" ng-click="$ctrl.toggleNav()" style="cursor: pointer; z-index: 1; position: fixed; left: 10px; top: 10px;">
+        <md-icon class="material-icons" style="color: white">menu</md-icon>
+    </md-icon-button>
+
+    <div layout="column" style="height: 100%; min-height: 100%; max-height: 100%">
+        <md-toolbar ng-hide="$ctrl.isState('home')">
         <span class="md-toolbar-tools" layout="row">
             <md-icon-button ng-click="$ctrl.toggleNav()" style="margin-right: 10px; cursor: pointer;">
                 <md-icon class="material-icons">menu</md-icon>
@@ -71,40 +75,35 @@
                 <md-button ui-sref="ethiopia">Ethiopia</md-button>
             </div-->
         </span>
-    </md-toolbar>
-
-    <md-icon-button ng-show="$ctrl.isState('home')" ng-click="$ctrl.toggleNav()" style="cursor: pointer; margin: 10px; z-index: 1">
-        <md-icon class="material-icons" style="color: white">menu</md-icon>
-    </md-icon-button>
-
-    <div layout="row" style="height: 100%">
-        <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
-            <md-content layout-padding>
-                <md-list flex>
-                    <md-subheader>Eat The World</md-subheader>
-                    <md-divider></md-divider>
-                    <md-list-item ng-repeat-start="country in $ctrl.navData" ng-click="country.expand = !country.expand">
-                        <span flex>{{country.name}}</span>
-                        <md-icon ng-hide="country.expand">expand_more</md-icon>
-                        <md-icon ng-show="country.expand">expand_less</md-icon>
-                    </md-list-item>
-                    <md-list-item ng-show="country.expand"
-                                  ui-sref="{{country.state}}"
-                                  md-colors="$ctrl.isState(country.state) ? { 'background': 'accent' } : {}">
-                        <span flex-offset="5">Overview</span>
-                    </md-list-item>
-                    <md-list-item
-                            ng-show="country.expand"
-                            ng-repeat="module in country.modules"
-                            ui-sref="{{module.state}}"
-                            md-colors="$ctrl.isState(module.state) ? { 'background': 'accent' } : {}">
-                        <span flex-offset="5">{{module.name}}</span>
-                    </md-list-item>
-                    <md-divider ng-repeat-end=""></md-divider>
-                </md-list>
-            </md-content>
-        </md-sidenav>
-        <section ui-view flex="grow" style="position: relative" ng-class="$ctrl.isJapan()?'japan_wallpaper':'ethiopia_wallpaper'">
-        </section>
+        </md-toolbar>
+        <md-content class="main-content" flex ui-view="" style="position: relative; min-width: 100%; max-width: 100%; width: 100%;" ng-class="$ctrl.isJapan()?'japan_wallpaper':'ethiopia_wallpaper'"></md-content>
     </div>
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
+        <md-content layout-padding>
+            <md-list flex>
+                <md-subheader>Eat The World</md-subheader>
+                <md-divider></md-divider>
+                <md-list-item ng-repeat-start="country in $ctrl.navData" ng-click="country.expand = !country.expand">
+                    <span flex>{{country.name}}</span>
+                    <md-icon ng-hide="country.expand">expand_more</md-icon>
+                    <md-icon ng-show="country.expand">expand_less</md-icon>
+                </md-list-item>
+                <md-list-item ng-show="country.expand"
+                              ui-sref="{{country.state}}"
+                              md-colors="$ctrl.isState(country.state) ? { 'background': 'accent' } : {}">
+                    <span flex-offset="5">Overview</span>
+                </md-list-item>
+                <md-list-item
+                        ng-show="country.expand"
+                        ng-repeat="module in country.modules"
+                        ui-sref="{{module.state}}"
+                        md-colors="$ctrl.isState(module.state) ? { 'background': 'accent' } : {}">
+                    <span flex-offset="5">{{module.name}}</span>
+                </md-list-item>
+                <md-divider ng-repeat-end=""></md-divider>
+            </md-list>
+        </md-content>
+    </md-sidenav>
+
 </div>
