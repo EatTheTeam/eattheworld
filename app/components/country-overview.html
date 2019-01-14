@@ -9,12 +9,35 @@
         position: relative;
     }
 
-    .xs country-overview .modules, .xs country-overview module-preview {
-        animation: unset !important;
+    .xs country-overview module-preview {
+        animation-name: unset !important;
+        position: static !important;
+        transform: unset !important;
+    }
+    .xs country-overview .modules {
+        animation-name: unset !important;
         position: static !important;
     }
+    .country-overview {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .xs .country-overview > section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
 </style>
-<div layout-fill style="padding: 10px; display: flex; align-items: center; justify-content: center">
-    <section class="modules" circle-rotate circle-rotate-zoom="2" circle-rotate-speed="32" ng-transclude="">
+<div layout-fill class="country-overview">
+    <section class="modules"
+            circle-rotate
+            circle-rotate-zoom="2"
+            circle-rotate-speed="32"
+            ng-transclude="">
     </section>
 </div>
