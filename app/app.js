@@ -18,8 +18,68 @@ app.config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
 }]);
 
-app.config(($stateProvider, $urlRouterProvider) => {
+app.config($mdThemingProvider => {
+    // $mdThemingProvider.alwaysWatchTheme(true);
 
+    // define
+    const japanPrimaryPalette = $mdThemingProvider.extendPalette('red', {
+        '500': '#A32145',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+    const japanAccentPalette = $mdThemingProvider.extendPalette('purple', {
+        '500': '#403251',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+    const japanWarnPalette = $mdThemingProvider.extendPalette('orange', {
+        '500': '#F9644C',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+
+    // register
+    $mdThemingProvider.definePalette('japanPrimary', japanPrimaryPalette);
+    $mdThemingProvider.definePalette('japanAccent', japanAccentPalette);
+    $mdThemingProvider.definePalette('japanWarn', japanWarnPalette);
+
+    // use
+    $mdThemingProvider.theme('japan')
+        .primaryPalette('japanPrimary', { 'default': '500' })
+        .accentPalette('japanAccent', { 'default': '500' })
+        .warnPalette('japanWarn', { 'default': '500' });
+
+
+    // define
+    const ethiopiaPrimaryPalette = $mdThemingProvider.extendPalette('green', {
+        '500': '#395733',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+    const ethiopiaAccentPalette = $mdThemingProvider.extendPalette('green', {
+        '500': '#082402',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+    const ethiopiaWarnPalette = $mdThemingProvider.extendPalette('orange', {
+        '500': '#2E3950',
+        'contrastLightColors': ['500'],
+        'contrastDefaultColor': 'light',
+    });
+
+    // register
+    $mdThemingProvider.definePalette('ethiopiaPrimary', ethiopiaPrimaryPalette);
+    $mdThemingProvider.definePalette('ethiopiaAccent', ethiopiaAccentPalette);
+    $mdThemingProvider.definePalette('ethiopiaWarn', ethiopiaWarnPalette);
+
+    // use
+    $mdThemingProvider.theme('ethiopia')
+        .primaryPalette('ethiopiaPrimary', { 'default': '500' })
+        .accentPalette('ethiopiaAccent', { 'default': '500' })
+        .warnPalette('ethiopiaWarn', { 'default': '500' });
+});
+
+app.config(($stateProvider, $urlRouterProvider) => {
     $stateProvider
         .state({
             name: 'home',
