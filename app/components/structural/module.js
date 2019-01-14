@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('module', {
-    templateUrl: 'components/module.html',
+    templateUrl: 'components/structural/module.html',
     controller: 'ModuleController',
     transclude: true,
     bindings: {
