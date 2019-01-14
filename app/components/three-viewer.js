@@ -45,6 +45,8 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Load(this.model);
     }
     $onDestroy() {
+        cancelAnimationFrame(this.CurrentAnimationFrame);
+
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
         // https://stackoverflow.com/questions/44736714/vue-deallocating-memory-using-three-js-between-routes?noredirect=1&lq=1
         // console.log('dispose renderer!');
@@ -119,7 +121,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Renderer.setSize(this.Container.clientWidth, this.Container.clientHeight);
     }
     Render() {
-        requestAnimationFrame(() => this.Render());
+        this.CurrentAnimationFrame = requestAnimationFrame(() => this.Render());
         this.Controls.update();
         this.Renderer.render(this.Scene, this.Camera);
     }
@@ -134,7 +136,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Controls = new THREE.OrbitControls(this.Camera, this.Renderer.domElement);
         this.Controls.enableDamping = true;
         this.Controls.dampingFactor = 0.25;
-        this.Controls.enableZoom = false;
+        this.Controls.enableZoom = true;
     }
     SetupResizer() {
         this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
