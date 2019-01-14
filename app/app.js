@@ -43,6 +43,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'test',
             url: '/test',
             component: 'test'
+        })
+        .state({
+            name: 'three-test',
+            url: '/three',
+            component: 'threeTest'
         });
 
     $urlRouterProvider.otherwise('/');

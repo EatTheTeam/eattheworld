@@ -6,4 +6,5 @@ app.component('test', {
 });
 
 app.controller('TestController', function () {
+
 });

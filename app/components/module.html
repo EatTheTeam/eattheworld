@@ -1,11 +1,12 @@
-<div layout="row" flex style="position: fixed; max-height: 100%">
+<div layout-fill layout="row" flex style="position: fixed; max-height: 100%">
     <div flex style="overflow-x: scroll">
         <md-content class="md-padding" style="margin-bottom: 50px;">
             <h2 class="md-display-3" style="text-align: center;">{{$ctrl.title}}</h2>
-            <ng-transclude></ng-transclude>
+            <section style="margin: auto; max-width: 980px;" ng-transclude="">
+            </section>
         </md-content>
     </div>
-    <aside md-colors="{background: 'accent'}" style="width: 300px; max-height: 100%">
+    <aside hide-xs hide-sm md-colors="{background: 'accent'}" style="width: 300px; max-height: 100%">
         <style>
             .segment-dot:not(:last-child) {
                 margin-bottom: 25px;
