@@ -31,8 +31,10 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
     async $onInit() {
         await this.ThreeService.load();
-        if (!Detector.webgl)
+        if (!Detector.webgl) {
             Detector.addGetWebGLMessage();
+            return;
+        }
         this.InitScene();
         this.SetupRenderer();
         this.SetupControls();
@@ -44,8 +46,13 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
     $onDestroy() {
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
-        console.log('dispose renderer!');
+        // https://stackoverflow.com/questions/44736714/vue-deallocating-memory-using-three-js-between-routes?noredirect=1&lq=1
+        // console.log('dispose renderer!');
         this.Renderer.dispose();
+        this.Renderer.forceContextLoss();
+        this.Renderer.context = null;
+        this.Renderer.domElement = null;
+        this.Renderer = null;
         this.Scene.traverse(object => {
             if (!object.isMesh)
                 return;
@@ -53,12 +60,9 @@ app.controller('threeViewerController', class ThreeViewerController {
             console.log('dispose geometry!');
             object.geometry.dispose();
 
-            if (object.material.isMaterial) {
+            if (object.material.isMaterial)
                 cleanMaterial(object.material)
-            } else {
-                // an array of materials
-                for (const material of object.material) cleanMaterial(material)
-            }
+            else for (const material of object.material) cleanMaterial(material)
         });
 
         const cleanMaterial = material => {
@@ -74,6 +78,12 @@ app.controller('threeViewerController', class ThreeViewerController {
                 }
             }
         };
+        this.Scene = null;
+        this.Ambient = null;
+        this.Camera = null;
+        this.Controls = null;
+        this.MaterialLoader = null;
+        this.ObjectLoader = null;
     }
     InitScene() {
         this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, 1, 1000);
@@ -128,6 +138,6 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
     SetupResizer() {
         this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
-            .then(() => new ResizeSensor(this.Container, this.ResizeView));
+            .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));
     }
 });

@@ -1,23 +1,23 @@
 <style>
-    md-card.hoverPic{
+    md-card.hoverPic {
         position: relative;
         width: 200px;
         height: 200px;
     }
 
-    md-card.hoverPic > div.hoverPicHolder{
+    md-card.hoverPic > div.hoverPicHolder {
         transition: filter 150ms ease-in;
         z-index: 1;
     }
 
-    md-card.hoverPic:hover > div.hoverPicHolder{
+    md-card.hoverPic:hover > div.hoverPicHolder {
         filter: brightness(50%);
     }
-    md-card.hoverPic:hover > div{
+    md-card.hoverPic:hover > div {
         color: white;
     }
 
-    md-card.hoverPic > div{
+    md-card.hoverPic > div {
         color: transparent;
         position: absolute;
         top: 10%;
@@ -29,15 +29,11 @@
         z-index: 2;
     }
 
-    md-card.hoverPic > div.transPic{
-        transition: color 150ms ease-in;
-    }
-
-    md-card.hoverPic > div > p{
+    md-card.hoverPic > div > p {
         margin: 0;
     }
 
-    md-card.hoverPic > div.hoverPicHolder{
+    md-card.hoverPic > div.hoverPicHolder {
         position: absolute;
         top: 0;
         left: 0;
@@ -45,19 +41,19 @@
         bottom: 0;
         background-position: center;
         background-size: cover;
-     }
+    }
 
-    md-card.hoverPic > div.hoverPicHolder > div{
+    md-card.hoverPic > div.hoverPicHolder > div {
         position: absolute;
         left: 10px;
         bottom: 10px;
-        color: black;
+        opacity: 1;
         font-size: large;
     }
 
-    md-card.hoverPic:hover > div.hoverPicHolder > div{
-        color: transparent;
-        transition: color 150ms ease-in;
+    md-card.hoverPic:hover > div.hoverPicHolder > div {
+        opacity: 0;
+        transition: opacity 150ms ease-in;
     }
 </style>
 
@@ -69,15 +65,9 @@
         <ng-transclude></ng-transclude>
     </div>
 
-    <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image || 'https://via.placeholder.com/200x200&text=Image'}}');">
+    <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image}})'">
         <div>
             {{$ctrl.name}}
         </div>
     </div>
 </md-card>
-
-<script>
-    setTimeout(function() {
-        $('div.hoverPic > div').addClass('transPic'); // line 57 in jquery.sticky.js
-    }, 100);
-</script>
