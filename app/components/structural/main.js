@@ -34,7 +34,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             state: "ethiopia-language"
         }]
     },{
-        name: "Test",
+        name: "Komponenten",
         state: "test",
         expand: false,
         modules: []
