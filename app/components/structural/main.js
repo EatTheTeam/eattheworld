@@ -29,7 +29,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         modules: [{
             name: "General",
             state: "ethiopia-general"
-        }{
+        }, {
             name: "Language",
             state: "ethiopia-language"
         }]
