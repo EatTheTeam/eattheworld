@@ -5,6 +5,7 @@ app.component('eatAudio', {
     controller: 'eatAudioController',
     bindings: {
         src: "@",
+        type: "@"
     }
 });
 
@@ -14,13 +15,14 @@ app.controller('eatAudioController', function ($window, $element, $scope, $log) 
 
     this.playing = false;
 
-    this.loaded = false;
-
     this.$onInit = () => {
+        this.type = this.type | "audio/mpeg";
+
         this.audioElement = $element.find("audio").get(0);
 
         this.audioElement.addEventListener('ended', () => {
             this.playing = false;
+            $scope.$apply();
         }, false);
 
     };
