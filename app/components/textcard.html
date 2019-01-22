@@ -1,0 +1,8 @@
+<md-card layout="row" layout-align="space-around center" style="padding: 5px;">
+    <div flex="66" layout="row" layout-align="start center" style="padding: 10px">
+        <ng-transclude></ng-transclude>
+    </div>
+    <div flex="33" style="overflow: hidden;" layout="row" layout-align="end center" ng-show="$ctrl.image">
+        <img src="{{$ctrl.image||'https://via.placeholder.com/400x200&text=Image'}}">
+    </div>
+</md-card>
