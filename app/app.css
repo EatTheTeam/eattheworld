@@ -2,18 +2,22 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow: hidden;
+}
+
 .japan_wallpaper{
-    background: url('resources/images/japan_background_01.svg') 0% 90%;
+    background: url('resources/images/japan_background_01.svg') 0 90%;
     background-size: cover;
 }
 
 .ethiopia_wallpaper{
-    background: url('resources/images/ethiopia_background_01.svg') 0% 90%;
+    background: url('resources/images/ethiopia_background_02.jpg') 0 90%;
     background-size: cover;
 }
 
 .ethiopia_wallpaper_general{
-    background: url('resources/images/A9.jpg') 0% 60%;
+    background: url('resources/images/A9.jpg') 0 60%;
     background-size: cover;
 }
 

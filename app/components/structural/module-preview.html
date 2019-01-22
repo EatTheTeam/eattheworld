@@ -1,0 +1,57 @@
+<style>
+    .module-preview md-card-content {
+        padding: 0;
+        overflow-wrap: break-word;
+    }
+    .module-preview .desktop {
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+        text-align: center;
+        transform: translateY(70%);
+        transition: transform .5s;
+    }
+    .module-preview:hover .desktop {
+        transform: translateY(0);
+    }
+    .gt-xs .module-preview .mobile {
+        display: none;
+    }
+    .module-preview .desktop {
+        display: none;
+    }
+    @media screen and (min-width: 400px) {
+        .module-preview .desktop  {
+            display: unset !important;
+        }
+        .module-preview .mobile {
+            display: none;
+        }
+        module-preview md-card.module-preview { /* overrule dynamically loaded theme */
+            background-size: cover;
+            background-clip: content-box;
+            background-repeat: no-repeat;
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
+            will-change: width, height;
+            transition: width 1s, height 1s;
+            overflow: hidden;
+        }
+        .module-preview:hover {
+            width: 200px;
+            height: 200px;
+        }
+    }
+</style>
+<md-card class="module-preview" ui-sref="{{$ctrl.state}}" style="cursor: pointer; background-image: url('{{$ctrl.image}}')">
+    <md-card-content class="mobile" layout="column" layout-align="end center" style="width: 100%; padding: 0; background-color: white";>
+        <img style="width: 100%; height: auto; margin: 0;" ng-src="{{$ctrl.image}}">
+        <div style="width: 100%; padding: 15px;">
+            <h3 style="width: 100%; text-align: center; margin: 0">{{$ctrl.title}}</h3>
+        </div>
+    </md-card-content>
+    <md-card-content class="desktop" layout="column" layout-fill style="padding: 0 15%;">
+        <h3 style="width: 100%; margin-bottom: 0;">{{$ctrl.title}}</h3>
+        <p class="description">{{$ctrl.description}}</p>
+    </md-card-content>
+</md-card>

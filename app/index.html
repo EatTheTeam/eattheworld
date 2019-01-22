@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="EatTheWorld">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>EatTheWorld</title>
     <!--link rel="icon" href="favicon.ico"-->
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,400" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.css">
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.css" />
+    <link rel="stylesheet" type="text/css" href="app.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-aria.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-animate.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-aria.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.10/angular-material.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.min.js"></script>
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-messages.min.js"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular-sanitize.min.js"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/i18n/angular-locale_en-001.js"></script-->
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script-->
 
-    <script src="scripts/three.js"></script>
-    <script src="scripts/GLTFLoader.js"></script>
-
-    <script src="app.js"></script>
-    <script src="components/main.js"></script>
-    <script src="components/hover-image.js"></script>
-    <script src="components/infotext.js"></script>
-    <script src="components/imageCard.js"></script>
-    <script src="components/home/countryFlag.js"></script>
-    <script src="components/home/home.js"></script>
-    <script src="components/module.js"></script>
-    <script src="components/module-preview.js"></script>
-    <script src="components/segment.js"></script>
-    <script src="components/japan/japan.js"></script>
-    <script src="components/japan/japan-general.js"></script>
-    <script src="components/japan/japan-food.js"></script>
-    <script src="components/ethiopia/ethiopia.js"></script>
-    <script src="components/ethiopia/ethiopia-general.js"></script>
-    <script src="components/survey.js"></script>
-    <script src="components/test.js"></script>
-    <script src="components/flashcard.js"></script>
-    <script src="components/dialogcard.js"></script>
-    <script src="components/eatAudio.js"></script>
-    <script src="components/country-overview.js"></script>
-    <script src="directives/circle-rotate.js"></script>
-    <script src="models/question.js"></script>
-    <script src="services/3dobjects.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="components/structural/main.js"></script>
+    <script type="text/javascript" src="components/imageCard.js"></script>
+    <script type="text/javascript" src="components/home/countryFlag.js"></script>
+    <script type="text/javascript" src="components/home/home.js"></script>
+    <script type="text/javascript" src="components/structural/module.js"></script>
+    <script type="text/javascript" src="components/structural/module-preview.js"></script>
+    <script type="text/javascript" src="components/structural/segment.js"></script>
+    <script type="text/javascript" src="components/japan/japan.js"></script>
+    <script type="text/javascript" src="components/japan/japan-general.js"></script>
+    <script type="text/javascript" src="components/japan/japan-food.js"></script>
+    <script type="text/javascript" src="components/ethiopia/ethiopia.js"></script>
+    <script type="text/javascript" src="components/ethiopia/ethiopia-general.js"></script>
+    <script type="text/javascript" src="components/ethiopia/ethiopia-language.js"></script>
+    <script type="text/javascript" src="components/survey.js"></script>
+    <script type="text/javascript" src="components/test.js"></script>
+    <script type="text/javascript" src="components/flashcard.js"></script>
+    <script type="text/javascript" src="components/dialogcard.js"></script>
+    <script type="text/javascript" src="components/structural/country-overview.js"></script>
+    <script type="text/javascript" src="directives/circle-rotate.js"></script>
+    <script type="text/javascript" src="services/three.js"></script>
+    <script type="text/javascript" src="services/loader.js"></script>
+    <script type="text/javascript" src="components/three-viewer.js"></script>
+    <script type="text/javascript" src="components/three-test.js"></script>
+    <script type="text/javascript" src="models/question.js"></script>
+    <script type="text/javascript" src="components/eatAudio.js"></script>
 </head>
 
 <body layout="column" ng-cloak>
