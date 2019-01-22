@@ -9,7 +9,7 @@ app.component('module', {
     }
 });
 
-app.controller('ModuleController', function ($anchorScroll, $element) {
+app.controller('ModuleController', function ($element) {
     this.segments = [];
 
     this.$postLink = () =>
@@ -19,8 +19,5 @@ app.controller('ModuleController', function ($anchorScroll, $element) {
                 anchor: segment.getAttribute('anchor')
             }
         });
-
-
-    this.scrollTo = anchor => $anchorScroll(anchor);
 
 });
