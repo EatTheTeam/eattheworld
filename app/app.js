@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("EatTheWorld", [ "ngMaterial", "ui.router" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngSanitize", "ngAnimate", , "ngStorage"*/ ]);
+const app = angular.module("EatTheWorld", [ "ngMaterial", "ui.router", "smoothScroll" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngSanitize", "ngAnimate", , "ngStorage"*/ ]);
 
 app.config(['$httpProvider', function($httpProvider) {
     //initialize get if not there
