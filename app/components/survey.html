@@ -6,11 +6,14 @@
     }
 
     .survey {
-        margin: 20px;
-        padding: 20px;
-        background-color: #ffffff;
+        background-color: rgb(255,255,255);
+        border-radius: 2px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
 
-        width: 600px;
+    }
+
+    .surveyH1 {
+        margin-top: 10px;
     }
 
     .surveyButton {
@@ -26,7 +29,6 @@
         max-height: 51px;
         margin: 0;
     }
-
 
     .chosen {
         background-color: rgb(63,81,181) !important;
@@ -52,7 +54,7 @@
     .surveyImageContainer {
         position: relative;
         width: 100%;
-        padding-top: 85%; /* 4:3 Aspect Ratio */
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
     }
 
     .surveyImageInner {
@@ -74,6 +76,13 @@
     }
 
     @media only screen and (min-width: 640px) {
+
+        .survey {
+            padding: 20px;
+            margin: 20px;
+            width: 600px;
+        }
+
         .surveyQuestion {
             height: 150px;
         }
@@ -94,11 +103,17 @@
         .showEvaluation{
             height: 150px;
         }
+
+        .surveyNav .md-button:last-child {
+            margin-right: 0;
+        }
     }
 
-    @media only screen and (max-width: 640px) {
+    @media only screen and (max-width: 640px) and (min-width: 330px) {
 
-        survey {
+        .survey {
+            padding: 2.5%;
+            margin: 2.5%;
             width: 95%;
             min-width: 300px;
         }
@@ -125,15 +140,75 @@
         .showEvaluation{
             height: 51px;
         }
+
+        .surveyNav .md-button:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media only screen and (max-width: 330px) {
+
+        .survey {
+            margin: 2.5%;
+            padding: 2.5%;
+            width: 95%;
+
+            font-size: 13px;
+        }
+
+        .surveyH1 {
+            font-size: 15px;
+        }
+
+        .surveyH2 {
+            font-size: 17px;
+        }
+
+        .surveyButton .md-button {
+            height: 35px;
+            font-size: 15px;
+        }
+
+        .md-button {
+            height: 35px;
+            font-size: 15px;
+            margin: 3px 4px;
+            min-width: 44px;
+        }
+
+        .layout-row {
+            -webkit-box-orient: horizontal;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .surveyButton{
+            padding: 3px;
+        }
+
+        .surveyButton div{
+            padding-left:0;
+            padding-right:0;
+        }
+
+        .showResults {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .showResults .md-button{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .showEvaluation{
+            height: 51px;
+        }
     }
 
     .showResults .md-button {
         font-size: 20px;
         max-height: 51px;
-    }
-
-    .surveyNav .md-button:last-child {
-        margin-right: 0;
     }
 
     .inResult {
@@ -183,13 +258,13 @@
     }
 
 </style>
-<md-card class="survey">
-    <h1 style="margin-top: 10px;"><ng-transclude></ng-transclude></h1>
+<div class="survey">
+    <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
     <div class="surveyImageContainer">
         <div class="surveyImageInner" layout="column" layout-align="start stretch">
             <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}" class="surveyImage">
             <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
-                <h2>{{$ctrl.questions[$ctrl.currentQuestion].question}}</h2>
+                <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}</h2>
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
                 <h2>You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
@@ -230,4 +305,4 @@
         <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish&&!$ctrl.inResults" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
         <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
     </div>
-</md-card>
+</div>
