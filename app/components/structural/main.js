@@ -21,6 +21,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "Food",
             state: "japan-food"
+        }, {
+            name: "Rituals",
+            state: "japan-rituals"
         }]
     }, {
         name: "Ethiopia",
