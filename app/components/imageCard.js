@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('imageCard', {
-    templateUrl: 'components/interactive/imageCard.html',
+    templateUrl: 'components/imageCard.html',
     controller: 'imageCardController',
     bindings: {
         title: "@",
