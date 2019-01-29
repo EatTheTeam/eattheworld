@@ -13,11 +13,11 @@
 </style>
 <div layout-fill layout="row" flex style="position: relative; max-height: 100%">
     <md-content flex id="scroll-container" style="background: transparent; overflow-x: hidden; overflow-y: scroll;">
-        <div class="md-padding" >
+        <div class="md-padding limit-width" >
             <md-card style="margin-bottom: 30px">
                 <h2 class="md-display-3" style="text-align: center; margin: .3em;">{{$ctrl.title}}</h2>
             </md-card>
-            <section style="margin: auto; max-width: 980px;" ng-transclude="">
+            <section ng-transclude="">
             </section>
         </div>
     </md-content>

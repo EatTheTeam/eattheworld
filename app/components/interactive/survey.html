@@ -16,6 +16,10 @@
         margin-top: 10px;
     }
 
+    .surveyH2 {
+        text-align: center;
+    }
+
     .surveyButton {
         height: 100%;
         width: 100%;
@@ -54,7 +58,7 @@
     .surveyImageContainer {
         position: relative;
         width: 100%;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        padding-top: 78.25%; /* 16:9 Aspect Ratio + 22%*/
     }
 
     .surveyImageInner {
@@ -75,12 +79,13 @@
         padding-bottom: 10px;
     }
 
-    @media only screen and (min-width: 640px) {
+    @media only screen and (min-width: 600px) {
 
         .survey {
             padding: 20px;
             margin: 20px;
-            width: 600px;
+            width: 95%;
+            max-width: 600px;
         }
 
         .surveyQuestion {
@@ -102,6 +107,7 @@
 
         .showEvaluation{
             height: 150px;
+            width: 97.5%;
         }
 
         .surveyNav .md-button:last-child {
@@ -109,7 +115,7 @@
         }
     }
 
-    @media only screen and (max-width: 640px) and (min-width: 330px) {
+    @media only screen and (max-width: 600px) and (min-width: 330px) {
 
         .survey {
             padding: 2.5%;
@@ -118,8 +124,12 @@
             min-width: 300px;
         }
 
+        .surveyButton {
+            padding: 5px;
+        }
+
         .surveyButton .md-button {
-            height: 51px;
+            height: 47px;
         }
 
         .surveyButton div{
@@ -139,10 +149,25 @@
 
         .showEvaluation{
             height: 51px;
+            width: 97.5%;
         }
 
         .surveyNav .md-button:last-child {
             margin-right: 0;
+        }
+
+        /*
+        .surveyQuestion {
+            height: 250px;
+        }
+*/
+        .surveyQuestion > div {
+            /*height: 47vw;*/
+            height: 235px;
+        }
+
+        .surveyH2 {
+            font-size: 140%;
         }
     }
 
@@ -267,18 +292,17 @@
                 <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}</h2>
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
-                <h2>You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
+                <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
             </div>
         </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-if="$ctrl.finish" flex>
-        <div class="showResults" layout="column" layout-align="center stretch">
-            <p></p>
+        <div class="showResults" layout="column" layout-align="center center">
             <md-button ng-click="$ctrl.showResult()" ng-if="$ctrl.finish" class="md-raised md-primary showEvaluation">Show Evaluation</md-button>
         </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-sm-xs="column" layout-align="center stretch" layout-wrap flex>
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
             <div flex-gt-xs="50" class="surveyButtonContainer" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
                 <div class="surveyButton" layout="column" layout-align="center stretch">
                 <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
@@ -287,7 +311,7 @@
                 </div>
             </div>
         </div>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-sm-xs="column" layout-wrap flex>
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
             <div class="surveyButtonContainer" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
             <div class="surveyButton" layout="column" layout-align="center center">
                 <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
