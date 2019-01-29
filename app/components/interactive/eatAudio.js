@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('eatAudio', {
-    templateUrl: 'components/eatAudio.html',
+    templateUrl: 'components/interactive/eatAudio.html',
     controller: 'eatAudioController',
     bindings: {
         src: "@",
