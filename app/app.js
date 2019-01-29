@@ -125,6 +125,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'three-test',
             url: '/three',
             component: 'threeTest'
+        })
+        .state({
+            name: 'image-hotspots-test',
+            url: '/image-hotspots-test',
+            component: 'imageHotspotsTest'
         });
 
     $urlRouterProvider.otherwise('/');
