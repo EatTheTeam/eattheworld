@@ -75,12 +75,13 @@
         padding-bottom: 10px;
     }
 
-    @media only screen and (min-width: 640px) {
+    @media only screen and (min-width: 600px) {
 
         .survey {
             padding: 20px;
             margin: 20px;
-            width: 600px;
+            width: 95%;
+            max-width: 600px;
         }
 
         .surveyQuestion {
@@ -109,7 +110,7 @@
         }
     }
 
-    @media only screen and (max-width: 640px) and (min-width: 330px) {
+    @media only screen and (max-width: 600px) and (min-width: 330px) {
 
         .survey {
             padding: 2.5%;
@@ -118,8 +119,12 @@
             min-width: 300px;
         }
 
+        .surveyButton {
+            padding: 5px;
+        }
+
         .surveyButton .md-button {
-            height: 51px;
+            height: 47px;
         }
 
         .surveyButton div{
@@ -143,6 +148,11 @@
 
         .surveyNav .md-button:last-child {
             margin-right: 0;
+        }
+
+        .surveyQuestion {
+            /*height: 47vw;*/
+            height: 250px;
         }
     }
 
