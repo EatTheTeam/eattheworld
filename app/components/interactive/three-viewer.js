@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('threeViewer', {
-    templateUrl: 'components/three-viewer.html',
+    templateUrl: 'components/interactive/three-viewer.html',
     controller: 'threeViewerController',
     bindings: {
         model: "@"

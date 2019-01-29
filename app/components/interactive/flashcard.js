@@ -1,14 +1,14 @@
 'use strict';
 
-app.component('dialogcard', {
-    templateUrl: 'components/dialogcard.html',
-    controller: 'DialogcardController',
+app.component('flashcard', {
+    templateUrl: 'components/interactive/flashcard.html',
+    controller: 'FlashcardController',
     bindings: {
         questions: "<",
     }
 });
 
-app.controller('DialogcardController', function ($timeout) {
+app.controller('FlashcardController', function ($timeout) {
     this.currentCard = 0;
     this.transitionTime = 300;
 
@@ -30,7 +30,7 @@ app.controller('DialogcardController', function ($timeout) {
     this.previous = () => {
         prevF();
     };
-
+    
     var nextF = ()=>{
         if(!this.isLast()) {
             this.transPrevIn = false;
@@ -80,12 +80,7 @@ app.controller('DialogcardController', function ($timeout) {
     };
 
 
-    this.reveal = (answer) => {
-        if(!(this.transNextOut||this.transNextBetw||this.transNextIn||this.transPrevOut||this.transPrevBetw||this.transPrevIn)) {
-            if (!this.revealed&&answer) {
-                this.currentAnswer = answer;
-            }
-            this.revealed = !this.revealed;
-        }
+    this.reveal = () => {
+        this.revealed = !this.revealed;
     }
 });

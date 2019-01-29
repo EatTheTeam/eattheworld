@@ -1,5 +1,5 @@
 app.component('hoverImage', {
-    templateUrl: 'components/hover-image.html',
+    templateUrl: 'components/interactive/hover-image.html',
     controller: 'hoverImage',
     bindings: {
         name: "@",

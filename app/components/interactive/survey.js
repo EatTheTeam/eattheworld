@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('survey', {
-    templateUrl: 'components/survey.html',
+    templateUrl: 'components/interactive/survey.html',
     controller: 'SurveyController',
     transclude: true,
     bindings: {
