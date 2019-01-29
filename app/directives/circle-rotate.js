@@ -42,7 +42,7 @@ app.directive('circleRotate', () => {
             for (let i = 0; i < childCount; i++) {
                 const child = children[i];
                 const name = basename + '-' + i;
-                const offsetAngle = 360/childCount * i;
+                const offsetAngle = 180 + 360/childCount * i;
                 addFromToAnimation(name,
                     `transform: translate(-50%, -50%) rotateZ(${-offsetAngle}deg) translateY(${radius}px) rotateZ(${offsetAngle}deg);`,
                     `transform: translate(-50%, -50%) rotateZ(${360-offsetAngle}deg) translateY(${radius}px) rotateZ(${offsetAngle-360}deg);`
