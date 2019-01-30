@@ -22,7 +22,7 @@ app.controller('eatAudioController', function ($window, $element, $scope, $log) 
 
         this.audioElement = $element.find("audio").get(0);
 
-        console.dir(this.audioElement);
+        // console.dir(this.audioElement);
 
         this.audioElement.addEventListener('ended', () => {
             this.playing = false;
