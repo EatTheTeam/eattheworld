@@ -3,10 +3,11 @@
 app.component('imageHotspots', {
     templateUrl: 'components/interactive/image-hotspots/image-hotspots.html',
     controller: 'imageHotspotsController',
-    transclude: true,
     bindings: {
         src: "@"
-    }
+    },
+    transclude: true,
+    replace: true,
 });
 
 app.controller('imageHotspotsController', function ($element) {

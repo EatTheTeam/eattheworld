@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('threeTest', {
-    templateUrl: 'components/three-test.html',
+    templateUrl: 'components/interactive/three-viewer/three-test.html',
     controller: 'threeTestController'
 });
 

@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('imageHotspotsTest', {
-    templateUrl: 'components/image-hotspots-test.html',
+    templateUrl: 'components/interactive/image-hotspots/image-hotspots-test.html',
     controller: 'imageHotspotsTestController'
 });
 

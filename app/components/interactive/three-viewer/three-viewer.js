@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('threeViewer', {
-    templateUrl: 'components/interactive/three-viewer.html',
+    templateUrl: 'components//interactive/three-viewer/three-viewer.html',
     controller: 'threeViewerController',
     bindings: {
         model: "@"
@@ -11,7 +11,6 @@ app.component('threeViewer', {
 app.controller('threeViewerController', class ThreeViewerController {
     constructor (LoaderService, ThreeService, $scope, $element) {
         this.isSetup = false;
-
         this.LoaderService = LoaderService;
         this.ThreeService = ThreeService;
         this.Container = $element.find('.three-view').get(0);
@@ -27,9 +26,12 @@ app.controller('threeViewerController', class ThreeViewerController {
                     this.Load(model);
             },
             get: () => model
-        })
+        });
     }
-    async $onInit() {
+    async $postLink() {
+        await this.Init();
+    }
+    async Init() {
         await this.ThreeService.load();
         if (!Detector.webgl) {
             Detector.addGetWebGLMessage();
