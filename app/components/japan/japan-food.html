@@ -7,16 +7,9 @@
 <module title="Food">
     <segment title="Introduction" anchor="Introduction">
 
-        <md-card layout="row" layout-align="space-around center" style="padding: 5px;">
-            <div flex="66" layout="row" layout-align="start center" style="padding: 10px">
-                <p>
-                    Text
-                </p>
-            </div>
-            <div flex="33" style="overflow: hidden;" layout="row" layout-align="end center">
-                <img src="https://via.placeholder.com/400x200&text=Image">
-            </div>
-        </md-card>
+        <text-card image="https://via.placeholder.com/400x200&text=Image">
+            Text
+        </text-card>
 
         <md-card layout="column">
             <h1 style="margin-left: 15px; font-weight: lighter;">A typical meal</h1>
@@ -29,10 +22,10 @@
 
     <segment title="National dishes" anchor="National dishes">
 
-        <md-card layout="column">
-            <h1 style="margin-left: 15px; font-weight: lighter;">3D-View</h1>
-            <img src="https://via.placeholder.com/1000x600&text=3D-Ansicht+/+Slider">
-        </md-card>
+        <div style="height: 700px; width: 100%; margin-top: 10px; padding: 5px">
+            <three-viewer model="untitled">
+            </three-viewer>
+        </div>
 
         <div layout="row" layout-align="space-around center" style="margin-bottom: 20px">
             <md-button class="raised">🡰 Previous</md-button>

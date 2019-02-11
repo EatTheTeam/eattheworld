@@ -1,0 +1,39 @@
+<style>
+    module .segment-dot:not(:last-child) {
+        margin-bottom: 25px;
+    }
+
+    module .module-navigation {
+        transition: margin-right 1s;
+        margin-right: -0px;
+    }
+    .xs module .module-navigation, .sm .module-navigation {
+        margin-right: -300px;
+    }
+</style>
+<div layout-fill layout="row" flex style="position: relative; max-height: 100%">
+    <md-content flex id="scroll-container" style="background: transparent; overflow-x: hidden; overflow-y: scroll;">
+        <div class="md-padding" >
+            <md-card style="margin-bottom: 30px">
+                <h2 class="md-display-3" style="text-align: center; margin: .3em;">{{$ctrl.title}}</h2>
+            </md-card>
+            <section style="margin: auto; max-width: 980px;" ng-transclude="">
+            </section>
+        </div>
+    </md-content>
+    <aside class="module-navigation" md-colors="{background: 'accent'}" style="width: 300px; max-height: 100%">
+        <div style="position: relative; z-index: 1; margin-top: 15%; margin-left: 15%;">
+            <div style="height: 100%; position: absolute; top: 0; left: 0; padding: 15px 0; width: 30px" layout="column">
+                <div flex md-colors="{background: 'primary'}" style="border-radius: 5px; margin: auto; width: 3px;"></div>
+            </div>
+            <div style="z-index: 2; position: relative;" class="segment-dot" ng-repeat="e in $ctrl.segments">
+                <div layout="row" layout-align="start center">
+                    <div class="clickable" title="{{e.title}}"
+                         scroll-to="{{e.anchor}}" container-id="scroll-container" offset="90"
+                         md-colors="{background: 'primary'}" style="border-radius: 100%; width: 30px; height: 30px"></div>
+                    <span class="clickable" style="margin-left: 15px">{{e.title}}</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>

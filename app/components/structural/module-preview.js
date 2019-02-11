@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('modulePreview', {
-    templateUrl: 'components/module-preview.html',
+    templateUrl: 'components/structural/module-preview.html',
     controller: 'ModulePreviewController',
     bindings: {
         title: "@",

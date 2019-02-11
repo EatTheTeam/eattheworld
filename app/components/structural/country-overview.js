@@ -1,7 +1,7 @@
 'use strict';
 
 app.component('countryOverview', {
-    templateUrl: 'components/country-overview.html',
+    templateUrl: 'components/structural/country-overview.html',
     controller: 'CountryOverviewController',
     transclude: true
 });
