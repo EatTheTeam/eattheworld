@@ -46,6 +46,11 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         state: "three-test",
         expand: false,
         modules: []
+    },{
+        name: "Image Hotspots",
+        state: "image-hotspots-test",
+        expand: false,
+        modules: []
     }];
 
     for (const country of this.navData) {

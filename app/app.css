@@ -29,22 +29,17 @@ body {
     font-weight: 100;
 }
 
-.circle-rotate {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.circle-rotate-zoom {
-    animation-name: circle-rotate-zoom-animation;
-    animation-fill-mode: forwards;
+.limit-width {
+    max-width: 980px;
+    margin: auto;
 }
 
-@keyframes circle-rotate-zoom-animation {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+.big-tooltip {
+    height: auto !important;
+    background: none !important;
+    color: initial !important;
+    padding: 0;
+}
+.big-tooltip.md-show {
+    opacity: 1 !important;
 }

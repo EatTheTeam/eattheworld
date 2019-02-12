@@ -1,0 +1,332 @@
+<style>
+
+    .survey .md-button {
+        border-radius: 5px;
+        line-height: unset;
+    }
+
+    .survey {
+        background-color: rgb(255,255,255);
+        border-radius: 2px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+
+    }
+
+    .surveyH1 {
+        margin-top: 10px;
+    }
+
+    .surveyH2 {
+        text-align: center;
+    }
+
+    .surveyButton {
+        height: 100%;
+        width: 100%;
+        padding: 7px;
+    }
+
+    .surveyButton .md-button {
+        height: 100%;
+        width: 100%;
+        font-size: 20px;
+        max-height: 51px;
+        margin: 0;
+    }
+
+    .chosen {
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        box-shadow: none !important;
+    }
+
+    .selected {
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        box-shadow: none !important;
+        cursor: default;
+    }
+
+    .surveyImageContainer {
+        width: 100%;
+    }
+
+    .surveyImage {
+        width: 100%;
+    }
+
+    .surveyImageContainer {
+        position: relative;
+        width: 100%;
+        padding-top: 78.25%; /* 16:9 Aspect Ratio + 22%*/
+    }
+
+    .surveyImageInner {
+        position:  absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .surveyQuestion {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .showEvaluation{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    @media only screen and (min-width: 600px) {
+
+        .survey {
+            padding: 20px;
+            margin: 20px;
+            width: 95%;
+            max-width: 600px;
+        }
+
+        .surveyQuestion {
+            height: 150px;
+        }
+
+        .surveyButtonContainer:nth-child(odd) div{
+            padding-left:0;
+        }
+
+        .surveyButtonContainer:nth-child(even) div{
+            padding-right:0;
+        }
+
+        .showResults {
+            padding-left: 10% ;
+            padding-right: 10% ;
+        }
+
+        .showEvaluation{
+            height: 150px;
+            width: 97.5%;
+        }
+
+        .surveyNav .md-button:last-child {
+            margin-right: 0;
+        }
+    }
+
+    @media only screen and (max-width: 600px) and (min-width: 330px) {
+
+        .survey {
+            padding: 2.5%;
+            margin: 2.5%;
+            width: 95%;
+            min-width: 300px;
+        }
+
+        .surveyButton {
+            padding: 5px;
+        }
+
+        .surveyButton .md-button {
+            height: 47px;
+        }
+
+        .surveyButton div{
+            padding-left:0;
+            padding-right:0;
+         }
+
+        .showResults {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .showResults .md-button{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .showEvaluation{
+            height: 51px;
+            width: 97.5%;
+        }
+
+        .surveyNav .md-button:last-child {
+            margin-right: 0;
+        }
+
+        /*
+        .surveyQuestion {
+            height: 250px;
+        }
+*/
+        .surveyQuestion > div {
+            /*height: 47vw;*/
+            height: 235px;
+        }
+
+        .surveyH2 {
+            font-size: 140%;
+        }
+    }
+
+    @media only screen and (max-width: 330px) {
+
+        .survey {
+            margin: 2.5%;
+            padding: 2.5%;
+            width: 95%;
+
+            font-size: 13px;
+        }
+
+        .surveyH1 {
+            font-size: 15px;
+        }
+
+        .surveyH2 {
+            font-size: 17px;
+        }
+
+        .surveyButton .md-button {
+            height: 35px;
+            font-size: 15px;
+        }
+
+        .md-button {
+            height: 35px;
+            font-size: 15px;
+            margin: 3px 4px;
+            min-width: 44px;
+        }
+
+        .layout-row {
+            -webkit-box-orient: horizontal;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .surveyButton{
+            padding: 3px;
+        }
+
+        .surveyButton div{
+            padding-left:0;
+            padding-right:0;
+        }
+
+        .showResults {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .showResults .md-button{
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .showEvaluation{
+            height: 51px;
+        }
+    }
+
+    .showResults .md-button {
+        font-size: 20px;
+        max-height: 51px;
+    }
+
+    .inResult {
+        cursor: default !important;
+        color: rgb(33,33,33) !important;
+        background-color: rgb(250,250,250) !important;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26) !important;
+    }
+
+    .answerFalse {
+        /*
+        background-color: #800000 !important;
+        color: rgba(255,255,255,0.87) !important;
+        */
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        border: 6px solid #E53935;
+        border-radius: 2px;
+        box-shadow: none !important;
+        cursor: default;
+    }
+
+    .answerCorrect {
+        /*
+        background-color: #4A5D23 !important;
+        color: rgba(255,255,255,0.87) !important;
+        */
+        background-color: rgb(63,81,181) !important;
+        color: rgba(255,255,255,0.87) !important;
+        border: 6px solid #43A047;
+        border-radius: 2px;
+        box-shadow: none !important;
+        cursor: default;
+
+    }
+
+    .answerWould {
+        /*
+        background-color: #EFCC00 !important;
+        color: rgba(255,255,255,0.87) !important;
+        */
+        border: 6px solid #43A047;
+        border-radius: 2px;
+        box-shadow: none !important;
+        box-shadow: none !important;
+        cursor: default;
+    }
+
+</style>
+<div class="survey">
+    <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
+    <div class="surveyImageContainer">
+        <div class="surveyImageInner" layout="column" layout-align="start stretch">
+            <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}" class="surveyImage">
+            <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
+                <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}</h2>
+            </div>
+            <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
+                <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
+            </div>
+        </div>
+    </div>
+    <div class="surveyQuestion" layout="column" ng-if="$ctrl.finish" flex>
+        <div class="showResults" layout="column" layout-align="center center">
+            <md-button ng-click="$ctrl.showResult()" ng-if="$ctrl.finish" class="md-raised md-primary showEvaluation">Show Evaluation</md-button>
+        </div>
+    </div>
+    <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
+            <div flex-gt-xs="50" class="surveyButtonContainer" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
+                <div class="surveyButton" layout="column" layout-align="center stretch">
+                <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+                {{answer}}
+                </md-button>
+                </div>
+            </div>
+        </div>
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
+            <div class="surveyButtonContainer" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
+            <div class="surveyButton" layout="column" layout-align="center center">
+                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+            {{answer}}
+            </md-button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div layout="row" class="surveyNav">
+        <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
+        <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Results</md-button>
+        <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish&&($ctrl.currentQuestion > 0)" class="md-raised md-primary">Previous</md-button>
+        <md-button ng-click="$ctrl.repeat()" ng-if="$ctrl.finish" class="md-raised md-primary">Repeat</md-button>
+        <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish&&!$ctrl.inResults" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
+        <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
+    </div>
+</div>
