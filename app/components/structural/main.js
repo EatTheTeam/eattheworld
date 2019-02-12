@@ -35,6 +35,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "Language",
             state: "ethiopia-language"
+        }, {
+            name: "Quiz",
+            state: "ethiopia-quiz"
         }]
     },{
         name: "Komponenten",
