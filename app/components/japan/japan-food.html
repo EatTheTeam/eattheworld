@@ -15,8 +15,13 @@
         </text-card>
 
         <md-card layout="column">
-            <h1 style="margin-left: 15px; font-weight: lighter;">A typical meal</h1>
-            <img src="https://via.placeholder.com/1000x600&text=Image+Hotspot">
+            <div style="height:800px; width: 100%">
+                <wrap heading="A typical meal">
+                    <image-hotspots src="resources/images/Worldmap.jpg">
+                        <simple-hotspot x="10" y="50"></simple-hotspot>
+                    </image-hotspots>
+                </wrap>
+            </div>
         </md-card>
 
     </segment>
@@ -39,7 +44,12 @@
         <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
             <image-card title="Sushi">Text</image-card>
             <image-card title="Sashimi">Text</image-card>
-            <image-card title="Maki">Text</image-card>
+            <image-card title="Maki (<i>巻き寿司</i>)">
+                Maki are a type of rolled sushi. There are many types like Futomaki, Hosomaki, Ehōmaki or Temaki, but in
+                the most common way they are prepared on a large nori sheet (nori is a type of edible sea weed) with rice
+                and long stripes of vegetables and such. They are then rolled and sliced to multiple pieces, which gives
+                them their cylindrical shape.
+            </image-card>
             <image-card title="Miso Soup">Text</image-card>
             <image-card title="Ramen">Text</image-card>
             <image-card title="Udon">Text</image-card>
