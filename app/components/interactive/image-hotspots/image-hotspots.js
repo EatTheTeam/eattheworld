@@ -14,8 +14,7 @@ app.controller('imageHotspotsController', function ($element) {
 
     this.element = $element[0];
 
-    this.$postLink = () => {
+    this.$postLink = () =>
         this.hotspots = this.element.getElementsByTagName('hotspot');
-    }
 
 });

@@ -1,9 +1,13 @@
 <div style="position: absolute; width: 40px; height: 40px;" ng-style="{ 'left': $ctrl.x + '%', 'top': $ctrl.y + '%' }">
-    <md-button class="md-fab md-mini" style="margin-left: -50%; margin-top: -50%; border-radius: 100%;" >
-        <md-icon class="material-icons">add</md-icon>
-        <md-tooltip class="big-tooltip" md-whiteframe="3">
-            <div style="padding: 10px; background-color: white" ng-transclude="" >
-            </div>
-        </md-tooltip>
-    </md-button>
+    <div style="margin-left: -50%; margin-top: -50%; border-radius: 100%; width: 40px; height: 40px;">
+        <div style="position: absolute; width: 40px; height: 40px; border-radius: 100%; background-color: tomato;" >
+            <md-tooltip md-visible="$ctrl.tooltipState" class="big-tooltip" md-whiteframe="3" >
+                <div style="padding: 10px; background-color: white" ng-transclude="" >
+                </div>
+            </md-tooltip>
+        </div>
+        <md-button class="md-fab md-mini" ng-click="$ctrl.tooltipState = !$ctrl.tooltipState" style="position: relative; z-index: 10; margin: 0;">
+            <md-icon class="material-icons">add</md-icon>
+        </md-button>
+    </div>
 </div>
