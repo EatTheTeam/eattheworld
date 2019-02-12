@@ -122,6 +122,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             component: 'ethiopiaLanguage'
         })
         .state({
+            name: 'ethiopia-quiz',
+            url: '/ethiopia/quiz',
+            component: 'ethiopiaQuiz'
+        })
+        .state({
             name: 'test',
             url: '/test',
             component: 'test'
