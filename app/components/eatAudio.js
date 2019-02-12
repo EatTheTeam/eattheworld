@@ -14,11 +14,15 @@ app.controller('eatAudioController', function ($window, $element, $scope, $log) 
     const audioCtx = new AudioContext();
 
     this.playing = false;
+    this.speed = 1;
+    var originatorEv;
 
     this.$onInit = () => {
         this.type = this.type | "audio/mpeg";
 
         this.audioElement = $element.find("audio").get(0);
+
+        console.dir(this.audioElement);
 
         this.audioElement.addEventListener('ended', () => {
             this.playing = false;
@@ -41,5 +45,14 @@ app.controller('eatAudioController', function ($window, $element, $scope, $log) 
         this.playing = false;
     };
 
+    this.changeSpeed = (value) => {
+        this.speed = value;
+        this.audioElement.playbackRate = this.speed;
+    };
+
+    this.openMenu = ($mdMenu, ev) => {
+        originatorEv = ev;
+        $mdMenu.open(ev);
+    };
 
 });

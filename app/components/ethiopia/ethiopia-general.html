@@ -88,6 +88,34 @@
         }
 
     }
+
+    /*Instrumente*/
+    .begena { grid-area: Icolumn1row1; }
+    .kakaki { grid-area: Icolumn1row2; }
+    .kebero { grid-area: Icolumn2row1; }
+    .kissar { grid-area: Icolumn2row2; }
+    .krar { grid-area: Icolumn3row1; }
+    .masengo { grid-area: Icolumn3row2; }
+    .sistrum { grid-area: Icolumn4row1; }
+    .washint { grid-area: Icolumn4row2; }
+
+    .Igrid-container {
+        /*height: 100vh;*/
+        display: grid;
+        grid-template-areas:
+                'Icolumn1row1 Icolumn1row2'
+                'Icolumn2row1 Icolumn2row2'
+                'Icolumn3row1 Icolumn3row2'
+                'Icolumn4row1 Icolumn4row2';
+        grid-column-gap: 1%;
+        /*background-color: rgba(63,81,181);*/
+        padding: 1%;
+        margin:0;
+    }
+    .Igrid-container > div >img{
+        width: 70%;
+        padding-left: 5%;
+    }
 </style>
 
 <div class="ethiopia_wallpaper_general">
@@ -164,52 +192,77 @@
                         borders of coloured embroidered woven crosses, but other designs are also used.
                         <br>
                         Other ethnic groups and tribes in the south and west of the country wear different costumes that
-                        reflect their own traditions. Some tribes partially cover their body with leather but others do
-                        not wear any clothes at all, merely decorating their faces and bodies with distinctive images
+                        reflect their own traditions. Some tribes partially cover their body with leather and
+                        decorating their faces and bodies with distinctive images
                     </div>
                 </div>
-                <p style="padding: 1%;">
-                </p>
+                <p style="padding: 1%;">     </p>
                 <h3>Instruments</h3>
-                <table style="padding: 1%;">
-                    <tr>
-                        <th>Begena</th>
-                        <th>Kakaki</th>
-                        <th>Kebero</th>
-                        <th>Kissar</th>
-                    </tr>
-                    <tr style="height: 100px">
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                    </tr>
-                    <tr>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                    </tr>
-                    <tr>
-                        <td>Krar</td>
-                        <td>Masengo</td>
-                        <td>Sistrum</td>
-                        <td>Washint</td>
-                    </tr>
-                    <tr style="height: 100px">
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                        <td><img src="resources/images/A9.jpg" width="50px"></td>
-                    </tr>
-                    <tr>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                        <td>Audio</td>
-                    </tr>
+                    <div layout-fill class="Igrid-container">
+                        <div layout="column" class="begena">
+                            <p>Begena</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
 
-                </table>
+                        <div layout="column" class="kakaki">
+                            <p>Kakaki</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="kebero">
+                            <p>Kebero</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="kissar">
+                            <p>Kissar</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="krar">
+                            <p>Krar</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="masengo">
+                            <p>Masengo</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="sistrum">
+                            <p>Sistrum</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+
+                        <div layout="column" class="washint">
+                            <p>Washint</p>
+                            <img src="resources/images/A9.jpg" width="50px">
+                            <audio controls>
+                                <source src="resources/audios/Coffee.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                </div>
             </div>
         </segment>
 
@@ -225,8 +278,8 @@
                 For example, August 7, 2005 (Gregorian calendar) corresponds to December 1, 1997 (Ethiopian calendar)
             </p>
 
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;Months - starts
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h2>&nbsp;&nbsp;Months - starts
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 Major public hollidays</h2>
 
             <span layout="row">
@@ -340,10 +393,8 @@
 
         <segment title="Time" anchor="Time">
 
-            <p style="padding: 1%; padding-top: 0%; text-align: justify">Ethiopian has its own calendar which is similar to the Coptic
-                Egyptian calendar, it is just 276 years ahead of him. Like the Coptic Egyptian calendar, the Ethiopian
-                calendar has twelve months of exactly 30 days and one month of five or six days depending whether it is
-                a leap year or not.
+            <p style="padding: 1%; padding-top: 0%; text-align: justify">
+
                 The time in Ethiopia is counted differently from many other Western African countries. They use a
                 12-hour clock, with one cycle of 1 to 12 and there are two cycles/ways to tell the time. The first one
                 is from dawn to dusk (AM) and the other one is from dusk to dawn (PM). Most countries start the day at
