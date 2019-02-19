@@ -1,0 +1,30 @@
+<style>
+    slideshow .slides {
+        transition: left 1s;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+    }
+    slideshow .slides > * {
+        flex: 0 0 100%;
+    }
+</style>
+<md-card layout="column">
+    <div layout="row" class="slides" ng-transclude="" >
+    </div>
+    <div layout="row" layout-align="center center" style="margin: 10px 0">
+        <div class="clickable"
+             ng-click="$ctrl.container.style.marginLeft = -(s*100)+'%'"
+             ng-repeat="s in $ctrl.slides" style="width: 20px; height: 20px; border-radius: 100%; background-color: tomato; margin: 0 5px"></div>
+    </div>
+    <!--div layout="row" layout-align="space-around center" style="margin-bottom: 20px">
+        <md-button class="raised">
+            <span ng-click="">Previous</span>
+            <md-icon class="material-icons">navigation_before</md-icon>
+        </md-button>
+        <h1>{{heading}}</h1>
+        <md-button class="raised">
+            <span>Next</span>
+            <md-icon class="material-icons">navigation_next</md-icon>
+        </md-button-->
+</md-card>
