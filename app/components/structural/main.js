@@ -35,6 +35,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "Language",
             state: "ethiopia-language"
+        }, {
+            name: "Quiz",
+            state: "ethiopia-quiz"
         }]
     },{
         name: "Komponenten",
@@ -68,9 +71,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
     this.isEthiopia = () => this.isCountryState(this.navData.find(e => e.name === 'Ethiopia'));
     this.isJapan = () => this.isCountryState(this.navData.find(e => e.name === 'Japan'));
 
-    $transitions.onSuccess({}, () => {
-        this.updateTheme();
-    });
+    $transitions.onSuccess({}, () => this.updateTheme());
     this.updateTheme = () => {
         this.theme = this.getCurrentTheme();
         if (this.theme !== 'default')
