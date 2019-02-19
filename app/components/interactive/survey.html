@@ -32,17 +32,14 @@
         font-size: 20px;
         max-height: 51px;
         margin: 0;
+        white-space: normal;
     }
 
     .chosen {
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         box-shadow: none !important;
     }
 
     .selected {
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         box-shadow: none !important;
         cursor: default;
     }
@@ -248,8 +245,6 @@
         background-color: #800000 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         border: 6px solid #E53935;
         border-radius: 2px;
         box-shadow: none !important;
@@ -261,8 +256,6 @@
         background-color: #4A5D23 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         border: 6px solid #43A047;
         border-radius: 2px;
         box-shadow: none !important;
@@ -305,7 +298,7 @@
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
             <div flex-gt-xs="50" class="surveyButtonContainer" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
                 <div class="surveyButton" layout="column" layout-align="center stretch">
-                <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+                <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary-600', color: 'grey-A100'}:{color: 'black'}" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
                 </div>
@@ -314,7 +307,7 @@
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
             <div class="surveyButtonContainer" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
             <div class="surveyButton" layout="column" layout-align="center center">
-                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary-600', color: 'grey-A100'}:{color: 'black'}" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
             {{answer}}
             </md-button>
             </div>
