@@ -14,15 +14,13 @@
             Japanese meals are usually made out of a lot of small dishes that are eaten together.
         </text-card>
 
-        <md-card layout="column">
-            <div style="height:800px; width: 100%">
-                <wrap heading="A typical meal">
-                    <image-hotspots src="resources/images/Worldmap.jpg">
-                        <simple-hotspot x="10" y="50"></simple-hotspot>
-                    </image-hotspots>
-                </wrap>
-            </div>
-        </md-card>
+        <div style="height:800px; width: 100%">
+            <wrap heading="A typical meal">
+                <image-hotspots src="resources/images/Worldmap.jpg">
+                    <simple-hotspot x="10" y="50"></simple-hotspot>
+                </image-hotspots>
+            </wrap>
+        </div>
 
     </segment>
 
@@ -31,15 +29,16 @@
     <segment title="National dishes" anchor="National dishes">
 
         <div style="height: 700px; width: 100%; margin-top: 10px; padding: 5px">
-            <three-viewer model="untitled">
-            </three-viewer>
+            <wrap heading="yay 3D">
+                <three-viewer model="untitled">
+                </three-viewer>
+            </wrap>
         </div>
 
-        <div layout="row" layout-align="space-around center" style="margin-bottom: 20px">
-            <md-button class="raised">🡰 Previous</md-button>
-            <div><h1 style="margin: 10px; font-weight: normal;">Name of dish</h1></div>
-            <md-button class="raised">Next 🡲</md-button>
-        </div>
+        <slideshow heading="Test">
+            <div>dwaefegaudehifrewiufnowirdlgr9i8gfrei9u</div>
+            <img src="http://localhost:63342/EatTheWorld/app/resources/images/ethiopia_quiz.jpg" />
+        </slideshow>
 
         <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
             <image-card title="Sushi">Text</image-card>
