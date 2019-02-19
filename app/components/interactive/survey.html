@@ -21,8 +21,6 @@
     }
 
     .surveyButton {
-        height: 100%;
-        width: 100%;
         padding: 7px;
     }
 
@@ -30,19 +28,17 @@
         height: 100%;
         width: 100%;
         font-size: 20px;
-        max-height: 51px;
+        height: 56px;
         margin: 0;
+        white-space: normal;
+        text-transform: none;
     }
 
     .chosen {
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         box-shadow: none !important;
     }
 
     .selected {
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
         box-shadow: none !important;
         cursor: default;
     }
@@ -89,14 +85,14 @@
         }
 
         .surveyQuestion {
-            height: 150px;
+            height: 175px;
         }
 
-        .surveyButtonContainer:nth-child(odd) div{
+        .surveyButton:nth-child(odd) div{
             padding-left:0;
         }
 
-        .surveyButtonContainer:nth-child(even) div{
+        .surveyButton:nth-child(even) div{
             padding-right:0;
         }
 
@@ -106,7 +102,7 @@
         }
 
         .showEvaluation{
-            height: 150px;
+            height: 175px;
             width: 97.5%;
         }
 
@@ -125,11 +121,12 @@
         }
 
         .surveyButton {
-            padding: 5px;
+            padding: 1vw;
         }
 
         .surveyButton .md-button {
-            height: 47px;
+            height: 12vw;
+            font-size: 4vw;
         }
 
         .surveyButton div{
@@ -163,7 +160,7 @@
 */
         .surveyQuestion > div {
             /*height: 47vw;*/
-            height: 235px;
+            height: 60vw;
         }
 
         .surveyH2 {
@@ -238,9 +235,12 @@
 
     .inResult {
         cursor: default !important;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26) !important;
+    }
+
+    .setWhite {
         color: rgb(33,33,33) !important;
         background-color: rgb(250,250,250) !important;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26) !important;
     }
 
     .answerFalse {
@@ -248,9 +248,7 @@
         background-color: #800000 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
-        border: 6px solid #E53935;
+        border: 3px solid #E53935;
         border-radius: 2px;
         box-shadow: none !important;
         cursor: default;
@@ -261,9 +259,7 @@
         background-color: #4A5D23 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        background-color: rgb(63,81,181) !important;
-        color: rgba(255,255,255,0.87) !important;
-        border: 6px solid #43A047;
+        border: 3px solid #43A047;
         border-radius: 2px;
         box-shadow: none !important;
         cursor: default;
@@ -275,7 +271,7 @@
         background-color: #EFCC00 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        border: 6px solid #43A047;
+        border: 3px solid #43A047;
         border-radius: 2px;
         box-shadow: none !important;
         box-shadow: none !important;
@@ -302,31 +298,29 @@
         </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
-            <div flex-gt-xs="50" class="surveyButtonContainer" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
-                <div class="surveyButton" layout="column" layout-align="center stretch">
-                <md-button flex class="md-raised surveyButton" ng-click="$ctrl.checked($index)" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
+                <div flex-gt-xs="50" class="surveyButton" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
+                <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
                 </div>
-            </div>
+
         </div>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align="center stretch" layout-wrap flex>
-            <div class="surveyButtonContainer" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
-            <div class="surveyButton" layout="column" layout-align="center center">
-                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index)}" ng-disabled="$ctrl.inResults">
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
+            <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center center">
+                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index),  setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
             {{answer}}
             </md-button>
-            </div>
+
             </div>
         </div>
     </div>
     <div layout="row" class="surveyNav">
         <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
         <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Results</md-button>
-        <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish&&($ctrl.currentQuestion > 0)" class="md-raised md-primary">Previous</md-button>
+        <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish" ng-disabled="$ctrl.finish||($ctrl.currentQuestion <= 0)" class="md-raised md-primary">Previous</md-button>
+        <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()||$ctrl.inResults" ng-disabled="$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
         <md-button ng-click="$ctrl.repeat()" ng-if="$ctrl.finish" class="md-raised md-primary">Repeat</md-button>
         <md-button ng-click="$ctrl.finishScreen()" ng-if="$ctrl.isLast()&&!$ctrl.finish&&!$ctrl.inResults" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Finish</md-button>
-        <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
     </div>
 </div>
