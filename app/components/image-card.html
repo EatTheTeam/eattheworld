@@ -1,12 +1,15 @@
-<md-card layout="row" style="width:400px;">
-    <div flex="45" style="overflow: hidden;" layout="row" layout-align="center center">
-        <img ng-src="{{$ctrl.image||'https://via.placeholder.com/300x200&text=Image'}}">
-    </div>
-    <div flex="55" layout="column">
-        <h1 style="margin-left: 10px; margin-top: 10px; margin-bottom: 5px; font-weight: lighter;">
+<md-card layout="column" style="width:400px; height: 350px">
+    <div flex="30" style="overflow: hidden;" layout="row" layout-align="center center">
+        <div flex="40" style="padding: 10px">
+            <img ng-src="{{$ctrl.image||'https://via.placeholder.com/300x200&text=Image'}}" style="width: 100%">
+        </div>
+
+        <h1 flex="60" style="margin-left: 10px; margin-top: 10px; margin-bottom: 5px; font-weight: lighter;">
             {{$ctrl.title}}
         </h1>
-        <div style="margin-left: 30px; margin-right: 30px">
+    </div>
+    <div flex="70" layout="column">
+        <div style="margin: 10px 30px 20px 30px; padding: 0px 5px; overflow-y: auto" flex="100">
             <ng-transclude></ng-transclude>
         </div>
     </div>
