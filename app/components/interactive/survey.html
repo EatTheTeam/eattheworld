@@ -22,13 +22,13 @@
 
     .surveyButton {
         padding: 7px;
+
     }
 
     .surveyButton .md-button {
         height: 100%;
         width: 100%;
         font-size: 20px;
-        height: 56px;
         margin: 0;
         white-space: normal;
         text-transform: none;
@@ -76,6 +76,9 @@
     }
 
     @media only screen and (min-width: 600px) {
+        .surveyButton .md-button {
+            min-height: 56px;
+        }
 
         .survey {
             padding: 20px;
@@ -314,7 +317,7 @@
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-                <div flex-gt-xs="50" class="surveyButton" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
+                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
                 <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
