@@ -151,4 +151,8 @@ app.controller('SurveyController', function () {
             }
         }
     };
+
+    this.textLength = (text) => {
+        return text.length;
+    };
 });

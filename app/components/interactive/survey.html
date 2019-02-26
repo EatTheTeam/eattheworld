@@ -22,13 +22,13 @@
 
     .surveyButton {
         padding: 7px;
+
     }
 
     .surveyButton .md-button {
         height: 100%;
         width: 100%;
         font-size: 20px;
-        height: 56px;
         margin: 0;
         white-space: normal;
         text-transform: none;
@@ -76,6 +76,9 @@
     }
 
     @media only screen and (min-width: 600px) {
+        .surveyButton .md-button {
+            min-height: 56px;
+        }
 
         .survey {
             padding: 20px;
@@ -109,6 +112,14 @@
         .surveyNav .md-button:last-child {
             margin-right: 0;
         }
+
+        .smallerText {
+            font-size: 15px !important;
+        }
+
+        .smallerText2 {
+            font-size: 13px !important;
+        }
     }
 
     @media only screen and (max-width: 600px) and (min-width: 330px) {
@@ -127,6 +138,14 @@
         .surveyButton .md-button {
             height: 12vw;
             font-size: 4vw;
+        }
+
+        .smallerText {
+            font-size: 3.2vw !important;
+        }
+
+        .smallerText2 {
+            font-size: 2.7vw !important;
         }
 
         .surveyButton div{
@@ -277,7 +296,6 @@
         box-shadow: none !important;
         cursor: default;
     }
-
 </style>
 <div class="survey">
     <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
@@ -285,7 +303,7 @@
         <div class="surveyImageInner" layout="column" layout-align="start stretch">
             <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}" class="surveyImage">
             <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
-                <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}</h2>
+                <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])?" (multiple choice)":""}}</h2>
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
                 <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
@@ -299,8 +317,8 @@
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-                <div flex-gt-xs="50" class="surveyButton" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
-                <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
+                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
+                <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
                 </div>
@@ -308,10 +326,9 @@
         </div>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
             <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center center">
-                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index),  setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
+                <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index),  setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
             {{answer}}
             </md-button>
-
             </div>
         </div>
     </div>
