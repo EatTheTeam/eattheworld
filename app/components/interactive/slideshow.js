@@ -16,8 +16,10 @@ app.controller('slideshowController', function ($element) {
         this.slideCount = this.container.children.length;
         this.slides = Array.from({ length: this.slideCount }, (_, i) => i);
     };
-    this.slideLeft = () => {
-
+    this.selected = 0;
+    this.scroll = s => {
+        this.selected = s;
+        this.container.style.transform = `translateX(-${s}00%)`;
     };
 
 });
