@@ -2,13 +2,6 @@
     country-overview .modules {
         margin: auto;
     }
-
-    .gt-xs country-overview .modules {
-        height: 600px;
-        width: 600px;
-        position: relative;
-    }
-
     .xs country-overview module-preview {
         animation-name: unset !important;
         position: static !important;
@@ -32,6 +25,30 @@
         justify-content: center;
     }
 
+    @media screen and (max-height: 700px) {
+        country-overview module-preview {
+            animation-name: unset !important;
+            position: static !important;
+            transform: unset !important;
+        }
+        country-overview .modules {
+            animation-name: unset !important;
+            position: static !important;
+        }
+        .country-overview > section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media screen and (min-width: 700px) and (min-height: 510px) {
+            country-overview .modules {
+                width: 800px;
+            }
+        }
+    }
 </style>
 <div layout-fill class="country-overview">
     <section class="modules"
