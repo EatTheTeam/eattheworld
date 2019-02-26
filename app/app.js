@@ -122,6 +122,21 @@ app.config(($stateProvider, $urlRouterProvider) => {
             component: 'ethiopiaLanguage'
         })
         .state({
+            name: 'ethiopia-food',
+            url: '/ethiopia/food',
+            component: 'ethiopiaFood'
+        })
+        .state({
+            name: 'ethiopia-rituals',
+            url: '/ethiopia/rituals',
+            component: 'ethiopiaRituals'
+        })
+        .state({
+            name: 'ethiopia-do-dont',
+            url: '/ethiopia/dodont',
+            component: 'ethiopiaDoDont'
+        })
+        .state({
             name: 'ethiopia-quiz',
             url: '/ethiopia/quiz',
             component: 'ethiopiaQuiz'
