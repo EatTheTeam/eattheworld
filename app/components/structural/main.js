@@ -36,6 +36,15 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             name: "Language",
             state: "ethiopia-language"
         }, {
+            name: "Food",
+            state: "ethiopia-food"
+        }, {
+            name: "Rituals",
+            state: "ethiopia-rituals"
+        }, {
+            name: "Do and Donts",
+            state: "ethiopia-do-dont"
+        }, {
             name: "Quiz",
             state: "ethiopia-quiz"
         }]

@@ -31,10 +31,12 @@
             position: static !important;
             transform: unset !important;
         }
+
         country-overview .modules {
             animation-name: unset !important;
             position: static !important;
         }
+
         .country-overview > section {
             display: flex;
             flex-direction: row;
@@ -43,19 +45,19 @@
             justify-content: center;
         }
 
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 700px) and (min-height: 510px) {
             country-overview .modules {
                 width: 800px;
             }
         }
     }
 </style>
-<div layout-fill class="country-overview">
+<div layout-fill class="country-overview unselectable">
     <section class="modules"
-            circle-rotate
-            circle-rotate-zoom="2"
-            circle-rotate-speed="32"
-            circle-rotate-radius="220"
-            ng-transclude="">
+             circle-rotate
+             circle-rotate-zoom="2"
+             circle-rotate-speed="32"
+             circle-rotate-radius="220"
+             ng-transclude="">
     </section>
 </div>

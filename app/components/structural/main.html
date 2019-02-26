@@ -20,6 +20,9 @@
             background-color: gray;
             cursor: initial;
         }
+        .main-content {
+            overflow-x: hidden;
+        }
     </style>
 
     <md-icon-button ng-show="$ctrl.isState('home')" ng-click="$ctrl.toggleNav()" style="cursor: pointer; z-index: 1; position: fixed; left: 10px; top: 10px;">
@@ -39,7 +42,7 @@
                 <div flex ng-show="$ctrl.isJapan()" ng-style="$ctrl.isState('japan')?{}:{'cursor': 'pointer'}" ui-sref="japan" layout="row" layout-align="end center">
                     <h1 class="flagName" style="font-size: larger; margin-right: 10px">Japan</h1>
                     <div style="height: 40px; width: auto;">
-                        <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+                        <svg flex="100" class="md-whiteframe-2dp" style="height: 100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
                             <rect fill="#fff" height="600" width="1000"/>
                             <circle fill="#bc002d" cx="500" cy="300" r="180"/>
                         </svg>
@@ -49,7 +52,7 @@
                 <div flex ng-show="$ctrl.isEthiopia()" ng-style="$ctrl.isState('ethiopia')?{}:{'cursor': 'pointer'}" ui-sref="ethiopia" layout="row" layout-align="end center">
                     <h1 class="flagName"  style="font-size: larger; margin-right: 10px">Ethiopia</h1>
                     <div style="height: 40px; width: auto;">
-                        <svg flex="100" class="md-whiteframe-2dp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        <svg flex="100" class="md-whiteframe-2dp" style="height: 100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              viewBox="60 0 600 360">
                             <rect fill="#da121a" height="360" width="720"/>
                             <rect fill="#fcdd09" height="240" width="720"/>
