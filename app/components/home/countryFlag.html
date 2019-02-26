@@ -49,13 +49,25 @@
             font-size: 16px;
         }
     }
+
+    @media only screen and (max-width: 400px) {
+        .flagDescription{
+            margin-top: -1em !important;
+            font-size: small;
+        }
+    }
+    @media only screen and (max-width: 320px) {
+        .flagDescription{
+            display: none;
+        }
+    }
 </style>
 
 
 <div class="flag">
     <div layout="column" layout-align="center center">
         <h1>{{$ctrl.name}}</h1>
-        <p>{{$ctrl.description}}</p>
+        <p class="flagDescription">{{$ctrl.description}}</p>
     </div>
 
     <ng-transclude></ng-transclude>
