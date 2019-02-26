@@ -1,4 +1,18 @@
-<md-card layout="column" style="width:400px; height: 350px">
+<style>
+    .imageCardStyle{
+        width:400px;
+        height: auto;
+    }
+
+    @media screen and (max-width: 520px){
+        .imageCardStyle{
+            width: 95%;
+            height: auto;
+        }
+    }
+</style>
+
+<md-card class="imageCardStyle" layout="column">
     <div flex="30" style="overflow: hidden;" layout="row" layout-align="center center">
         <div flex="40" style="padding: 10px">
             <img ng-src="{{$ctrl.image||'https://via.placeholder.com/300x200&text=Image'}}" style="width: 100%">
