@@ -1,9 +1,10 @@
-<md-card flex layout="row" layout-align="space-between center">
-    <div flex="50" style="margin-left: 15px" ng-hide="$ctrl.noText">
+<md-card flex layout="row" layout-align="space-between center" style="background: #ffebf6">
+    <div flex="85" style="margin-left: 15px; font-style: italic" ng-hide="$ctrl.noText">
         <ng-transclude ng-hide="$ctrl.text"></ng-transclude>
         {{$ctrl.text}}
     </div>
-    <audio controls flex="50">
+    <!--audio controls flex="50">
         <source ng-src="$ctrl.src || 'https://opengameart.org/sites/default/files/powerup_01.wav'" type="audio/*">
-    </audio>
+    </audio-->
+    <eat-audio flex="15" ng-src="$ctrl.src || 'https://opengameart.org/sites/default/files/powerup_01.wav'" type="audio/*"></eat-audio>
 </md-card>

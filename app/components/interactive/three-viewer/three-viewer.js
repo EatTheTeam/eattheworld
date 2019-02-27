@@ -4,7 +4,8 @@ app.component('threeViewer', {
     templateUrl: 'components//interactive/three-viewer/three-viewer.html',
     controller: 'threeViewerController',
     bindings: {
-        model: "@"
+        model: "@",
+        heading: '@'
     }
 });
 

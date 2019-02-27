@@ -11,7 +11,7 @@
         z-index: 0;
     }
     #home{
-        font-family: 'Ubuntu', sans-serif;
+        /* font-family: 'Ubuntu', sans-serif; */
         color: white;
         background-color: black;
         position: absolute;
@@ -33,7 +33,18 @@
     }
     .main-content {
         overflow-x: hidden;
-        overflow: -moz-scrollbars-none;}
+        overflow: -moz-scrollbars-none;
+    }
+
+    @media screen and (max-width: 600px){
+        p#description{
+            font-size: medium;
+            line-height: 1em;
+        }
+        div#flagContainer{
+            margin-left: 15px;
+            margin-right: 15px;
+        }
     }
 </style>
 
@@ -42,16 +53,16 @@
         <source ng-src="{{$ctrl.getVideo()}}" type="video/mp4">
     </video>
 
-    <div layout="column" child-align="center center" style="padding: 5%">
+    <div layout="column" child-align="center center" style="padding: 0 5% 0 5%;">
         <h1 class="md-display-3" style="text-align: center; font-weight: 100; margin-bottom: 0">
             Eat The World
         </h1>
-        <p class="md-headline" style="text-align: center; font-weight: 100">
+        <p id="description" class="md-headline" style="text-align: center; font-weight: 100">
             Project EatTheWorld aims to inform about the food culture in different countries, and also teaches you how to properly have a meal without unknowingly acting unpolite towards other people.
             <br><br>Our team wishes you good luck and a fun time!
         </p>
 
-        <div layout-gt-xs="row" style="align-items: center; align-content: center; justify-content: center; justify-items: center; flex-wrap: wrap;" >
+        <div id="flagContainer" layout-gt-xs="row" style="align-items: center; align-content: center; justify-content: center; justify-items: center; flex-wrap: wrap;" >
 
             <country-flag name="Ethiopia" description="Yay, description!" style="margin: 2%;" flex="40" flex-xs="100" ui-sref="ethiopia">
 

@@ -4,7 +4,8 @@ app.component('imageHotspots', {
     templateUrl: 'components/interactive/image-hotspots/image-hotspots.html',
     controller: 'imageHotspotsController',
     bindings: {
-        src: "@"
+        src: "@",
+        heading: '@'
     },
     transclude: true,
     replace: true,

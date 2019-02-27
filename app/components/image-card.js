@@ -5,7 +5,8 @@ app.component('imageCard', {
     controller: 'imageCardController',
     bindings: {
         title: "@",
-        image: "@?"
+        image: "@?",
+        audio: "@?"
     },
     transclude: true
 });
