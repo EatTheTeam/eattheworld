@@ -15,6 +15,27 @@
         font-weight: bold;
         font-size: large;
     }
+
+    #scroll-container{
+        overflow-y: scroll;
+        scrollbar-color: #888 #f1f1f1;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 </style>
 <div layout-fill layout="row" flex style="position: relative; max-height: 100%">
     <md-content flex id="scroll-container" style="background: transparent; overflow-x: hidden; overflow-y: scroll; padding: 20px;">
