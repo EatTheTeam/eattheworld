@@ -7,7 +7,8 @@ app.component('titledImage', {
         title: "@",
         src: "@",
         width: "@?",
-        height: "@?"
+        height: "@?",
+        radius: "@?"
     }
 });
 
