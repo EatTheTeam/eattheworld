@@ -1,6 +1,6 @@
 app.component('hoverImage', {
     templateUrl: 'components/interactive/hover-image.html',
-    controller: 'hoverImage',
+    controller: 'hoverImageController',
     bindings: {
         name: "@",
         image: "@?",
@@ -9,6 +9,6 @@ app.component('hoverImage', {
     transclude: true
 });
 
-app.controller('hoverImage', function () {
+app.controller('hoverImageController', function () {
 
 });

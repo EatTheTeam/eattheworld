@@ -6,7 +6,7 @@
     }
 
     md-card.hoverPic > div.hoverPicHolder {
-        transition: filter 150ms ease-in;
+        transition: filter 100ms ease-in;
         z-index: 1;
     }
 
@@ -27,6 +27,7 @@
         font-family: 'Roboto', sans-serif;
         text-align: center;
         z-index: 2;
+        transition: color 100ms ease-in;
     }
 
     md-card.hoverPic > div > p {
@@ -49,12 +50,15 @@
         bottom: 10px;
         opacity: 1;
         font-size: large;
+        transition: opacity 100ms ease-in;
+        color: white;
     }
+
 
     md-card.hoverPic:hover > div.hoverPicHolder > div {
         opacity: 0;
-        transition: opacity 150ms ease-in;
     }
+
 </style>
 
 
@@ -65,7 +69,7 @@
         <ng-transclude></ng-transclude>
     </div>
 
-    <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image}})'">
+    <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image || 'http://placekitten.com/200/200'}}'); background-position: center; background-size: cover">
         <div>
             {{$ctrl.name}}
         </div>
