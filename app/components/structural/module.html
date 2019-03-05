@@ -10,6 +10,11 @@
     .xs module .module-navigation, .sm .module-navigation {
         margin-right: -300px;
     }
+
+    .returnToOverview {
+        font-weight: bold;
+        font-size: large;
+    }
 </style>
 <div layout-fill layout="row" flex style="position: relative; max-height: 100%">
     <md-content flex id="scroll-container" style="background: transparent; overflow-x: hidden; overflow-y: scroll; padding: 20px;">
@@ -18,9 +23,18 @@
                 <h2 class="md-display-3" style="text-align: center; margin: .3em">{{$ctrl.title}}</h2>
             </md-card-->
 
-            <h2 class="md-display-3" style="color: white; text-align: center; font-weight: bold; background: rgba(40, 40, 40, .8); padding: 15px 0 10px 0; text-shadow: 1px 1px #000; margin-top: 0;">
-                {{$ctrl.title}}
-            </h2>
+            <div style="background: rgba(40, 40, 40, .8); margin-top: 0; "
+                 layout="row" layout-align="space-between center">
+                <md-button hide-xs style="color: white;" class="returnToOverview" ui-sref="{{$ctrl.getState()}}">◀ Overview</md-button>
+                <md-button hide-gt-xs style="color: white;" class="returnToOverview md-icon-button" ui-sref="{{$ctrl.getState()}}">◀</md-button>
+
+                <h2 class="md-display-3" style="color: white; text-align: center; font-weight: bold; padding: 15px 0 10px 0; text-shadow: 1px 1px #000; margin: 0; ">
+                    {{$ctrl.title}}
+                </h2>
+
+                <md-button hide-xs disabled="true" style="color: transparent" class="returnToOverview">◀ Overview</md-button>
+                <md-button hide-gt-xs disabled="true" style="color: transparent" class="returnToOverview md-icon-button">◀</md-button>
+            </div>
 
 
             <section ng-transclude="">

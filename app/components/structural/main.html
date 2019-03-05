@@ -91,12 +91,25 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
         <md-content layout-padding>
             <md-list flex>
+                <md-subheader>
+                    <div layout="row" layout-align="space-between center">
+                        <h2 style="margin: 0">
+                            Eat The World
+                        </h2>
+                        <div>
+                            <md-button class="md-icon-button" style="margin: 0" ui-sref="home" ng-click="$ctrl.toggleNav()"><md-icon>home</md-icon></md-button>
+                            <md-button class="md-icon-button" style="margin: 0" ng-click="$ctrl.toggleNav()"><md-icon>close</md-icon></md-button>
+                        </div>
+                    </div>
+                </md-subheader>
+                <!--
                 <md-icon-button ng-click="$ctrl.toggleNav()" class="clickable unselectable" style="position: absolute; top: 10px; right: 10px; z-index: 99">
                     <md-icon class="material-icons">
                         close
                     </md-icon>
                 </md-icon-button>
                 <h1 style="text-align: center;" ui-sref="home" class="clickable">Eat The World</h1>
+                -->
                 <md-divider></md-divider>
                 <md-list-item ng-repeat-start="country in $ctrl.navData" ng-click="country.expand = !country.expand">
                     <span flex>{{country.name}}</span>

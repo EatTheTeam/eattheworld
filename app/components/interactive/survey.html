@@ -290,11 +290,29 @@
         background-color: #EFCC00 !important;
         color: rgba(255,255,255,0.87) !important;
         */
-        border: 3px solid #43A047;
+        border: 3px solid #FFD300;
         border-radius: 2px;
         box-shadow: none !important;
         box-shadow: none !important;
         cursor: default;
+    }
+
+    .greenAnswer {
+        border: 3px solid #43A047;
+        border-radius: 2px;
+        padding: 4px;
+    }
+
+    .yellowAnswer {
+        border: 3px solid #FFD300;
+        border-radius: 2px;
+        padding: 4px;
+    }
+
+    .redAnswer {
+        border: 3px solid #E53935;
+        border-radius: 2px;
+        padding: 4px;
     }
 </style>
 <div class="survey">
@@ -307,6 +325,11 @@
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
                 <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
+                <div layout="column" layout-align="center start">
+                    <p><span md-colors="{'background-color': 'primary', color: 'grey-A100'}" class="greenAnswer">GREEN</span> buttons are correct answers</p>
+                    <p><span class="yellowAnswer">YELLOW</span> buttons are answers that would be correct, but were not selected</p>
+                    <p><span md-colors="{'background-color': 'primary', color: 'grey-A100'}" class="redAnswer">RED</span> buttons are incorrect answers</p>
+                </div>
             </div>
         </div>
     </div>
@@ -334,7 +357,7 @@
     </div>
     <div layout="row" class="surveyNav">
         <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
-        <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Results</md-button>
+        <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Score</md-button>
         <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish" ng-disabled="$ctrl.finish||($ctrl.currentQuestion <= 0)" class="md-raised md-primary">Previous</md-button>
         <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()||$ctrl.inResults" ng-disabled="$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
         <md-button ng-click="$ctrl.repeat()" ng-if="$ctrl.finish" class="md-raised md-primary">Repeat</md-button>

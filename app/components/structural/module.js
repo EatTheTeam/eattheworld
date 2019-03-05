@@ -9,7 +9,7 @@ app.component('module', {
     }
 });
 
-app.controller('ModuleController', function ($element) {
+app.controller('ModuleController', function ($element, $state) {
     this.segments = [];
 
     this.$postLink = () =>
@@ -20,4 +20,7 @@ app.controller('ModuleController', function ($element) {
             }
         });
 
+    this.isState = (name) => $state.current.name.toLowerCase().includes(name);
+
+    this.getState = () => this.isState("ethiopia") ? "ethiopia" : (this.isState("japan") ? "japan" : "home");
 });
