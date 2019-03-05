@@ -24,8 +24,9 @@
             Japanese meals are usually made out of a lot of small dishes that are eaten together.
         </text-card>
 
-        <info-dialog text="jagfiueshfiewhfiuehfuifbwiufbufihdhwutdz7ezfiueshfirjfiofjoifoaif oi oiufera iugfwaiu uif ewiuf giurg uaierh eiugfh iuerhg fiuerh ui34 hi3ug hwiug hqi3u eriu geri3ug iuerwhg iuerhtiu heriu hgriue hgreu hri3u gh43oiu froiu h4 ut4 iu3h iu34 ti43 tuo53hg oi4h goi3gh oi3 j4j po43 ihi3 hoi3u hg34u ht43uh i4hg oiehg oi3 h4ig ji4g ji4g je4ig jei4gjie 4sjgi ej">
-        </info-dialog>
+        <image-hotspots src="resources/images/Worldmap.jpg" heading="A Typical Meal" style="width: 98.5%; height: 600px; display: block; margin: auto">
+            <simple-hotspot x="10" y="50"></simple-hotspot>
+        </image-hotspots>
 
     </segment>
 
@@ -36,11 +37,6 @@
         <slideshow heading="Test">
             <div>dwaefegaudehifrewiufnowirdlgr9i8gfrei9u</div>
             <img src="http://localhost:63342/EatTheWorld/app/resources/images/ethiopia_quiz.jpg" />
-            <wrap heading="A typical meal">
-                <image-hotspots src="resources/images/Worldmap.jpg">
-                    <simple-hotspot x="10" y="50"></simple-hotspot>
-                </image-hotspots>
-            </wrap>
             <wrap heading="yay 3D" style="max-height: 500px">
                 <three-viewer model="untitled">
                 </three-viewer>
@@ -140,7 +136,7 @@
 
     <segment title="National drinks" anchor="National drinks">
 
-        <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
+        <div layout="row" layout-align="space-between start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
             <image-card title="Sake (酒 sake)">
                 Sake is a japanese rice wine. It is an alcoholic beverage produced by fermenting rice. You should not pour
                 your own glass of sake, as it is considered to be rude. You usually pour your neighbours glass and they
@@ -191,31 +187,40 @@
 
     <segment title="Snacks & side dishes" anchor="Snacks & side dishes">
 
-        <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
+        <div layout="row" layout-align="space-between start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
             <image-card title="Senbei (煎餅 senbei)">
                 Senbei are a snack made out of rice which are hard crackers that came in various shapes and sizes. They
                 are mostly salty, like the ones wrapped in nori, but there is also sweet variants, which are often eaten
                 together with green tea.
             </image-card>
             <image-card title="Mochi (餅 mochi)">
-
+                Mochi is a cake-like substance made of a soft, sticky rice paste. Creating mochi is a new year's tradition,
+                where you repeatedly pound against the rice with a wooden hammer until it gets a slimy, sticky and soft
+                texture.<br>
+                It can either be eaten as something salty or something sweet. There are a lot of snacks that use mochi as
+                an ingredient.
             </image-card>
             <image-card title="Raw Egg (生卵 nama tamago)">
-
+                In Japan, a raw egg is often served together with a meal, and it is also eaten raw. (the danger of salmonellae
+                is less known in Japan)
             </image-card>
             <image-card title="Fruit (果物 kudamono)">
-
+                Fruits in Japan are very good-looking, with perfect form, color and taste.<br>
+                They are very expensive and you usually cannot buy a lot of fruits at once.
             </image-card>
             <image-card title="Red Bean Paste (餡こ anko)">
-
+                Often used sweets are sweet beans, which are inlaid into sugar. Anko is a paste made out of these sweet
+                beans. You can eat it pure, but it is more often used as an ingredient for other sweets.
             </image-card>
             <image-card title="Edamame (枝豆 edamame)">
-
+                Edamame are types of soy bean that are still in the pod. The pods are boiled and are served salty. They are
+                eaten by peeling out the beans into your mouth. They can also be eaten as snacks.
             </image-card>
             <image-card title="Gyoza (ギョーザ gyoza)">
-
+                Gyoza are little, hot bags of dough that are filled with vegetables or meat. They originated in China, but
+                you can often find them in Japan, too.
             </image-card>
-            <span class="hideMeLater">
+            <span class="hideMeLater" style="display:none">
                 Senbei (<i>煎餅 senbei</i>):<br>
                 Senbei are a snack made out of rice which are hard crackers that came in various shapes and sizes. They
                 are mostly salty, like the ones wrapped in nori, but there is also sweet variants, which are often eaten
@@ -242,32 +247,49 @@
 
     <segment title="Ingredients & Spices" anchor="Ingredients & Spices">
 
-        <div style="margin: 1em"></div>
-
-        <infotext>Text</infotext>
-
-        <div style="margin: 1em"></div>
-
-        <infotext>Text</infotext>
-
-        <div style="margin: 1em"></div>
-
         <div layout="row" layout-align="start start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
-            <hover-image name="Rice" desc="Description"></hover-image>
-            <hover-image name="Vegetables" desc="Description"></hover-image>
-            <hover-image name="Fish" desc="Description"></hover-image>
-            <hover-image name="Wasabi" desc="Description"></hover-image>
-            <hover-image name="Tofu" desc="Description"></hover-image>
-            <hover-image name="Soy Sauce" desc="Description"></hover-image>
-            <hover-image name="Nori" desc="Description"></hover-image>
+            <hover-image name="Rice" desc="
+                Almost every japanese meal includes rice. Japanese rice is slightly sticky.
+            "></hover-image>
+            <hover-image name="Vegetables" desc="
+                Vegetables in Japan are never made into sauce, puree, etc. You can always see what vegetables are used in a dish.
+            "></hover-image>
+            <hover-image name="Fish" desc="
+                Japanese food heavily consists of fish and other seafood. Fish is much more often used than meat.
+            "></hover-image>
+            <hover-image name="Wasabi" desc="
+                A fresh paste made of a plant root. It is very spicy and should be used in low amounts.
+            "></hover-image>
+            <hover-image name="Tofu" desc="
+                Tofu is white, cheese-like and made of soy beans. It is daily prepared and fresh. There are special shops that sell tofu.
+            "></hover-image>
+            <hover-image name="Soy Sauce" desc="
+                A salty liquid made of fermented soy beans. It is used instead of salt and ia very often part of a japanese dish.
+            "></hover-image>
+            <hover-image name="Nori" desc="
+                Nori is an edible seaweed with a strong and distinct, fishy flavour. Often pressed into thin leaves and used for sushi.
+            "></hover-image>
+            <hover-image name="Miso" desc="
+                Miso is a mass made of fermented soy beans and is often used for cooking, especially in miso soup.
+            "></hover-image>
         </div>
+
+        <p style="padding: 5px 15px 0 10px">
+            Hover over an image to get more information!
+        </p>
 
     </segment>
 
     <segment title="History" anchor="History">
 
         <text-card image="https://via.placeholder.com/400x200&text=Image">
-
+            Rice has always been the number one source of food in Japan. Due to the country's moist and somewhat tropical
+            climate, it grows better and most types of grain do not. There has never been bread or noodles until they were
+            imported from other countries.<br>
+            The geographic location of Japan has also been the reason as to why there is so much fish and other seafood
+            eaten.<br>
+            Putting raw fish into rice was originally meant to ferment it, but as time went on, eating rice together with
+            fish has lead to Japan's most known dish - sushi.
         </text-card>
 
     </segment>
