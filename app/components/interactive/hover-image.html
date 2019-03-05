@@ -44,7 +44,23 @@
         background-size: cover;
     }
 
-    md-card.hoverPic > div.hoverPicHolder > div {
+    md-card.hoverPic > div.hoverPicHolder > div.hoverPicHolderBackground{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 46px;
+        background-color: black;
+        opacity: .5;
+        transition: opacity 100ms ease-in;
+    }
+
+    md-card.hoverPic:hover > div.hoverPicHolder > div.hoverPicHolderBackground{
+        opacity: 0;
+
+    }
+
+    md-card.hoverPic > div.hoverPicHolder > div.hoverPicHolderName {
         position: absolute;
         left: 10px;
         bottom: 10px;
@@ -52,10 +68,11 @@
         font-size: large;
         transition: opacity 100ms ease-in;
         color: white;
+        z-index: 2;
     }
 
 
-    md-card.hoverPic:hover > div.hoverPicHolder > div {
+    md-card.hoverPic:hover > div.hoverPicHolder > div.hoverPicHolderName {
         opacity: 0;
     }
 
@@ -70,8 +87,10 @@
     </div>
 
     <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image || 'http://placekitten.com/200/200'}}'); background-position: center; background-size: cover">
-        <div>
+        <div class="hoverPicHolderName">
             {{$ctrl.name}}
+        </div>
+        <div class="hoverPicHolderBackground">
         </div>
     </div>
 </md-card>
