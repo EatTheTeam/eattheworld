@@ -22,6 +22,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "Rituals",
             state: "japan-rituals"
+        }, {
+            name: "No Go's",
+            state: "japan-nogos"
         }]
     }, {
         name: "Ethiopia",
