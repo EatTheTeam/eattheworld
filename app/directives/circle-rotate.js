@@ -7,9 +7,9 @@ app.directive('circleRotate', () => {
             const violatile = [];
 
             const basename = attrs.circleRotate || 'circle-rotate';
-            const speed = parseInt(attrs.circleRotateSpeed || "32");
-            const radius = parseInt(attrs.circleRotateRadius || "200");
-            const zoom = parseInt(attrs.circleRotateZoom || "0");
+            const speed = parseFloat(attrs.circleRotateSpeed || "32");
+            const radius = parseFloat(attrs.circleRotateRadius || "200");
+            const zoom = parseFloat(attrs.circleRotateZoom || "0");
             const container = element[0];
             const children = container.children;
             const childCount = children.length;
