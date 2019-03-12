@@ -42,42 +42,18 @@
                 <div flex ng-show="$ctrl.isJapan()" ng-style="$ctrl.isState('japan')?{}:{'cursor': 'pointer'}" ui-sref="japan" layout="row" layout-align="end center">
                     <h1 class="flagName" style="font-size: larger; margin-right: 10px">Japan</h1>
                     <div style="height: 40px; width: auto;">
-                        <svg flex="100" class="md-whiteframe-2dp" style="height: 100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
-                            <rect fill="#fff" height="600" width="1000"/>
-                            <circle fill="#bc002d" cx="500" cy="300" r="180"/>
-                        </svg>
+                        <img src="resources/icons/japan-flag.svg" flex="100" class="md-whiteframe-2dp" style="height: 100%" />
                     </div>
                 </div>
 
                 <div flex ng-show="$ctrl.isEthiopia()" ng-style="$ctrl.isState('ethiopia')?{}:{'cursor': 'pointer'}" ui-sref="ethiopia" layout="row" layout-align="end center">
-                    <h1 class="flagName"  style="font-size: larger; margin-right: 10px">Ethiopia</h1>
+                    <h1 class="flagName" style="font-size: larger; margin-right: 10px">Ethiopia</h1>
                     <div style="height: 40px; width: auto;">
-                        <svg flex="100" class="md-whiteframe-2dp" style="height: 100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             viewBox="60 0 600 360">
-                            <rect fill="#da121a" height="360" width="720"/>
-                            <rect fill="#fcdd09" height="240" width="720"/>
-                            <rect fill="#078930" height="120" width="720"/>
-                            <g transform="translate(360,180)">
-                                <circle fill="#0f47af" r="120"/>
-                                <g id="t">
-                                    <path fill="#fcdd09"
-                                          d="M0,-96 -4.205849,-83.055728 13.141645,-29.665631H-9.987258L-12.586616,-21.665631H61.576052L72.587108,-29.665631H21.553343z"/>
-                                    <path stroke="#fcdd09" stroke-width="4" d="M0,44V96" transform="rotate(216)"/>
-                                </g>
-                                <use xlink:href="#t" transform="rotate(72)"/>
-                                <use xlink:href="#t" transform="rotate(144)"/>
-                                <use xlink:href="#t" transform="rotate(216)"/>
-                                <use xlink:href="#t" transform="rotate(288)"/>
-                            </g>
-                        </svg>
+                        <img src="resources/icons/ethiopia-flag.svg" flex="100" class="md-whiteframe-2dp" style="height: 100%" />
                     </div>
                 </div>
 
             </div>
-            <!--div>
-                <md-button ui-sref="japan">Japan</md-button>
-                <md-button ui-sref="ethiopia">Ethiopia</md-button>
-            </div-->
         </span>
         </md-toolbar>
         <md-content
@@ -91,17 +67,6 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
         <md-content layout-padding>
             <md-list flex>
-                <!--md-subheader>
-                    <div layout="row" layout-align="space-between center">
-                        <h2 class="unselectable" style="margin: 0">
-                            Eat The World
-                        </h2>
-                        <div>
-                            <md-button class="md-icon-button" style="margin: 0" ui-sref="home" ng-click="$ctrl.toggleNav()"><md-icon>home</md-icon></md-button>
-                            <md-button class="md-icon-button" style="margin: 0" ng-click="$ctrl.toggleNav()"><md-icon>close</md-icon></md-button>
-                        </div>
-                    </div>
-                </md-subheader-->
                 <md-icon-button ng-click="$ctrl.toggleNav()" class="clickable unselectable" style="position: absolute; top: 10px; right: 10px; z-index: 99">
                     <md-icon class="material-icons">
                         close
