@@ -12,4 +12,5 @@ app.component('imageCard', {
 });
 
 app.controller('imageCardController', function () {
+
 });
