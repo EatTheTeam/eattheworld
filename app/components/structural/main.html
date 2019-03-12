@@ -91,7 +91,7 @@
     <md-sidenav class="md-sidenav-left md-whiteframe-4dp" md-component-id="global-left" md-is-locked-open="$ctrl.menuLockedOpen()" style="height: 100%">
         <md-content layout-padding>
             <md-list flex>
-                <md-subheader>
+                <!--md-subheader>
                     <div layout="row" layout-align="space-between center">
                         <h2 class="unselectable" style="margin: 0">
                             Eat The World
@@ -101,34 +101,49 @@
                             <md-button class="md-icon-button" style="margin: 0" ng-click="$ctrl.toggleNav()"><md-icon>close</md-icon></md-button>
                         </div>
                     </div>
-                </md-subheader>
-                <!--
+                </md-subheader-->
                 <md-icon-button ng-click="$ctrl.toggleNav()" class="clickable unselectable" style="position: absolute; top: 10px; right: 10px; z-index: 99">
                     <md-icon class="material-icons">
                         close
                     </md-icon>
                 </md-icon-button>
-                <h1 style="text-align: center;" ui-sref="home" class="clickable">Eat The World</h1>
-                -->
+                <h1 style="text-align: center;" ui-sref="home" ng-click="$ctrl.toggleNav()" class="clickable">Eat The World</h1>
+                <div layout="row" layout-align="start center">
+                    <md-input-container style="width: 100%; margin-bottom: 0;">
+                        <label>Search</label>
+                        <input type="search" ng-model="$ctrl.searchText" ng-change="$ctrl.search()" />
+                    </md-input-container>
+                    <div>
+                        <md-button ng-show="$ctrl.searchActive"
+                                   ng-click="$ctrl.stopSearch()"
+                                   class="md-primary md-raised"
+                                   style="margin-top: -5px">Cancel</md-button>
+                    </div>
+                </div>
                 <md-divider></md-divider>
-                <md-list-item ng-repeat-start="country in $ctrl.navData" ng-click="country.expand = !country.expand">
+                <p ng-show="$ctrl.searchNoResults" style="text-align: center;">
+                    No records match your search query.
+                </p>
+                <md-list-item ng-repeat-start="country in $ctrl.navData"
+                              ng-hide="country.hidden"
+                              ng-click="country.expand = !country.expand">
                     <span flex>{{country.name}}</span>
                     <md-icon ng-hide="country.expand">expand_more</md-icon>
                     <md-icon ng-show="country.expand">expand_less</md-icon>
                 </md-list-item>
-                <md-list-item ng-show="country.expand"
+                <md-list-item ng-show="country.expand && !country.hideOverview"
                               ui-sref="{{country.state}}"
                               md-colors="$ctrl.isState(country.state) ? { 'background': 'accent' } : {}">
-                    <span flex-offset="5">Overview</span>
+                    <span flex-offset="10">Overview</span>
                 </md-list-item>
                 <md-list-item
-                        ng-show="country.expand"
                         ng-repeat="module in country.modules"
+                        ng-show="country.expand && !module.hidden"
                         ui-sref="{{module.state}}"
                         md-colors="$ctrl.isState(module.state) ? { 'background': 'accent' } : {}">
-                    <span flex-offset="5">{{module.name}}</span>
+                    <span flex-offset="10">{{module.name}}</span>
                 </md-list-item>
-                <md-divider ng-repeat-end=""></md-divider>
+                <md-divider ng-hide="country.hidden" ng-repeat-end=""></md-divider>
             </md-list>
         </md-content>
     </md-sidenav>

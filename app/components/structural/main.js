@@ -6,7 +6,6 @@ app.component('main', {
 });
 
 app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope, $transitions, $mdTheming) {
-
     $scope.$mdMedia = $mdMedia;
 
     this.toggleNav = () => $mdSidenav('global-left').toggle();
@@ -14,7 +13,6 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
     this.navData = [{
         name: "Japan",
         state: "japan",
-        expand: false,
         modules: [{
             name: "General",
             state: "japan-general"
@@ -28,7 +26,6 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
     }, {
         name: "Ethiopia",
         state: "ethiopia",
-        expand: false,
         modules: [{
             name: "General",
             state: "ethiopia-general"
@@ -51,17 +48,14 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
     },{
         name: "Komponenten",
         state: "test",
-        expand: false,
         modules: []
     },{
         name: "3D Viewer",
         state: "three-test",
-        expand: false,
         modules: []
     },{
         name: "Image Hotspots",
         state: "image-hotspots-test",
-        expand: false,
         modules: []
     }];
 
@@ -71,6 +65,47 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             break;
         }
     }
+
+    this.search = () => {
+        this.searchActive = true;
+
+        if (this.searchText.trim().length === 0)
+            return this.stopSearch();
+
+        const searchText = this.searchText.toLowerCase();
+        let countryResult = false;
+        for (const country of this.navData) {
+            country.hideOverview = !country.name.toLowerCase().includes(searchText);
+
+            let moduleResult = false;
+            for (const module of country.modules) {
+                const match = module.name.toLowerCase().includes(searchText);
+                module.hidden = !match;
+                if (match)
+                    moduleResult = true;
+            }
+
+            if (moduleResult)
+                countryResult = true;
+            country.expand = moduleResult;
+            country.hidden = !moduleResult;
+        }
+
+        this.searchNoResults = !countryResult;
+    };
+
+    this.stopSearch = () => {
+        this.searchActive = false;
+        this.searchNoResults = false;
+        this.searchText = "";
+        for (const country of this.navData) {
+            country.hidden = false;
+            country.hideOverview = false;
+            for (const module of country.modules)
+                module.hidden = false;
+        }
+    };
+
 
     this.menuLockedOpen = () => false; //$mdMedia('gt-md') && $state.current.name !== 'home';
 
