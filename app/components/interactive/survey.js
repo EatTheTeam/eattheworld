@@ -6,6 +6,7 @@ app.component('survey', {
     transclude: true,
     bindings: {
         questions: "<",
+        shuffle: "<?"
     }
 });
 
@@ -13,10 +14,15 @@ app.controller('SurveyController', function ($scope, $timeout) {
     this.answered = [];
     this.answeredCorrectly = 0;
     this.finish = false;
+    this.shuffledQuestions = null;
 
     this.$onInit = () => {
-        this.questions = shuffle(this.questions);
-        console.log(this.questions);
+        if(this.shuffle) {
+            this.shuffledQuestions = shuffle(this.questions);
+        } else {
+            this.shuffledQuestions = this.questions;
+        }
+        console.log(this.shuffledQuestions);
         this.currentQuestion = 0;
     };
 

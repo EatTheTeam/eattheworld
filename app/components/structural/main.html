@@ -36,7 +36,10 @@
                 <md-icon class="material-icons">menu</md-icon>
             </md-icon-button>
             <div flex layout="row" layout-align="space-between center">
-                <h1 flex ui-sref="home" style="font-size: larger; cursor: pointer">EatTheWorld</h1>
+                <img src="resources/images/ETW_Logo-01.png" style="height: 25px; position: relative; bottom: 2px; margin-right: 5px; cursor: pointer" ui-sref="home" />
+                <h1 flex ui-sref="home" style="font-size: larger; cursor: pointer">
+                    EatTheWorld
+                </h1>
                 <div flex></div>
 
                 <div flex ng-show="$ctrl.isJapan()" ng-style="$ctrl.isState('japan')?{}:{'cursor': 'pointer'}" ui-sref="japan" layout="row" layout-align="end center">

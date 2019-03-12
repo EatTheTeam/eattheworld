@@ -350,12 +350,12 @@
     <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
     <div class="surveyImageContainer">
         <div ng-if="$ctrl.isNotUndefined($ctrl.currentQuestion)" class="surveyImageInner" layout="column" layout-align="start stretch">
-            <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}" class="surveyImage">
+            <img ng-if="$ctrl.shuffledQuestions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.shuffledQuestions[$ctrl.currentQuestion].image}}" class="surveyImage">
             <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
-                <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])?" (multiple choice)":""}}</h2>
+                <h2 class="surveyH2">{{$ctrl.shuffledQuestions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])?" (multiple choice)":""}}</h2>
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
-                <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.questions.length}} questions correctly</h2>
+                <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.shuffledQuestions.length}} questions correctly</h2>
                 <div layout="column" layout-align="center start">
                     <p><span md-colors="{'background-color': 'primary', color: 'grey-A100'}" class="greenAnswer">GREEN</span> buttons are correct answers</p>
                     <p><span class="yellowAnswer">YELLOW</span> buttons are answers that would be correct, but were not selected</p>
@@ -370,16 +370,16 @@
         </div>
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
+                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
                 <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
                 </div>
 
         </div>
-        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-            <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.questions[$ctrl.currentQuestion].answers" layout="row" layout-align="center center">
+        <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
+            <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="row" layout-align="center center">
                 <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index),  setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
             {{answer}}
             </md-button>
@@ -387,7 +387,7 @@
         </div>
     </div>
     <div layout="row" class="surveyNav">
-        <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.questions.length}}</p>
+        <p flex>Question {{$ctrl.currentQuestion+1}}/{{$ctrl.shuffledQuestions.length}}</p>
         <md-button ng-click="$ctrl.showCorrect()" ng-if="$ctrl.inResults&&!$ctrl.finish" class="md-raised md-primary">Show Score</md-button>
         <md-button ng-click="$ctrl.previousItem()" ng-if="!$ctrl.finish" ng-disabled="$ctrl.finish||($ctrl.currentQuestion <= 0)" class="md-raised md-primary">Previous</md-button>
         <md-button ng-click="$ctrl.nextItem()" ng-if="!$ctrl.isLast()||$ctrl.inResults" ng-disabled="$ctrl.isLast()" class="md-raised md-primary" ng-disabled="$ctrl.isUndefined($ctrl.answered[$ctrl.currentQuestion])">Next</md-button>
