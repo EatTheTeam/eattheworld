@@ -120,9 +120,14 @@
         .smallerText2 {
             font-size: 13px !important;
         }
+
+        .showResults .md-button {
+            font-size: 20px;
+            max-height: 51px;
+        }
     }
 
-    @media only screen and (max-width: 600px) and (min-width: 330px) {
+    @media only screen and (max-width: 600px) and (min-width: 380px) {
 
         .survey {
             padding: 2.5%;
@@ -184,10 +189,21 @@
 
         .surveyH2 {
             font-size: 140%;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+        }
+
+        p {
+            margin: 0.5em;
+        }
+
+        .showResults .md-button {
+            font-size: 20px;
+            max-height: 51px;
         }
     }
 
-    @media only screen and (max-width: 330px) {
+    @media only screen and (max-width: 380px) {
 
         .survey {
             margin: 2.5%;
@@ -242,14 +258,20 @@
             margin-right: 0;
         }
 
-        .showEvaluation{
-            height: 51px;
+        .surveyQuestion > div {
+            /*height: 47vw;*/
+            height: 60vw;
         }
-    }
 
-    .showResults .md-button {
-        font-size: 20px;
-        max-height: 51px;
+        .showEvaluation{
+            height: 35px;
+            font-size: 15px;
+            width: 97.5%;
+        }
+
+        p {
+            margin: 0.4em;
+        }
     }
 
     .inResult {
@@ -300,25 +322,34 @@
     .greenAnswer {
         border: 3px solid #43A047;
         border-radius: 2px;
+        display: inline-block;
+        width: 6em;
+        text-align: center;
         padding: 4px;
     }
 
     .yellowAnswer {
         border: 3px solid #FFD300;
         border-radius: 2px;
+        display: inline-block;
+        width: 6em;
+        text-align: center;
         padding: 4px;
     }
 
     .redAnswer {
         border: 3px solid #E53935;
         border-radius: 2px;
+        display: inline-block;
+        width: 6em;
+        text-align: center;
         padding: 4px;
     }
 </style>
 <div class="survey">
     <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
     <div class="surveyImageContainer">
-        <div class="surveyImageInner" layout="column" layout-align="start stretch">
+        <div ng-if="$ctrl.isNotUndefined($ctrl.currentQuestion)" class="surveyImageInner" layout="column" layout-align="start stretch">
             <img ng-if="$ctrl.questions[$ctrl.currentQuestion].image && !$ctrl.finish" ng-src="{{$ctrl.questions[$ctrl.currentQuestion].image}}" class="surveyImage">
             <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
                 <h2 class="surveyH2">{{$ctrl.questions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.questions[$ctrl.currentQuestion])?" (multiple choice)":""}}</h2>

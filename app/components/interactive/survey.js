@@ -9,11 +9,16 @@ app.component('survey', {
     }
 });
 
-app.controller('SurveyController', function () {
-    this.currentQuestion = 0;
+app.controller('SurveyController', function ($scope, $timeout) {
     this.answered = [];
     this.answeredCorrectly = 0;
     this.finish = false;
+
+    this.$onInit = () => {
+        this.questions = shuffle(this.questions);
+        console.log(this.questions);
+        this.currentQuestion = 0;
+    };
 
     this.nextItem = () => {
        if(this.currentQuestion < this.questions.length){
@@ -154,5 +159,30 @@ app.controller('SurveyController', function () {
 
     this.textLength = (text) => {
         return text.length;
+    };
+
+    this.isNotUndefined = (v) => {
+        return typeof v != "undefined";
+    }
+
+    var shuffle = function (array) {
+
+        var currentIndex = array.length;
+        var temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+
     };
 });
