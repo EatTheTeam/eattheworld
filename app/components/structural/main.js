@@ -42,7 +42,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             name: "Rituals",
             state: "ethiopia-rituals"
         }, {
-            name: "Do and Donts",
+            name: "Do and Don'ts",
             state: "ethiopia-do-dont"
         }, {
             name: "Quiz",

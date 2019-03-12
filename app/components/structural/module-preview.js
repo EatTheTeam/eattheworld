@@ -7,7 +7,8 @@ app.component('modulePreview', {
         title: "@",
         image: "@",
         state: "@",
-        description: "@"
+        description: "@",
+        color: "@"
     }
 });
 
