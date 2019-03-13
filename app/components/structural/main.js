@@ -78,7 +78,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         const searchText = this.searchText.toLowerCase();
         let countryResult = false;
         for (const country of this.navData) {
-            country.hideOverview = !country.name.toLowerCase().includes(searchText);
+            country.hideOverview = !'overview'.includes(searchText);
 
             let moduleResult = false;
             for (const module of country.modules) {
@@ -88,10 +88,11 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
                     moduleResult = true;
             }
 
-            if (moduleResult)
+            if (moduleResult || !country.hideOverview)
                 countryResult = true;
-            country.expand = moduleResult;
-            country.hidden = !moduleResult;
+
+            country.expand = countryResult;
+            country.hidden = !countryResult;
         }
 
         this.searchNoResults = !countryResult;

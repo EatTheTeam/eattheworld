@@ -74,9 +74,10 @@
                 </md-icon-button>
                 <h1 style="text-align: center;" ui-sref="home" ng-click="$ctrl.toggleNav()" class="clickable">Eat The World</h1>
                 <div layout="row" layout-align="start center">
+                    <md-icon style="margin-right: 10px">search</md-icon>
                     <md-input-container style="width: 100%; margin-bottom: 0;">
                         <label>Search</label>
-                        <input type="search" ng-model="$ctrl.searchText" ng-change="$ctrl.search()" />
+                        <input type="text" ng-model="$ctrl.searchText" ng-change="$ctrl.search()" />
                     </md-input-container>
                     <div>
                         <md-button ng-show="$ctrl.searchActive"
