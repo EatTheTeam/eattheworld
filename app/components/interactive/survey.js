@@ -128,7 +128,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     }
 
     this.wouldTrue = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if(!Array.isArray(this.questions[this.currentQuestion].correct)) {
             if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] !== index) {
                 return true;
             }
@@ -140,11 +140,12 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isFalse = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if(!Array.isArray(this.questions[this.currentQuestion].correct)) {
             if (this.inResults && index !== this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
         } else {
+            console.log(this.questions[this.currentQuestion]);
             if (this.inResults && !this.questions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
@@ -152,7 +153,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isCorrect = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if(!Array.isArray(this.questions[this.currentQuestion].correct)) {
             if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
