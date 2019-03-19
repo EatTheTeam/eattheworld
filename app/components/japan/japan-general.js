@@ -6,4 +6,8 @@ app.component('japanGeneral', {
 });
 
 app.controller('JapanGeneralController', function () {
+
+    this.timeJapan = () => {
+        return new Date(Date.now() + 28800000).toLocaleTimeString();
+    }
 });
