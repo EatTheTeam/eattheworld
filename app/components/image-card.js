@@ -12,5 +12,5 @@ app.component('imageCard', {
 });
 
 app.controller('imageCardController', function () {
-
+    this.expand = false;
 });
