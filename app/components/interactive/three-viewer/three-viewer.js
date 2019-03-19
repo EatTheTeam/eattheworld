@@ -10,11 +10,12 @@ app.component('threeViewer', {
 });
 
 app.controller('threeViewerController', class ThreeViewerController {
-    constructor (LoaderService, ThreeService, $scope, $element) {
+    constructor (LoaderService, ThreeService, $scope, $element, $timeout) {
         this.isSetup = false;
         this.LoaderService = LoaderService;
         this.ThreeService = ThreeService;
-        this.Container = $element.find('.three-view').get(0);
+        this.$element = $element;
+        this.$timeout = $timeout;
 
         $scope.$on('$destroy', () => this.$onDestroy());
         let model = undefined;
@@ -29,10 +30,13 @@ app.controller('threeViewerController', class ThreeViewerController {
             get: () => model
         });
     }
-    async $postLink() {
-        await this.Init();
+    $postLink() {
+        return this.Init();
     }
     async Init() {
+        while (!(this.Container = this.$element.find('.three-view').get(0)))
+            await new Promise(resolve => this.$timeout(() => resolve()));
+
         await this.ThreeService.load();
         if (!Detector.webgl) {
             Detector.addGetWebGLMessage();
