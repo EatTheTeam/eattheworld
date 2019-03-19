@@ -13,5 +13,4 @@ app.component('titledImage', {
 });
 
 app.controller('titledController', function () {
-    this.$onInit = () => console.log("Im here");
 });
