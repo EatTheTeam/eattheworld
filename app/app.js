@@ -107,6 +107,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             component: 'japanRituals'
         })
         .state({
+            name: 'japan-quiz',
+            url: '/japan/quiz',
+            component: 'japanQuiz'
+        })
+        .state({
             name: 'japan-nogos',
             url: '/japan/nogos',
             component: 'japanNogos'
