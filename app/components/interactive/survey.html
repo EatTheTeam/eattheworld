@@ -9,7 +9,7 @@
         background-color: rgb(255,255,255);
         border-radius: 2px;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-
+        width: 100%;
     }
 
     .surveyH1 {
@@ -78,13 +78,14 @@
     @media only screen and (min-width: 600px) {
         .surveyButton .md-button {
             min-height: 56px;
+            width: 254px;
         }
 
         .survey {
             padding: 20px;
             margin: 20px;
-            width: 95%;
-            max-width: 600px;
+            width: 600px;
+            height: 744px;
         }
 
         .surveyQuestion {
@@ -346,7 +347,7 @@
         padding: 4px;
     }
 </style>
-<div class="survey">
+<div class="survey" layout="column" layout-align="stretch">
     <h1 class="surveyH1"><ng-transclude></ng-transclude></h1>
     <div class="surveyImageContainer">
         <div ng-if="$ctrl.isNotUndefined($ctrl.currentQuestion)" class="surveyImageInner" layout="column" layout-align="start stretch">
@@ -371,7 +372,7 @@
     </div>
     <div class="surveyQuestion" layout="column" ng-if="!$ctrl.finish" flex>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="!$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="column" layout-align="center stretch">
+                <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
                 <md-button flex class="md-raised" ng-click="$ctrl.checked($index)" md-colors="($index === $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, selected: $index === $ctrl.answered[$ctrl.currentQuestion], inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index), setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
                 {{answer}}
                 </md-button>
@@ -379,7 +380,7 @@
 
         </div>
         <div ng-model="$ctrl.answered[$ctrl.currentQuestion]" ng-if="$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])" layout-gt-xs="row" layout-xs="column" layout-align-xs="center stretch" layout-align-gt-xs="center center" layout-wrap flex>
-            <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="row" layout-align="center center">
+            <div class="surveyButton" flex-gt-xs="50" ng-repeat="answer in $ctrl.shuffledQuestions[$ctrl.currentQuestion].answers" layout="row" layout-align="center stretch">
                 <md-button flex class="md-raised" ng-click="$ctrl.toggle($index)" md-colors="$ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion])||$ctrl.isFalse($index)||$ctrl.isCorrect($index)?{'background-color': 'primary', color: 'grey-A100'}:{}" ng-class="{smallerText: $ctrl.textLength(answer) > 50, smallerText2: $ctrl.textLength(answer) > 70, chosen: $ctrl.isInArray($index, $ctrl.answered[$ctrl.currentQuestion]), inResult: $ctrl.inResults, answerWould: $ctrl.wouldTrue($index), answerFalse: $ctrl.isFalse($index), answerCorrect: $ctrl.isCorrect($index),  setWhite: ($ctrl.inResults&&!($ctrl.isFalse($index)||$ctrl.isCorrect($index)))||$ctrl.wouldTrue($index)}" ng-disabled="$ctrl.inResults">
             {{answer}}
             </md-button>
