@@ -1,6 +1,6 @@
 "use strict";
 
-const app = angular.module("EatTheWorld", [ "ngMaterial", "ui.router", "smoothScroll" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngSanitize", "ngAnimate", , "ngStorage"*/ ]);
+const app = angular.module("EatTheWorld", [ "ngMaterial", "ngSanitize", "ui.router", "smoothScroll" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngAnimate", , "ngStorage"*/ ]);
 
 app.config(['$httpProvider', function($httpProvider) {
     //initialize get if not there
@@ -105,6 +105,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'japan-rituals',
             url: '/japan/rituals',
             component: 'japanRituals'
+        })
+        .state({
+            name: 'japan-quiz',
+            url: '/japan/quiz',
+            component: 'japanQuiz'
         })
         .state({
             name: 'japan-nogos',
