@@ -124,7 +124,7 @@ app.controller('threeViewerController', class ThreeViewerController {
 
             this.ObjectLoader.setMaterials(materials);
             this.ObjectLoader.load(objectSource, object => {
-                const box = new THREE.Box3().setFromObject( object )
+                const box = new THREE.Box3().setFromObject(object);
                 const boundingBoxSize = box.max.sub(box.min);
                 const height = boundingBoxSize.y;
                 object.position.y = - height / 2;
@@ -133,9 +133,12 @@ app.controller('threeViewerController', class ThreeViewerController {
         });
     }
     ResizeView() {
-        this.Camera.aspect = this.Container.clientWidth / this.Container.clientHeight;
+        const clientRect = this.Container.getBoundingClientRect();
+        const width = Math.floor(clientRect.width);
+        const height = Math.floor(clientRect.height);
+        this.Camera.aspect = width / height;
         this.Camera.updateProjectionMatrix();
-        this.Renderer.setSize(this.Container.clientWidth, this.Container.clientHeight);
+        this.Renderer.setSize(width, height);
     }
     Render() {
         this.CurrentAnimationFrame = requestAnimationFrame(() => this.Render());
@@ -148,8 +151,32 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Renderer.setSize(this.Container.clientWidth, this.Container.clientHeight);
         this.Renderer.setClearColor(new THREE.Color("hsl(0, 0%, 10%)"));
         this.Container.appendChild(this.Renderer.domElement);
+        this.Renderer.domElement.style.margin = "0";
+        this.Renderer.domElement.style.padding = "0";
     }
     SetupControls() {
+        let zoomEnabled = false;
+        window.addEventListener('keydown', e => {
+            if (e.key === 'Shift' || e.key === 'Control')
+                zoomEnabled = true;
+        }, false);
+        window.addEventListener('keyup', e => {
+            if (e.key === 'Shift' || e.key === 'Control')
+                zoomEnabled = false;
+        }, false);
+        this.Renderer.domElement.addEventListener = new Proxy(this.Renderer.domElement.addEventListener, {
+            apply(target, thisArg, [event, listener, bubble]) {
+                if (['wheel', 'mousewheel', 'MozMousePixelScroll'].includes(event)) {
+                    const originalListener = listener;
+                    listener = (...args) => {
+                        if (zoomEnabled)
+                            originalListener(...args);
+                    }
+                }
+                return target.call(thisArg, event, listener, bubble);
+            }
+        });
+
         this.Controls = new THREE.OrbitControls(this.Camera, this.Renderer.domElement);
         this.Controls.enableDamping = true;
         this.Controls.dampingFactor = 0.25;
