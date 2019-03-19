@@ -1,4 +1,29 @@
 <style>
+    .jp_table {
+        width: 80%;
+        margin: auto;
+    }
+
+    .jp_table tr {
+        display: flex;
+        flex-direction: row;
+    }
+    .jp_table th,
+    .jp_table td {
+        width: 33.3%;
+    }
+
+    .jp_table th:nth-child(2),
+    .jp_table td:nth-child(2) {
+        text-align: center;
+    }
+
+    .jp_table th:last-child,
+    .jp_table td:last-child {
+        text-align: right;
+    }
+
+
     segment div, segment p {
         font-size: 15px;
         line-height: 180%;
@@ -153,17 +178,16 @@
 
                 <!--rechte Spalte-->
 
-                <p class="languagevalue">Amharic</p>
-                <p class="capitalvalue">Addis Abeba</p>
-                <p class="religionvalue">Orthodox Christian (43.5%),
-                    Muslim (33.9%)-(2018)</p>
-                <p class="govermentvalue">Federal dominant-party parliamentary republic</p>
-                <p class="currencyvalue">Birr</p>
-                <p class="timezonevalue">UTC+3</p>
-                <p class="callingcodevalue">+251</p>
-                <p class="populationvalue">102,403,196 (2016)</p>
-                <p class="areavalue">1,104,300 km2</p>
-                <p class="populationdensityvalue">92/km2</p>
+                <p class="languagevalue">Japanese (<i>日本語 Nihongo</i>)</p>
+                <p class="capitalvalue">Tokyo (<i>東京</i>)</p>
+                <p class="religionvalue">Shinto and Buddhism</p>
+                <p class="govermentvalue">Parliamentary Democracy</p>
+                <p class="currencyvalue">Japanese Yen (¥) <info-dialog text="100 Japanese Yen equal roughly about 1 Dollar."></info-dialog></p>
+                <p class="timezonevalue">GMT+9<br><i>Current Time in Japan:</i> {{$ctrl.timeJapan()}}</p>
+                <p class="callingcodevalue">+81</p>
+                <p class="populationvalue">About 127 Million people <info-dialog text="In 2017, Japan's population was 126.8 Million people"></info-dialog></p>
+                <p class="areavalue">378,000 km<sup>2</sup></p>
+                <p class="populationdensityvalue">336/km<sup>2</sup> (2014)</p>
 
             </div>
         </div>
@@ -171,119 +195,65 @@
 
     <segment title="History" anchor="History">
         <p flex style="padding: 1%;padding-top: 0%; text-align: justify">
-            Ethiopian is a landlocked country in the northeast of Africa and its largest city is its capital city
-            Addis Abeba (=New Flower).
-            It is Africa´s oldest independent country and it is the second largest in terms of population. Apart
-            from a five-year occupation by Italy Ethiopian has never been colonised. It retained its sovereignty
-            from a long-term colonialism by a European colonial power. Ethiopian has served as a symbol of African
-            independence and was a founder member of the United Nations and the African base for many international
-            organisations. Many newly-independent nations on the continent subsequently adopted its flag colours.
-            In addition to that some of the oldest skeletal have been found in Ethiopia. The archaeologist
-            discovered a 3.5-million-year-old fossil skeletons in 1974, which they named Lucy (=Australopithecus).
-            The Anthropologists believe that it is the region from which modern humans first set out for the Middle
-            east and places beyond.
+
         </p>
 
-    </segment>
-
-    <segment title="Culture" anchor="Culture">
-        <div style="padding: 1%;padding-top: 0%; text-align: justify">
-            <h3>Costume</h3>
-            <div layout-gt-xs="row" layout-xs="column" layout-align="space-around center" style="padding: 5px;">
-                <div flex="40" style="overflow: hidden;" layout="row" layout-align="center center" >
-                    <img src="resources/images/A9.jpg" width="50%" height="70%" flex>
-                </div>
-                <div flex="60" layout="row" layout-align="start center" style="text-align: justify; padding-left: 2%">
-                    The Ethiopian traditional costume is made of woven cotton. Ethiopian men and women wear this
-                    traditional costume called gabbi or Netella. Women often wear dresses (Kemis) and netella with
-                    borders of coloured embroidered woven crosses, but other designs are also used.
-                    <br>
-                    Other ethnic groups and tribes in the south and west of the country wear different costumes that
-                    reflect their own traditions. Some tribes partially cover their body with leather and
-                    decorating their faces and bodies with distinctive images
-                </div>
-            </div>
-            <p style="padding: 1%;">     </p>
-            <h3 style="display: none">Instruments</h3>
-            <div layout-fill class="Igrid-container" style="display: none">
-                <div layout="column" class="begena">
-                    <p>Begena</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="kakaki">
-                    <p>Kakaki</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="kebero">
-                    <p>Kebero</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="kissar">
-                    <p>Kissar</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="krar">
-                    <p>Krar</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="masengo">
-                    <p>Masengo</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="sistrum">
-                    <p>Sistrum</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-
-                <div layout="column" class="washint">
-                    <p>Washint</p>
-                    <img src="resources/images/A9.jpg" width="50px">
-                    <audio controls>
-                        <source src="resources/audios/Coffee.wav" type="audio/wav">
-                    </audio>
-                </div>
-            </div>
-        </div>
     </segment>
 
     <segment title="Calendar" anchor="Calendar">
 
-        <p style="padding: 1%;padding-top: 0%; text-align: justify">Ethiopian has its own calendar which is similar to the Coptic
-            Egyptian calendar, it is just 276 years ahead of him. Like the Coptic Egyptian calendar, the Ethiopian
-            calendar has twelve months of exactly 30 days and one month of five or six days depending whether it is
-            a leap year or not.
-            Compared to the Gregorian calendar, which is being used in Europe and elsewhere, the Ethiopian calendar
-            is almost eight years behind the Gregorian calendar. The year in Ethiopian (New Year) starts on the 11th
-            of September in the Gregorian calendar.
-            For example, August 7, 2005 (Gregorian calendar) corresponds to December 1, 1997 (Ethiopian calendar)
+        <p style="padding: 1%;padding-top: 0%; text-align: justify">
+            The way the year is calculated in Japan is completely different than in any other country.<br>
+            Every time a new emperor is elected, a new 'era' of reign is beginning. The first year of someone's era would
+            be the first year of that emperor's time. For example, the year 2018 was called the thirtieth year of the
+            Heisei-time.<br>
+            But rest assured - the Gregorian calendar is also used in Japan and if you mention a year past 2000, everyone
+            will understand what you are talking about. Though in day-to-day conversations, the japanese type of year is
+            usually used.
         </p>
+
+        <md-card style="padding: 15px; background: #ffebf6; font-weight: bold">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Major Holidays
+            </h4>
+        </md-card>
+
+        <p style="padding: 1%;padding-top: 0%; text-align: justify">
+
+        </p>
+
+        <md-card style="padding: 15px; background: #ffebf6; font-weight: bold">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Seasons
+            </h4>
+        </md-card>
+        <table class="jp_table" style="padding: 1%;  text-align: left" layout="column">
+            <tr>
+                <th>Season</th>
+                <th>Japanese Name</th>
+                <th>Traditional Dates</th>
+            </tr>
+            <tr>
+                <td>Spring</td>
+                <td>春 <i>haru</i></td>
+                <td>February 5 – May 6</td>
+            </tr>
+            <tr>
+                <td>Summer</td>
+                <td>夏 <i>natsu</i></td>
+                <td>May 7 – August 8</td>
+            </tr>
+            <tr>
+                <td>Autumn</td>
+                <td>秋 <i>aki</i></td>
+                <td>August 9 – November 7</td>
+            </tr>
+            <tr>
+                <td>Winter</td>
+                <td>冬 <i>fuyu</i></td>
+                <td>November 8 – February 4</td>
+            </tr>
+        </table>
 
         <h2>&nbsp;&nbsp;Months - starts
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

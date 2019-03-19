@@ -17,12 +17,15 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             name: "General",
             state: "japan-general"
         }, {
-            name: "Food",
+            name: "Food & Drinks",
             state: "japan-food"
         }, {
             name: "Rituals",
             state: "japan-rituals"
         }, {
+            name: "Quiz",
+            state: "japan-quiz"
+        },{
             name: "No Go's",
             state: "japan-nogos"
         }]
@@ -36,7 +39,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             name: "Language",
             state: "ethiopia-language"
         }, {
-            name: "Food",
+            name: "Food & Drinks",
             state: "ethiopia-food"
         }, {
             name: "Rituals",
