@@ -50,3 +50,8 @@ body {
 .big-tooltip.md-show {
     opacity: 1 !important;
 }
+
+ul.no-list {
+    list-style-type: none;
+    padding-left: 0;
+}

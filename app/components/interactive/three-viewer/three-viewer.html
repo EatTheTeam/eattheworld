@@ -1,3 +1,71 @@
-<wrap heading="{{$ctrl.heading || '3D Viewer'}}">
+<style>
+    three-viewer .help-overlay {
+        background-color: rgba(0, 0, 0, .75);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+    three-viewer .show-help, three-viewer .hide-help {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    three-viewer md-icon, three-viewer .help-overlay span {
+        color: white !important;
+        text-align: center;
+    }
+
+    three-viewer .help-overlay li md-icon {
+        font-size: 48px;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 20px;
+    }
+
+    three-viewer .help-overlay .md-title {
+        margin-bottom: 10px;
+    }
+
+    three-viewer .help-overlay .controls-description-single {
+        margin-bottom: 10px;
+        max-width: 200px;
+    }
+</style>
+<wrap heading="{{ $ctrl.heading || '3D Viewer' }}">
     <div class="three-view" flex layout-fill=""></div>
+    <div class="help-overlay" ng-show="$ctrl.showControls">
+        <ul class="no-list" layout="row" layout-fill="" layout-align="space-around center">
+            <li layout="column" layout-align="center center">
+                <md-icon class="material-icons">pan_tool</md-icon>
+                <span class="md-title">Pan</span>
+                <span class="controls-description-single">
+                    Right click + drag
+                </span>
+            </li>
+            <li layout="column">
+                <md-icon class="material-icons">zoom_in</md-icon>
+                <span class="md-title">Zoom</span>
+                <span class="controls-description-single">
+                    Middle click + drag or scroll and shift or ctrl
+                </span>
+            </li>
+            <li layout="column">
+                <md-icon class="material-icons">rotate_right</md-icon>
+                <span class="md-title">Orbit Around</span>
+                <span class="controls-description-single">
+                    Left click + drag
+                </span>
+            </li>
+        </ul>
+    </div>
+    <md-icon-button class="show-help clickable" ng-hide="$ctrl.showControls" ng-click="$ctrl.showControls = true">
+        <md-icon class="material-icons">help</md-icon>
+    </md-icon-button>
+    <md-icon-button class="hide-help clickable" ng-show="$ctrl.showControls" ng-click="$ctrl.showControls = false">
+        <md-icon class="material-icons">close</md-icon>
+    </md-icon-button>
 </wrap>
