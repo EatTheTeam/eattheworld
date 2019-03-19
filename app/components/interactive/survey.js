@@ -27,7 +27,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.nextItem = () => {
-       if(this.currentQuestion < this.questions.length){
+       if(this.currentQuestion < this.shuffledQuestions.length){
            this.currentQuestion++;
        }
     };
@@ -39,12 +39,12 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isLast = () => {
-        return this.currentQuestion >= this.questions.length-1;
+        return this.currentQuestion >= this.shuffledQuestions.length-1;
     };
 
     this.finishScreen = () => {
-        for(let i = 0; i < this.questions.length; i++){
-            if(arraysEqual(this.answered[i], this.questions[i].correct)|| this.answered[i]===this.questions[i].correct){
+        for(let i = 0; i < this.shuffledQuestions.length; i++){
+            if(arraysEqual(this.answered[i], this.shuffledQuestions[i].correct)|| this.answered[i]===this.shuffledQuestions[i].correct){
                 this.answeredCorrectly++;
             }
         }
@@ -129,11 +129,12 @@ app.controller('SurveyController', function ($scope, $timeout) {
 
     this.wouldTrue = (index) => {
         if(!Array.isArray(this.answered[this.currentQuestion])) {
-            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] !== index) {
+            if (this.inResults && index === this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] !== index) {
                 return true;
             }
         } else {
-            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].includes(index)) {
+            console.log(this.shuffledQuestions[this.currentQuestion].correct);
+            if (this.inResults && this.shuffledQuestions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
         }
@@ -141,11 +142,11 @@ app.controller('SurveyController', function ($scope, $timeout) {
 
     this.isFalse = (index) => {
         if(!Array.isArray(this.answered[this.currentQuestion])) {
-            if (this.inResults && index !== this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
+            if (this.inResults && index !== this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
         } else {
-            if (this.inResults && !this.questions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
+            if (this.inResults && !this.shuffledQuestions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
         }
@@ -153,11 +154,11 @@ app.controller('SurveyController', function ($scope, $timeout) {
 
     this.isCorrect = (index) => {
         if(!Array.isArray(this.answered[this.currentQuestion])) {
-            if (this.inResults && index === this.questions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
+            if (this.inResults && index === this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
         } else {
-            if (this.inResults && this.questions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
+            if (this.inResults && this.shuffledQuestions[this.currentQuestion].correct.includes(index) && this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
         }
