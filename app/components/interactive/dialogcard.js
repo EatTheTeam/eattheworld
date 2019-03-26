@@ -31,8 +31,8 @@ app.controller('DialogcardController', function ($timeout) {
         prevF();
     };
 
-    var nextF = ()=>{
-        if(!this.isLast()) {
+    var nextF = () => {
+        if (!this.isLast()) {
             this.transPrevIn = false;
             this.transNextOut = true;
             $timeout(() => {
@@ -51,8 +51,8 @@ app.controller('DialogcardController', function ($timeout) {
         }
     };
 
-    var prevF = ()=>{
-        if(!this.isFirst()) {
+    var prevF = () => {
+        if (!this.isFirst()) {
             this.transNextIn = false;
             this.transPrevOut = true;
             $timeout(() => {
@@ -72,17 +72,17 @@ app.controller('DialogcardController', function ($timeout) {
     };
 
     this.isLast = () => {
-        return this.currentCard>=this.questions.length-1;
+        return this.currentCard >= this.questions.length - 1;
     };
 
     this.isFirst = () => {
-        return this.currentCard<=0;
+        return this.currentCard <= 0;
     };
 
 
     this.reveal = (answer) => {
-        if(!(this.transNextOut||this.transNextBetw||this.transNextIn||this.transPrevOut||this.transPrevBetw||this.transPrevIn)) {
-            if (!this.revealed&&answer) {
+        if (!(this.transNextOut || this.transNextBetw || this.transNextIn || this.transPrevOut || this.transPrevBetw || this.transPrevIn)) {
+            if (!this.revealed && answer) {
                 this.currentAnswer = answer;
             }
             this.revealed = !this.revealed;

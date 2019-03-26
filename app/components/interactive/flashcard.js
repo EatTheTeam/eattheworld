@@ -30,9 +30,9 @@ app.controller('FlashcardController', function ($timeout) {
     this.previous = () => {
         prevF();
     };
-    
-    var nextF = ()=>{
-        if(!this.isLast()) {
+
+    var nextF = () => {
+        if (!this.isLast()) {
             this.transPrevIn = false;
             this.transNextOut = true;
             $timeout(() => {
@@ -51,8 +51,8 @@ app.controller('FlashcardController', function ($timeout) {
         }
     };
 
-    var prevF = ()=>{
-        if(!this.isFirst()) {
+    var prevF = () => {
+        if (!this.isFirst()) {
             this.transNextIn = false;
             this.transPrevOut = true;
             $timeout(() => {
@@ -72,11 +72,11 @@ app.controller('FlashcardController', function ($timeout) {
     };
 
     this.isLast = () => {
-        return this.currentCard>=this.questions.length-1;
+        return this.currentCard >= this.questions.length - 1;
     };
 
     this.isFirst = () => {
-        return this.currentCard<=0;
+        return this.currentCard <= 0;
     };
 
 

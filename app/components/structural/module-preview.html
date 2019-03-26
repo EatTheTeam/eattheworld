@@ -3,6 +3,7 @@
         padding: 0;
         overflow-wrap: break-word;
     }
+
     .module-preview .desktop {
         background-color: rgba(0, 0, 0, .5);
         color: white;
@@ -10,22 +11,28 @@
         transform: translateY(70%);
         transition: transform .5s;
     }
+
     .module-preview:hover .desktop {
         transform: translateY(0);
     }
+
     .gt-xs .module-preview .mobile {
         display: none;
     }
+
     .module-preview .desktop {
         display: none;
     }
+
     @media screen and (min-width: 400px) {
-        .module-preview .desktop  {
+        .module-preview .desktop {
             display: unset !important;
         }
+
         .module-preview .mobile {
             display: none;
         }
+
         module-preview md-card.module-preview { /* overrule dynamically loaded theme */
             background-size: cover;
             background-clip: content-box;
@@ -37,14 +44,18 @@
             transition: width 1s, height 1s;
             overflow: hidden;
         }
+
         .module-preview:hover {
             width: 200px;
             height: 200px;
         }
     }
 </style>
-<md-card class="module-preview" ui-sref="{{$ctrl.state}}" style="cursor: pointer; background: url('{{$ctrl.image}}') center; background-size: cover;"  ng-style="{ backgroundColor: $ctrl.color }">
-    <md-card-content class="mobile" layout="column" layout-align="end center" style="width: 100%; padding: 0; background-color: white">
+<md-card class="module-preview" ui-sref="{{$ctrl.state}}"
+         style="cursor: pointer; background: url('{{$ctrl.image}}') center; background-size: cover;"
+         ng-style="{ backgroundColor: $ctrl.color }">
+    <md-card-content class="mobile" layout="column" layout-align="end center"
+                     style="width: 100%; padding: 0; background-color: white">
         <img style="width: 100%; height: auto; margin: 0;" ng-src="{{$ctrl.image}}">
         <div style="width: 100%; padding: 15px;">
             <h3 style="width: 100%; text-align: center; margin: 0">{{$ctrl.title}}</h3>

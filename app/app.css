@@ -6,17 +6,17 @@ body {
     overflow: hidden;
 }
 
-.japan_wallpaper{
+.japan_wallpaper {
     background: url('resources/images/japan_background_05.jpg') 0 90%;
     background-size: cover;
 }
 
-.ethiopia_wallpaper{
+.ethiopia_wallpaper {
     background: url('resources/images/ethiopia_background_02.jpg') 0 90%;
     background-size: cover;
 }
 
-.ethiopia_wallpaper_general{
+.ethiopia_wallpaper_general {
     background: url('resources/images/A9.jpg') 0 60%;
     background-size: cover;
 }
@@ -47,6 +47,7 @@ body {
     color: initial !important;
     padding: 0;
 }
+
 .big-tooltip.md-show {
     opacity: 1 !important;
 }

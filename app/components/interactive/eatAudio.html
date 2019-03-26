@@ -1,6 +1,10 @@
 <div layout="row" layout-align="start end">
-    <md-button class="md-icon-button" ng-click="$ctrl.play()" ng-if="!$ctrl.playing"><md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">play_arrow</md-icon></md-button>
-    <md-button class="md-icon-button" ng-click="$ctrl.pause()" ng-if="$ctrl.playing"><md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">pause</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="$ctrl.play()" ng-if="!$ctrl.playing">
+        <md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">play_arrow</md-icon>
+    </md-button>
+    <md-button class="md-icon-button" ng-click="$ctrl.pause()" ng-if="$ctrl.playing">
+        <md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">pause</md-icon>
+    </md-button>
     <md-menu>
         <md-button class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu)">
             <md-icon md-menu-origin md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">more_vert</md-icon>
@@ -8,7 +12,7 @@
         <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
             <md-menu-item>
                 <p>
-                   Speed
+                    Speed
                 </p>
             </md-menu-item>
             <md-menu-divider></md-menu-divider>
@@ -23,7 +27,7 @@
                 </md-button>
             </md-menu-item>
             <md-menu-item>
-                <md-button ng-click="$ctrl.changeSpeed(1)"  ng-disabled="$ctrl.speed===1">
+                <md-button ng-click="$ctrl.changeSpeed(1)" ng-disabled="$ctrl.speed===1">
                     x1
                 </md-button>
             </md-menu-item>
