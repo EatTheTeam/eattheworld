@@ -1,9 +1,9 @@
 'use strict';
 
-app.component('ethiopiaLanguage', {
+app.component('japanLanguage', {
     templateUrl: 'components/japan/japan-language.html',
-    controller: 'EthiopiaLanguageController'
+    controller: 'japanLanguageController'
 });
 
-app.controller('EthiopiaLanguageController', function () {
+app.controller('japanLanguageController', function () {
 });

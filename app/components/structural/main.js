@@ -28,6 +28,9 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "No Go's",
             state: "japan-nogos"
+        }, {
+            name: "Language",
+            state: "japan-language"
         }]
     }, {
         name: "Ethiopia",
