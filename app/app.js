@@ -1,8 +1,8 @@
 "use strict";
 
-const app = angular.module("EatTheWorld", [ "ngMaterial", "ngSanitize", "ui.router", "smoothScroll" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngAnimate", , "ngStorage"*/ ]);
+const app = angular.module("EatTheWorld", ["ngMaterial", "ngSanitize", "ui.router", "smoothScroll" /*"ngRoute", "ui.router" /*, "ngResource", "ngMessages", "ngLocale", "ngAnimate", , "ngStorage"*/]);
 
-app.config(['$httpProvider', function($httpProvider) {
+app.config(['$httpProvider', function ($httpProvider) {
     //initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};
@@ -45,9 +45,9 @@ app.config($mdThemingProvider => {
 
     // use
     $mdThemingProvider.theme('japan')
-        .primaryPalette('japanPrimary', { 'default': '500' })
-        .accentPalette('japanAccent', { 'default': '500' })
-        .warnPalette('japanWarn', { 'default': '500' });
+        .primaryPalette('japanPrimary', {'default': '500'})
+        .accentPalette('japanAccent', {'default': '500'})
+        .warnPalette('japanWarn', {'default': '500'});
 
 
     // define
@@ -74,9 +74,9 @@ app.config($mdThemingProvider => {
 
     // use
     $mdThemingProvider.theme('ethiopia')
-        .primaryPalette('ethiopiaPrimary', { 'default': '500' })
-        .accentPalette('ethiopiaAccent', { 'default': '500' })
-        .warnPalette('ethiopiaWarn', { 'default': '500' });
+        .primaryPalette('ethiopiaPrimary', {'default': '500'})
+        .accentPalette('ethiopiaAccent', {'default': '500'})
+        .warnPalette('ethiopiaWarn', {'default': '500'});
 });
 
 app.config(($stateProvider, $urlRouterProvider) => {

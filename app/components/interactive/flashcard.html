@@ -9,12 +9,15 @@
     .flashcard-flipcontainer {
         perspective: 1000px;
     }
+
     /* flip the pane when hovered */
-    .flashcard-flipcontainer .flipcard{
+    .flashcard-flipcontainer .flipcard {
         transform: rotateX(180deg);
     }
 
-    .flashcard-front:focus, .flashcard-back:focus, .flashcard-flipcontainer:focus, .flashcard-flipper:focus{outline:0;}
+    .flashcard-front:focus, .flashcard-back:focus, .flashcard-flipcontainer:focus, .flashcard-flipper:focus {
+        outline: 0;
+    }
 
     .flashcard-flipcontainer, .flashcard-front, .flashcard-back {
         width: 600px;
@@ -22,7 +25,7 @@
     }
 
     .flashcard-front, .flashcard-back {
-        background-color: rgb(255,255,255);
+        background-color: rgb(255, 255, 255);
         border-radius: 2px;
 
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
@@ -64,7 +67,6 @@
         transition: transform 150ms;
     }
 
-
     /*fade next animation*/
     .flashcard-next-out {
         transition: transform 300ms, visibility 300ms, opacity 300ms;
@@ -74,7 +76,7 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-in{
+    .flashcard-next-in {
         transition: transform 300ms, visibility 300ms, opacity 300ms;
         transform: translateX(0px) rotateX(0deg);
         visibility: visible;
@@ -82,7 +84,7 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-betw{
+    .flashcard-next-betw {
         transition: transform 1ms;
         transform: translateX(-20px);
         visibility: hidden;
@@ -90,7 +92,7 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-next-betw-flipper{
+    .flashcard-next-betw-flipper {
         transition: transform 1ms;
         transform: rotateX(0deg);
         visibility: hidden;
@@ -107,7 +109,7 @@
         transition-timing-function: ease-in-out;
     }
 
-    .flashcard-prev-in{
+    .flashcard-prev-in {
         transition: transform 300ms, visibility 300ms, opacity 300ms;
         transform: translateX(0px) rotateX(0deg);
         visibility: visible;
@@ -155,20 +157,26 @@
 </style>
 <div class="flashcard-container">
     <div class="flashcard-flipcontainer"
-        ng-class="{'flashcard-reveal-fast': $ctrl.revealeFast, 'flashcard-next-out': $ctrl.transNextOut, 'flashcard-next-in': $ctrl.transNextIn, 'flashcard-next-betw': $ctrl.transNextBetw, 'flashcard-prev-out': $ctrl.transPrevOut, 'flashcard-prev-in': $ctrl.transPrevIn, 'flashcard-prev-betw': $ctrl.transPrevBetw}">
-    <div class="flashcard-flipper" ng-click="$ctrl.reveal()"
-        ng-class="{flipcard: $ctrl.revealed,'flashcard-next-betw-flipper': $ctrl.transNextBetw, 'flashcard-prev-betw-flipper': $ctrl.transPrevBetw}">
-        <div class="flashcard-front" layout="column" layout-align="center center">
-            <h2>{{$ctrl.questions[$ctrl.currentCard].question}}</h2>
+         ng-class="{'flashcard-reveal-fast': $ctrl.revealeFast, 'flashcard-next-out': $ctrl.transNextOut, 'flashcard-next-in': $ctrl.transNextIn, 'flashcard-next-betw': $ctrl.transNextBetw, 'flashcard-prev-out': $ctrl.transPrevOut, 'flashcard-prev-in': $ctrl.transPrevIn, 'flashcard-prev-betw': $ctrl.transPrevBetw}">
+        <div class="flashcard-flipper" ng-click="$ctrl.reveal()"
+             ng-class="{flipcard: $ctrl.revealed,'flashcard-next-betw-flipper': $ctrl.transNextBetw, 'flashcard-prev-betw-flipper': $ctrl.transPrevBetw}">
+            <div class="flashcard-front" layout="column" layout-align="center center">
+                <h2>{{$ctrl.questions[$ctrl.currentCard].question}}</h2>
+            </div>
+            <div class="flashcard-back" layout="column" layout-align="center center">
+                <div class="flashcard-answer-text">{{$ctrl.questions[$ctrl.currentCard].answer}}</div>
+            </div>
         </div>
-        <div class="flashcard-back" layout="column" layout-align="center center">
-            <div class="flashcard-answer-text">{{$ctrl.questions[$ctrl.currentCard].answer}}</div>
-        </div>
-    </div>
     </div>
     <div layout="row" layout-align="center center">
-        <md-button class="md-icon-button" ng-click="$ctrl.previous()" ng-disabled="$ctrl.isFirst()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn"><md-icon md-font-icon="material-icons">navigate_before</md-icon></md-button>
+        <md-button class="md-icon-button" ng-click="$ctrl.previous()"
+                   ng-disabled="$ctrl.isFirst()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn">
+            <md-icon md-font-icon="material-icons">navigate_before</md-icon>
+        </md-button>
         <p>{{$ctrl.currentCard+1}}/{{$ctrl.questions.length}}</p>
-        <md-button class="md-icon-button" ng-click="$ctrl.next()" ng-disabled="$ctrl.isLast()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn"><md-icon md-font-icon="material-icons">navigate_next</md-icon></md-button>
+        <md-button class="md-icon-button" ng-click="$ctrl.next()"
+                   ng-disabled="$ctrl.isLast()||$ctrl.transNextOut||$ctrl.transNextBetw||$ctrl.transNextIn||$ctrl.transPrevOut||$ctrl.transPrevBetw||$ctrl.transPrevIn">
+            <md-icon md-font-icon="material-icons">navigate_next</md-icon>
+        </md-button>
     </div>
 </div>
