@@ -4,21 +4,13 @@
         line-height: 180%;
     }
 
-    ethiopia-language .play md-card {
-        width: 40vw;
-        height: fit-content;
-        padding: 5px;
+    ethiopia-language ethiopia-audio-card {
+        width: 50%;
     }
 
-    ethiopia-language .play p {
-        font-weight: bolder;
-    }
-
-    @media screen and (max-width: 600px) {
-        ethiopia-language .play md-card {
+    @media screen and (max-width: 800px) {
+        ethiopia-language ethiopia-audio-card {
             width: 100%;
-            height: fit-content;
-            padding: 5px;
         }
 
         ethiopia-language table {
@@ -81,254 +73,49 @@
     </segment>
 
     <segment title="Play" anchor="Language">
-        <div layout="row" style="flex-wrap: wrap" class="play">
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Coffee
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <!--
-                    <eat-audio controls flex="66">
-                        <source src="resources/eat-audios/Coffee.wav" type="eat-audio/wav">
-                    </eat-audio>
-                    -->
-                    <eat-audio src="resources/audios/Coffee.wav" type="audio/wav"></eat-audio>
-                    <div flex="70"></div>
-                    <div flex="30">
-                        buna
-                        <br>
-                        ቡና
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Dinner
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Abendessen.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        irat
-                        <br>
-                        እራት
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Bread
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Bread.wav" controls flex="66">
-
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        dabo
-                        <br>
-                        ዳቦ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Breakfast
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Breakfast.wav" controls flex="66">
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        k’uris
-                        <br>
-                        ቁርስ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Bye
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Bye.wav" controls flex="66">
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        chawu
-                        <br>
-                        ቻዉ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Cheers
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Cheers.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        let’ēninetachin
-                        <br>
-                        ለጤንነታችን
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Enjoy your meal
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Enjoy_your_meal.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        melikam mēgēb
-                        <br>
-                        መልካም ሜጌብ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Excuse me
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Excuse_me.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        yik’irta
-                        <br>
-                        ይቅርታ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Hallo
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Hallo2.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        selam
-                        <br>
-                        ሰላም
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Menu
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Menu.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        yemigib mazezha
-                        <br>
-                        የምግብ ማዘዣ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Lunch
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Mittagessen.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        misa
-                        <br>
-                        ምሳ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        no
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/No.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        āyi
-                        <br>
-                        አይ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        I do not want to
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/No2.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        ālfeligim
-                        <br>
-                        አልፈልግም
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        popcorn
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Popcorn.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        fandisha
-                        <br>
-                        ፋንድሻ
-                    </div>
-                </div>
-            </md-card>
-
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Coffee"
+                    translation="buna"
+                    native="ቡና"
+                    audio="resources/audios/Coffee.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Dinner"
+                    translation="irat"
+                    native="እራት"
+                    audio="resources/audios/Abendessen.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Bread"
+                    translation="dabo"
+                    native="ዳቦ"
+                    audio="resources/audios/Bread.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Breakfast"
+                    translation="chawu"
+                    native="ቻዉ"
+                    audio="resources/audios/Breakfast.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Cheers"
+                    translation="selam"
+                    native="ሰላም"
+                    audio="resources/audios/Cheers.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Menu"
+                    translation="misa"
+                    native="ምሳ"
+                    audio="resources/audios/Menu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="no"
+                    translation="fandisha"
+                    native="ፋንድሻ"
+                    audio="resources/audios/No.wav"
+                    audio-type="audio/wav" />
         </div>
     </segment>
 

@@ -1,0 +1,13 @@
+<md-card layout="row" layout-align="start center" style="padding: 15px">
+    <span style="width: 35%">{{$ctrl.original}}</span>
+    <span>
+        <span layout="column" layout-align="center center">
+            <span>{{$ctrl.translation}}</span>
+            <span>{{$ctrl.native}}</span>
+        </span>
+    </span>
+    <span flex></span>
+    <div style="overflow: hidden;" layout="row">
+        <eat-audio ng-src="{{$ctrl.audio}}" type="{{$ctrl.audioType || 'audio/wav'}}"></eat-audio>
+    </div>
+</md-card>

@@ -1,4 +1,10 @@
-<div layout="row" layout-align="start end">
+<style>
+    eatAudio .md-icon-button button {
+        margin: 0 !important;
+    }
+</style>
+
+<div layout="row" layout-align="start center">
     <md-button class="md-icon-button" ng-click="$ctrl.play()" ng-if="!$ctrl.playing">
         <md-icon md-font-icon="material-icons" ng-disabled="!$ctrl.loaded">play_arrow</md-icon>
     </md-button>
