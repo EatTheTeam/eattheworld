@@ -4,47 +4,102 @@
         line-height: 180%;
     }
 
-    .language { grid-area: column1row1; }
-    .languagevalue { grid-area: column1row2; }
-    .capital { grid-area: column2row1; }
-    .capitalvalue { grid-area: column2row2; }
-    .religion { grid-area: column3row1; }
-    .religionvalue { grid-area: column3row2; }
-    .goverment { grid-area: column4row1; }
-    .govermentvalue { grid-area: column4row2; }
-    .currency { grid-area: column5row1; }
-    .currencyvalue { grid-area: column5row2; }
-    .timezone { grid-area: column6row1; }
-    .timezonevalue { grid-area: column6row2; }
-    .callingcode { grid-area: column7row1; }
-    .callingcodevalue { grid-area: column7row2; }
-    .population { grid-area: column8row1; }
-    .populationvalue { grid-area: column8row2; }
-    .area { grid-area: column9row1; }
-    .areavalue { grid-area: column9row2; }
-    .populationdensity { grid-area: column10row1; }
-    .populationdensityvalue { grid-area: column10row2; }
-    .bilder1 { grid-area: column1-5row1; }
-    .bilder2 { grid-area: column5-10row1; }
+    .language {
+        grid-area: column1row1;
+    }
+
+    .languagevalue {
+        grid-area: column1row2;
+    }
+
+    .capital {
+        grid-area: column2row1;
+    }
+
+    .capitalvalue {
+        grid-area: column2row2;
+    }
+
+    .religion {
+        grid-area: column3row1;
+    }
+
+    .religionvalue {
+        grid-area: column3row2;
+    }
+
+    .goverment {
+        grid-area: column4row1;
+    }
+
+    .govermentvalue {
+        grid-area: column4row2;
+    }
+
+    .currency {
+        grid-area: column5row1;
+    }
+
+    .currencyvalue {
+        grid-area: column5row2;
+    }
+
+    .timezone {
+        grid-area: column6row1;
+    }
+
+    .timezonevalue {
+        grid-area: column6row2;
+    }
+
+    .callingcode {
+        grid-area: column7row1;
+    }
+
+    .callingcodevalue {
+        grid-area: column7row2;
+    }
+
+    .population {
+        grid-area: column8row1;
+    }
+
+    .populationvalue {
+        grid-area: column8row2;
+    }
+
+    .area {
+        grid-area: column9row1;
+    }
+
+    .areavalue {
+        grid-area: column9row2;
+    }
+
+    .populationdensity {
+        grid-area: column10row1;
+    }
+
+    .populationdensityvalue {
+        grid-area: column10row2;
+    }
+
+    .bilder1 {
+        grid-area: column1-5row1;
+    }
+
+    .bilder2 {
+        grid-area: column5-10row1;
+    }
 
     .grid-container {
         /*height: 100vh;*/
         display: grid;
-        grid-template-areas:
-                'column1-5row1 column1-5row1 column1row1 column1row2'
-                'column1-5row1 column1-5row1 column2row1 column2row2'
-                'column1-5row1 column1-5row1 column3row1 column3row2'
-                'column1-5row1 column1-5row1 column4row1 column4row2'
-                'column1-5row1 column1-5row1 column5row1 column5row2'
-                'column5-10row1 column5-10row1 column6row1 column6row2'
-                'column5-10row1 column5-10row1 column7row1 column7row2'
-                'column5-10row1 column5-10row1 column8row1 column8row2'
-                'column5-10row1 column5-10row1 column9row1 column9row2'
-                'column5-10row1 column5-10row1 column10row1 column10row2';
+        grid-template-areas: 'column1-5row1 column1-5row1 column1row1 column1row2' 'column1-5row1 column1-5row1 column2row1 column2row2' 'column1-5row1 column1-5row1 column3row1 column3row2' 'column1-5row1 column1-5row1 column4row1 column4row2' 'column1-5row1 column1-5row1 column5row1 column5row2' 'column5-10row1 column5-10row1 column6row1 column6row2' 'column5-10row1 column5-10row1 column7row1 column7row2' 'column5-10row1 column5-10row1 column8row1 column8row2' 'column5-10row1 column5-10row1 column9row1 column9row2' 'column5-10row1 column5-10row1 column10row1 column10row2';
         grid-column-gap: 1%;
         /*background-color: rgba(63,81,181);*/
         padding: 1%;
-        margin:0;
+        margin: 0;
     }
 
     .grid-container > p {
@@ -53,73 +108,87 @@
         /*padding: 2% 0;*/
         font-size: 13px;
     }
-    .bilder1{
+
+    .bilder1 {
         padding-bottom: 1%;
     }
-    .bilder2{
+
+    .bilder2 {
         padding-top: 1%;
     }
+
     @media screen and (max-width: 900px) {
         .grid-container {
             /*height: 100vh;*/
             display: grid;
-            grid-template-areas:
-                    'column1-5row1 column5-10row1'
-                    'column1row1 column1row2'
-                    'column2row1 column2row2'
-                    'column3row1 column3row2'
-                    'column4row1 column4row2'
-                    'column5row1 column5row2'
-                    'column6row1 column6row2'
-                    'column7row1 column7row2'
-                    'column8row1 column8row2'
-                    'column9row1 column9row2'
-                    'column10row1 column10row2';
+            grid-template-areas: 'column1-5row1 column5-10row1' 'column1row1 column1row2' 'column2row1 column2row2' 'column3row1 column3row2' 'column4row1 column4row2' 'column5row1 column5row2' 'column6row1 column6row2' 'column7row1 column7row2' 'column8row1 column8row2' 'column9row1 column9row2' 'column10row1 column10row2';
             grid-column-gap: 1%;
             /*background-color: rgba(63,81,181);*/
             padding: 1%;
-            margin:0;
+            margin: 0;
         }
-        .bilder1{
+
+        .bilder1 {
             padding-bottom: 0;
         }
-        .bilder2{
+
+        .bilder2 {
             padding-top: 0;
         }
 
     }
 
     /*Instrumente*/
-    .begena { grid-area: Icolumn1row1; }
-    .kakaki { grid-area: Icolumn1row2; }
-    .kebero { grid-area: Icolumn2row1; }
-    .kissar { grid-area: Icolumn2row2; }
-    .krar { grid-area: Icolumn3row1; }
-    .masengo { grid-area: Icolumn3row2; }
-    .sistrum { grid-area: Icolumn4row1; }
-    .washint { grid-area: Icolumn4row2; }
+    .begena {
+        grid-area: Icolumn1row1;
+    }
+
+    .kakaki {
+        grid-area: Icolumn1row2;
+    }
+
+    .kebero {
+        grid-area: Icolumn2row1;
+    }
+
+    .kissar {
+        grid-area: Icolumn2row2;
+    }
+
+    .krar {
+        grid-area: Icolumn3row1;
+    }
+
+    .masengo {
+        grid-area: Icolumn3row2;
+    }
+
+    .sistrum {
+        grid-area: Icolumn4row1;
+    }
+
+    .washint {
+        grid-area: Icolumn4row2;
+    }
 
     .Igrid-container {
         /*height: 100vh;*/
         display: grid;
-        grid-template-areas:
-                'Icolumn1row1 Icolumn1row2'
-                'Icolumn2row1 Icolumn2row2'
-                'Icolumn3row1 Icolumn3row2'
-                'Icolumn4row1 Icolumn4row2';
+        grid-template-areas: 'Icolumn1row1 Icolumn1row2' 'Icolumn2row1 Icolumn2row2' 'Icolumn3row1 Icolumn3row2' 'Icolumn4row1 Icolumn4row2';
         grid-column-gap: 1%;
         /*background-color: rgba(63,81,181);*/
         padding: 1%;
-        margin:0;
+        margin: 0;
     }
-    .Igrid-container > div >img{
+
+    .Igrid-container > div > img {
         width: 70%;
         padding-left: 5%;
     }
 
     @media screen and (max-width: 600px) {
 
-        table{
+        table {
             width: 100%;
             font-size: 2.8vmin;
         }
@@ -135,8 +204,8 @@
 
                 <!--Bilder-->
 
-                <img src="resources/images/A9.jpg" width="100%" class="bilder1" >
-                <img src="resources/images/A9.jpg" width="100%" class="bilder2" >
+                <img src="resources/images/A9.jpg" width="100%" class="bilder1">
+                <img src="resources/images/A9.jpg" width="100%" class="bilder2">
 
                 <!--linke Spalte-->
 
@@ -190,7 +259,7 @@
         <div style="padding: 1%;padding-top: 0%; text-align: justify">
             <h3>Costume</h3>
             <div layout-gt-xs="row" layout-xs="column" layout-align="space-around center" style="padding: 5px;">
-                <div flex="40" style="overflow: hidden;" layout="row" layout-align="center center" >
+                <div flex="40" style="overflow: hidden;" layout="row" layout-align="center center">
                     <img src="resources/images/A9.jpg" width="50%" height="70%" flex>
                 </div>
                 <div flex="60" layout="row" layout-align="start center" style="text-align: justify; padding-left: 2%">
@@ -203,7 +272,7 @@
                     decorating their faces and bodies with distinctive images
                 </div>
             </div>
-            <p style="padding: 1%;">     </p>
+            <p style="padding: 1%;"></p>
             <h3 style="display: none">Instruments</h3>
             <div layout-fill class="Igrid-container" style="display: none">
                 <div layout="column" class="begena">
@@ -275,7 +344,8 @@
 
     <segment title="Calendar" anchor="Calendar">
 
-        <p style="padding: 1%;padding-top: 0%; text-align: justify">Ethiopian has its own calendar which is similar to the Coptic
+        <p style="padding: 1%;padding-top: 0%; text-align: justify">Ethiopian has its own calendar which is similar to
+            the Coptic
             Egyptian calendar, it is just 276 years ahead of him. Like the Coptic Egyptian calendar, the Ethiopian
             calendar has twelve months of exactly 30 days and one month of five or six days depending whether it is
             a leap year or not.

@@ -1,7 +1,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-    .flag{
+    .flag {
         position: relative;
         cursor: pointer;
     }
@@ -10,21 +10,22 @@
         border-radius: 15px;
         overflow: hidden;
     }
-	
-	.flag > ng-transclude{
+
+    .flag > ng-transclude {
         transition: filter 150ms ease-in;
         z-index: 1;
-	}
+    }
 
-    .flag:hover > ng-transclude{
+    .flag:hover > ng-transclude {
         filter: brightness(50%);
     }
-    .flag:hover > div{
+
+    .flag:hover > div {
         color: white;
         opacity: 1;
     }
 
-    .flag > div{
+    .flag > div {
         opacity: 0;
         position: absolute;
         top: 10%;
@@ -37,39 +38,42 @@
         z-index: 2;
     }
 
-    div.flag > div.flag_trans{
+    div.flag > div.flag_trans {
         transition: opacity 150ms ease-in 50ms;
     }
 
-    .flag > div > p{
+    .flag > div > p {
         margin: 0;
     }
 
     @media only screen and (max-width: 1280px) {
-        .flag > div{
+        .flag > div {
             font-size: 16px;
         }
     }
 
     @media only screen and (max-width: 400px) {
-        .flagDescription{
+        .flagDescription {
             margin-top: -1em !important;
             font-size: small;
         }
     }
+
     @media only screen and (max-width: 900px) and (min-width: 701px) {
-        .flagDescription{
+        .flagDescription {
             margin-top: -1em !important;
             font-size: small;
         }
     }
-    @media only screen and (max-width: 320px){
-        .flagDescription{
+
+    @media only screen and (max-width: 320px) {
+        .flagDescription {
             display: none;
         }
     }
+
     @media only screen and (max-width: 700px) and (min-width: 601px) {
-        .flagDescription{
+        .flagDescription {
             display: none;
         }
     }
@@ -86,7 +90,7 @@
 </div>
 
 <script>
-    setTimeout(function() {
+    setTimeout(function () {
         $('div.flag > div').addClass('flag_trans'); // line 57 in jquery.sticky.js
     }, 100);
 </script>

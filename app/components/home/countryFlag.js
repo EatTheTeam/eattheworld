@@ -1,4 +1,3 @@
-
 app.component('countryFlag', {
     templateUrl: 'components/home/countryFlag.html',
     controller: 'countryFlag',

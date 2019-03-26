@@ -25,7 +25,7 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
         }, {
             name: "Quiz",
             state: "japan-quiz"
-        },{
+        }, {
             name: "No Go's",
             state: "japan-nogos"
         }]
@@ -51,19 +51,22 @@ app.controller('MainController', function ($state, $mdSidenav, $mdMedia, $scope,
             name: "Quiz",
             state: "ethiopia-quiz"
         }]
-    },{
-        name: "Komponenten",
-        state: "test",
-        modules: []
-    },{
-        name: "3D Viewer",
-        state: "three-test",
-        modules: []
-    },{
-        name: "Image Hotspots",
-        state: "image-hotspots-test",
-        modules: []
-    }];
+    }
+        /*,{
+            name: "Komponenten",
+            state: "test",
+            modules: []
+        },{
+            name: "3D Viewer",
+            state: "three-test",
+            modules: []
+        },{
+            name: "Image Hotspots",
+            state: "image-hotspots-test",
+            modules: []
+        }
+        */
+    ];
 
     for (const country of this.navData) {
         if ([country, ...country.modules].some(e => e.state === $state.current.name)) {

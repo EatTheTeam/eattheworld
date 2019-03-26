@@ -1,11 +1,11 @@
 <style>
-    image-card{
-        width:430px;
+    image-card {
+        width: 430px;
         height: auto;
     }
 
-    @media screen and (max-width: 1320px){
-        image-card{
+    @media screen and (max-width: 1320px) {
+        image-card {
             width: 100%;
             height: auto;
         }
@@ -13,7 +13,8 @@
 </style>
 
 <md-card class="imageCardStyle" layout="column">
-    <div flex="30" style="overflow: hidden; cursor: pointer;" layout="row" layout-align="center center" ng-click="$ctrl.expand = !$ctrl.expand">
+    <div flex="30" style="overflow: hidden; cursor: pointer;" layout="row" layout-align="center center"
+         ng-click="$ctrl.expand = !$ctrl.expand">
         <div flex="40" style="padding: 10px">
             <img ng-src="{{$ctrl.image||'https://via.placeholder.com/300x200&text=Image'}}" style="width: 100%">
         </div>
@@ -21,7 +22,8 @@
         <h1 flex="60" style="margin-left: 10px; margin-top: 10px; margin-bottom: 5px; font-weight: lighter;">
             {{$ctrl.title}}
         </h1>
-        <eat-audio ng-hide="{{!$ctrl.audio}}" src="{{$ctrl.audio}}" type="audio/wav" onclick="event.stopPropagation();"></eat-audio>
+        <eat-audio ng-hide="{{!$ctrl.audio}}" src="{{$ctrl.audio}}" type="audio/wav"
+                   onclick="event.stopPropagation();"></eat-audio>
         <md-button class="md-icon-button" style="min-width: 3em;" ng-hide="$ctrl.expand">
             <md-icon>expand_more</md-icon>
         </md-button>

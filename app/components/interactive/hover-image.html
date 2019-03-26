@@ -13,6 +13,7 @@
     md-card.hoverPic:hover > div.hoverPicHolder {
         filter: brightness(50%);
     }
+
     md-card.hoverPic:hover > div {
         color: white;
     }
@@ -44,7 +45,7 @@
         background-size: cover;
     }
 
-    md-card.hoverPic > div.hoverPicHolder > div.hoverPicHolderBackground{
+    md-card.hoverPic > div.hoverPicHolder > div.hoverPicHolderBackground {
         position: absolute;
         left: 0;
         right: 0;
@@ -55,7 +56,7 @@
         transition: opacity 100ms ease-in;
     }
 
-    md-card.hoverPic:hover > div.hoverPicHolder > div.hoverPicHolderBackground{
+    md-card.hoverPic:hover > div.hoverPicHolder > div.hoverPicHolderBackground {
         opacity: 0;
 
     }
@@ -71,7 +72,6 @@
         z-index: 2;
     }
 
-
     md-card.hoverPic:hover > div.hoverPicHolder > div.hoverPicHolderName {
         opacity: 0;
     }
@@ -86,7 +86,8 @@
         <ng-transclude></ng-transclude>
     </div>
 
-    <div class="hoverPicHolder" style="background-image: url('{{$ctrl.image || 'http://placekitten.com/200/200'}}'); background-position: center; background-size: cover">
+    <div class="hoverPicHolder"
+         style="background-image: url('{{$ctrl.image || 'http://placekitten.com/200/200'}}'); background-position: center; background-size: cover">
         <div class="hoverPicHolderName">
             {{$ctrl.name}}
         </div>

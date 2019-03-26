@@ -26,28 +26,31 @@ app.directive('circleRotate', () => {
                 style.innerHTML = content;
                 violatile.push(style);
             }
+
             function addStyleRule(selector, content) {
                 addStyle(`${selector} { ${content} }`);
             }
+
             function addAnimation(name, rules) {
                 addStyle(`@keyframes ${name} {
                     ${rules.map(e => `${e.state} { ${e.body} }`).join('\n')}
                 }`);
             }
+
             function addFromToAnimation(name, from, to) {
                 return addAnimation(name, [
-                    { state: 'from', body: from },
-                    { state: 'to', body: to }
+                    {state: 'from', body: from},
+                    {state: 'to', body: to}
                 ]);
             }
 
             for (let i = 0; i < childCount; i++) {
                 const child = children[i];
                 const name = basename + '-' + i;
-                const offsetAngle = 180 + 360/childCount * i;
+                const offsetAngle = 180 + 360 / childCount * i;
                 addFromToAnimation(name,
                     `transform: translate(-50%, -50%) rotateZ(${-offsetAngle}deg) translateY(${radius}px) rotateZ(${offsetAngle}deg);`,
-                    `transform: translate(-50%, -50%) rotateZ(${360-offsetAngle}deg) translateY(${radius}px) rotateZ(${offsetAngle-360}deg);`
+                    `transform: translate(-50%, -50%) rotateZ(${360 - offsetAngle}deg) translateY(${radius}px) rotateZ(${offsetAngle - 360}deg);`
                 );
                 child.style.animation = zoom ?
                     `${name} ${speed}s linear ${zoom}s infinite, ${name} ${zoom}s ease-out 0s 1` :
