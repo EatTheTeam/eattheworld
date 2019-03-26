@@ -321,7 +321,6 @@
         border: 3px solid #FFD300;
         border-radius: 2px;
         box-shadow: none !important;
-        box-shadow: none !important;
         cursor: default;
     }
 
@@ -363,8 +362,7 @@
                  ng-src="{{$ctrl.shuffledQuestions[$ctrl.currentQuestion].image}}" class="surveyImage">
             <div ng-if="!$ctrl.finish" layout="column" layout-align="center center" flex>
                 <h2 class="surveyH2">
-                    {{$ctrl.shuffledQuestions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])?"
-                    (multiple choice)":""}}</h2>
+                    {{$ctrl.shuffledQuestions[$ctrl.currentQuestion].question}}{{$ctrl.isMultiple($ctrl.shuffledQuestions[$ctrl.currentQuestion])?"(multiple choice)":""}}</h2>
             </div>
             <div layout="column" ng-show="$ctrl.finish" layout-align="center center" flex>
                 <h2 class="surveyH2">You have answered {{$ctrl.answeredCorrectly}} of {{$ctrl.shuffledQuestions.length}}
