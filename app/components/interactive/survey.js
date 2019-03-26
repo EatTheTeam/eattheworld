@@ -10,41 +10,40 @@ app.component('survey', {
     }
 });
 
-app.controller('SurveyController', function ($scope, $timeout) {
+app.controller('SurveyController', function () {
     this.answered = [];
     this.answeredCorrectly = 0;
     this.finish = false;
     this.shuffledQuestions = null;
 
     this.$onInit = () => {
-        if(this.shuffle) {
+        if (this.shuffle) {
             this.shuffledQuestions = shuffle(this.questions);
         } else {
             this.shuffledQuestions = this.questions;
         }
-        console.log(this.shuffledQuestions);
         this.currentQuestion = 0;
     };
 
     this.nextItem = () => {
-       if(this.currentQuestion < this.shuffledQuestions.length){
-           this.currentQuestion++;
-       }
+        if (this.currentQuestion < this.shuffledQuestions.length) {
+            this.currentQuestion++;
+        }
     };
 
     this.previousItem = () => {
-        if(this.currentQuestion > 0){
+        if (this.currentQuestion > 0) {
             this.currentQuestion--;
         }
     };
 
     this.isLast = () => {
-        return this.currentQuestion >= this.shuffledQuestions.length-1;
+        return this.currentQuestion >= this.shuffledQuestions.length - 1;
     };
 
     this.finishScreen = () => {
-        for(let i = 0; i < this.shuffledQuestions.length; i++){
-            if(arraysEqual(this.answered[i], this.shuffledQuestions[i].correct)|| this.answered[i]===this.shuffledQuestions[i].correct){
+        for (let i = 0; i < this.shuffledQuestions.length; i++) {
+            if (arraysEqual(this.answered[i], this.shuffledQuestions[i].correct) || this.answered[i] === this.shuffledQuestions[i].correct) {
                 this.answeredCorrectly++;
             }
         }
@@ -60,7 +59,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.toggle = (item) => {
-        if(!this.inResults) {
+        if (!this.inResults) {
             if (typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion] = [];
             var idx = this.answered[this.currentQuestion].indexOf(item);
             if (idx > -1) {
@@ -72,21 +71,21 @@ app.controller('SurveyController', function ($scope, $timeout) {
         }
     };
 
-    this.exists = (item) => {
-        if(typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion]=[];
+    this.exists = item => {
+        if (typeof this.answered[this.currentQuestion] === "undefined") this.answered[this.currentQuestion] = [];
         return this.answered[this.currentQuestion].indexOf(item) > -1;
     };
 
-    this.checked = (nAnswer) => {
-        if(!this.inResults) {
+    this.checked = nAnswer => {
+        if (!this.inResults) {
             this.answered[this.currentQuestion] = nAnswer;
         }
     };
 
     this.isInArray = (number, array) => {
-        if(!Array.isArray(array)) return false;
-        for(let i = 0; i < array.length; i++){
-            if(array[i]===number) return true;
+        if (!Array.isArray(array)) return false;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === number) return true;
         }
         return false;
     };
@@ -104,19 +103,15 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     function arraysEqual(_arr1, _arr2) {
-
-        if (!Array.isArray(_arr1) || ! Array.isArray(_arr2) || _arr1.length !== _arr2.length)
+        if (!Array.isArray(_arr1) || !Array.isArray(_arr2) || _arr1.length !== _arr2.length)
             return false;
 
-        var arr1 = _arr1.concat().sort();
-        var arr2 = _arr2.concat().sort();
+        const arr1 = _arr1.concat().sort();
+        const arr2 = _arr2.concat().sort();
 
-        for (var i = 0; i < arr1.length; i++) {
-
+        for (let i = 0; i < arr1.length; i++)
             if (arr1[i] !== arr2[i])
                 return false;
-
-        }
 
         return true;
     }
@@ -125,15 +120,14 @@ app.controller('SurveyController', function ($scope, $timeout) {
         this.inResults = true;
         this.finish = false;
         this.currentQuestion = 0;
-    }
+    };
 
     this.wouldTrue = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if (!Array.isArray(this.answered[this.currentQuestion])) {
             if (this.inResults && index === this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] !== index) {
                 return true;
             }
         } else {
-            console.log(this.shuffledQuestions[this.currentQuestion].correct);
             if (this.inResults && this.shuffledQuestions[this.currentQuestion].correct.includes(index) && !this.answered[this.currentQuestion].includes(index)) {
                 return true;
             }
@@ -141,7 +135,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isFalse = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if (!Array.isArray(this.answered[this.currentQuestion])) {
             if (this.inResults && index !== this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
@@ -153,7 +147,7 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isCorrect = (index) => {
-        if(!Array.isArray(this.answered[this.currentQuestion])) {
+        if (!Array.isArray(this.answered[this.currentQuestion])) {
             if (this.inResults && index === this.shuffledQuestions[this.currentQuestion].correct && this.answered[this.currentQuestion] === index) {
                 return true;
             }
@@ -169,13 +163,12 @@ app.controller('SurveyController', function ($scope, $timeout) {
     };
 
     this.isNotUndefined = (v) => {
-        return typeof v != "undefined";
-    }
+        return typeof v !== "undefined";
+    };
 
-    var shuffle = function (array) {
-
-        var currentIndex = array.length;
-        var temporaryValue, randomIndex;
+    function shuffle(array) {
+        let currentIndex = array.length;
+        let temporaryValue, randomIndex;
 
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
@@ -190,6 +183,5 @@ app.controller('SurveyController', function ($scope, $timeout) {
         }
 
         return array;
-
-    };
+    }
 });

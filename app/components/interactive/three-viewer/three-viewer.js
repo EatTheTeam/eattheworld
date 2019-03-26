@@ -10,7 +10,7 @@ app.component('threeViewer', {
 });
 
 app.controller('threeViewerController', class ThreeViewerController {
-    constructor (LoaderService, ThreeService, $scope, $element, $timeout) {
+    constructor(LoaderService, ThreeService, $scope, $element, $timeout) {
         this.isSetup = false;
         this.LoaderService = LoaderService;
         this.ThreeService = ThreeService;
@@ -30,9 +30,11 @@ app.controller('threeViewerController', class ThreeViewerController {
             get: () => model
         });
     }
+
     $postLink() {
         return this.Init();
     }
+
     async Init() {
         while (!(this.Container = this.$element.find('.three-view').get(0)))
             await new Promise(resolve => this.$timeout(() => resolve()));
@@ -51,6 +53,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.isSetup = true;
         this.Load(this.model);
     }
+
     $onDestroy() {
         if (this.CurrentAnimationFrame)
             cancelAnimationFrame(this.CurrentAnimationFrame);
@@ -85,6 +88,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.MaterialLoader = null;
         this.ObjectLoader = null;
     }
+
     static DisposeMaterial(material) {
         console.log('dispose material!');
         material.dispose();
@@ -98,6 +102,7 @@ app.controller('threeViewerController', class ThreeViewerController {
             }
         }
     }
+
     InitScene() {
         this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, 1, 1000);
         this.Camera.position.z = 3;
@@ -106,6 +111,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Ambient = new THREE.AmbientLight(0xffffff, 1.0);
         this.Scene.add(this.Ambient);
     }
+
     SetupLoaders() {
         const baseUrl = './resources/models/';
         this.MaterialLoader = new THREE.MTLLoader();
@@ -114,6 +120,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.ObjectLoader = new THREE.OBJLoader();
         this.ObjectLoader.setPath(baseUrl);
     }
+
     Load(name) {
         const materialSource = `${name}\\${name}.mtl`;
         const objectSource = `${name}\\${name}.obj`;
@@ -127,11 +134,12 @@ app.controller('threeViewerController', class ThreeViewerController {
                 const box = new THREE.Box3().setFromObject(object);
                 const boundingBoxSize = box.max.sub(box.min);
                 const height = boundingBoxSize.y;
-                object.position.y = - height / 2;
+                object.position.y = -height / 2;
                 this.Scene.add(object);
             });
         });
     }
+
     ResizeView() {
         const clientRect = this.Container.getBoundingClientRect();
         const width = Math.floor(clientRect.width);
@@ -140,11 +148,13 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Camera.updateProjectionMatrix();
         this.Renderer.setSize(width, height);
     }
+
     Render() {
         this.CurrentAnimationFrame = requestAnimationFrame(() => this.Render());
         this.Controls.update();
         this.Renderer.render(this.Scene, this.Camera);
     }
+
     SetupRenderer() {
         this.Renderer = new THREE.WebGLRenderer();
         this.Renderer.setPixelRatio(window.devicePixelRatio);
@@ -154,6 +164,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Renderer.domElement.style.margin = "0";
         this.Renderer.domElement.style.padding = "0";
     }
+
     SetupControls() {
         let zoomEnabled = false;
         window.addEventListener('keydown', e => {
@@ -182,6 +193,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Controls.dampingFactor = 0.25;
         this.Controls.enableZoom = true;
     }
+
     SetupResizer() {
         this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
             .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));

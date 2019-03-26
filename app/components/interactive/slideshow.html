@@ -2,11 +2,13 @@
     slideshow .slide-view {
         overflow-x: hidden;
     }
+
     slideshow .slides {
         transition: transform 1s ease;
         flex-wrap: nowrap;
         align-content: flex-start;
     }
+
     slideshow .slides > * {
         flex: 0 0 100%;
         word-break: break-all;
@@ -14,7 +16,7 @@
 </style>
 <md-card layout="column">
     <div class="slide-view">
-        <div layout="row" class="slides" ng-transclude="" >
+        <div layout="row" class="slides" ng-transclude="">
         </div>
     </div>
     <div layout="row" layout-align="center center" style="margin: 10px 0">

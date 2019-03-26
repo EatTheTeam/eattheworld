@@ -53,6 +53,7 @@ app.provider('LoaderService', function () {
                 return LoaderService.loaded.find(([s,]) => src === s);
             }
         }
+
         LoaderService.loaded = [];
         return LoaderService;
     }
