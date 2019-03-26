@@ -30,23 +30,23 @@ app.controller('ModuleController', function ($element, $state) {
             let primary = document.getElementById("primary-color").style.backgroundColor;
             let accent = document.getElementById("accent-color").style.backgroundColor;
 
-            let {red:rP,green:gP,blue:bP} = self.getRGBfromColor(primary);
-            let {red:rA,green:gA,blue:bA} = self.getRGBfromColor(accent);
+            let {red: rP, green: gP, blue: bP} = self.getRGBfromColor(primary);
+            let {red: rA, green: gA, blue: bA} = self.getRGBfromColor(accent);
 
             self.addStyleRule("::-webkit-scrollbar-thumb", `background: ${primary};`);
-            self.addStyleRule("::-webkit-scrollbar-track", `background: rgb(${Math.floor(rA*.8)},${Math.floor(gA*.8)},${Math.floor(bA*.8)});`);
-            self.addStyleRule("::-webkit-scrollbar-thumb:hover", `background: rgb(${Math.floor(rP*.8)},${Math.floor(gP*.8)},${Math.floor(bP*.8)});`);
-            self.addStyleRule("::-webkit-scrollbar-thumb:active", `background: rgb(${Math.floor(rP*.5)},${Math.floor(gP*.5)},${Math.floor(bP*.5)});`);
-            self.addStyleRule("#scroll-container", `overflow-y: scroll; scrollbar-color: ${primary} rgb(${Math.floor(rA*.8)},${Math.floor(gA*.8)},${Math.floor(bA*.8)});`);
+            self.addStyleRule("::-webkit-scrollbar-track", `background: rgb(${Math.floor(rA * .8)},${Math.floor(gA * .8)},${Math.floor(bA * .8)});`);
+            self.addStyleRule("::-webkit-scrollbar-thumb:hover", `background: rgb(${Math.floor(rP * .8)},${Math.floor(gP * .8)},${Math.floor(bP * .8)});`);
+            self.addStyleRule("::-webkit-scrollbar-thumb:active", `background: rgb(${Math.floor(rP * .5)},${Math.floor(gP * .5)},${Math.floor(bP * .5)});`);
+            self.addStyleRule("#scroll-container", `overflow-y: scroll; scrollbar-color: ${primary} rgb(${Math.floor(rA * .8)},${Math.floor(gA * .8)},${Math.floor(bA * .8)});`);
         });
     };
 
     this.getRGBfromColor = (rgbString) => {
         let rPos = rgbString.indexOf(',');
-        let gPos = rgbString.indexOf(',', rPos+1);
+        let gPos = rgbString.indexOf(',', rPos + 1);
         let r = parseInt(rgbString.substring(4, rPos));
-        let g = parseInt(rgbString.substring(rPos+1, gPos));
-        let b = parseInt(rgbString.substring(gPos+1, rgbString.length-1));
+        let g = parseInt(rgbString.substring(rPos + 1, gPos));
+        let b = parseInt(rgbString.substring(gPos + 1, rgbString.length - 1));
         return {red: r, green: g, blue: b};
     };
 

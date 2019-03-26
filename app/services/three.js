@@ -12,6 +12,7 @@ app.service('ThreeService', class ThreeService {
             orbit: '../vendor/three/OrbitControls.js'
         };
     }
+
     async load() {
         if (this.loaded || this.loading)
             return Promise.resolve(this);
