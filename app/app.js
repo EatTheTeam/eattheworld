@@ -165,6 +165,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
             name: 'image-hotspots-test',
             url: '/image-hotspots-test',
             component: 'imageHotspotsTest'
+        })
+        .state({
+            name: 'japan-language',
+            url: '/japan/language',
+            component: 'japanLanguage'
         });
 
     $urlRouterProvider.otherwise('/');
