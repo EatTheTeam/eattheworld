@@ -6,6 +6,7 @@ app.component('imageCard', {
     bindings: {
         title: "@",
         image: "@?",
+        noImage: "<?",
         audio: "@?"
     },
     transclude: true
