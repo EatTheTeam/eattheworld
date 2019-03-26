@@ -13,13 +13,13 @@
 </style>
 
 <md-card class="imageCardStyle" layout="column">
-    <div flex="30" style="overflow: hidden; cursor: pointer;" layout="row" layout-align="center center"
+    <div ng-attr-flex="{{$ctrl.noImage ? undefined : 30}}" style="overflow: hidden; cursor: pointer;" layout="row" layout-align="center center"
          ng-click="$ctrl.expand = !$ctrl.expand">
-        <div flex="40" style="padding: 10px">
+        <div ng-attr-flex="{{$ctrl.noImage ? undefined : 40}}" style="padding: 10px" ng-hide="$ctrl.noImage">
             <img ng-src="{{$ctrl.image||'https://via.placeholder.com/300x200&text=Image'}}" style="width: 100%">
         </div>
 
-        <h1 flex="60" style="margin-left: 10px; margin-top: 10px; margin-bottom: 5px; font-weight: lighter;">
+        <h1 ng-attr-flex="{{$ctrl.noImage ? undefined : 60}}" style="margin-left: 10px; margin-top: 10px; margin-bottom: 5px; font-weight: lighter;">
             {{$ctrl.title}}
         </h1>
         <eat-audio ng-hide="{{!$ctrl.audio}}" src="{{$ctrl.audio}}" type="audio/wav"
@@ -35,7 +35,7 @@
         <md-icon ng-show="$ctrl.expand" style="margin-right: 1em;">expand_less</md-icon>
         -->
     </div>
-    <div flex="70" layout="column" ng-show="$ctrl.expand">
+    <div ng-attr-flex="{{$ctrl.noImage ? undefined : 70}}" layout="column" ng-show="$ctrl.expand">
         <div style="margin: 10px 30px 20px 30px; padding: 0 5px; overflow-y: auto" flex="100">
             <ng-transclude></ng-transclude>
         </div>
