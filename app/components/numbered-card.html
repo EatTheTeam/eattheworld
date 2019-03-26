@@ -1,6 +1,7 @@
-<text-card style="position: relative" image="{{$ctrl.image}}" no-image="{{$ctrl.noImage}}">
-    <div style="position: absolute; top: 27px; left: 12px; background-color: {{$ctrl.color || 'red'}}; border-radius: 1em; min-width: 1.5em; text-align: center; padding: 3px;">
+<text-card style="position: relative" image="{{$ctrl.image}}" no-image="$ctrl.noImage">
+    <div style="position: absolute; top: 20px; left: 12px; background-color: {{$ctrl.color || 'red'}}; border-radius: 1em; min-width: 1.5em; text-align: center; padding: 3px;">
         {{$ctrl.number}}
     </div>
+    <div style="height: 1em;"></div>
     <ng-transclude></ng-transclude>
 </text-card>
