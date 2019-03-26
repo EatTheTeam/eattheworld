@@ -4,6 +4,7 @@ app.component('numberedCard', {
     bindings: {
         number: "@",
         image: "@?",
+        noImage: "<?",
         color: "@?"
     },
     transclude: true

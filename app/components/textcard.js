@@ -4,7 +4,8 @@ app.component('textCard', {
     templateUrl: 'components/textCard.html',
     controller: 'textCardController',
     bindings: {
-        image: "@?"
+        image: "@?",
+        noImage: "<?"
     },
     transclude: true
 });
