@@ -1,7 +1,6 @@
 <wrap heading="{{$ctrl.heading || 'Image Hotspots'}}">
-    <section layout-fill=""
-             style="position: relative; background-size: cover"
-             ng-style="{ 'backgroundImage': 'url(' + $ctrl.src + ')' }">
+    <section layout-fill="">
+        <img ng-src="{{$ctrl.src}}" style="width: 100%; height: auto; padding-left: 5px; padding-right: 5px;" />
         <div ng-transclude=""></div>
     </section>
 </wrap>
