@@ -52,6 +52,8 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Render();
         this.isSetup = true;
         this.Load(this.model);
+
+        window.addEventListener('resize', () => this.ResizeView(), false);
     }
 
     $onDestroy() {
@@ -141,6 +143,7 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     ResizeView() {
+        debugger;
         const clientRect = this.Container.getBoundingClientRect();
         const width = Math.floor(clientRect.width);
         const height = Math.floor(clientRect.height);
@@ -195,7 +198,7 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     SetupResizer() {
-        this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
-            .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));
+        /*this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
+            .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));*/
     }
 });

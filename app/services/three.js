@@ -9,7 +9,8 @@ app.service('ThreeService', class ThreeService {
             detector: '../vendor/three/Detector.js',
             mtlloader: '../vendor/three/MTLLoader.js',
             objloader: '../vendor/three/OBJLoader.js',
-            orbit: '../vendor/three/OrbitControls.js'
+            orbit: '../vendor/three/OrbitControls.js',
+            resize: '../vendor/threex.windowresize/threex.windowresize.js'
         };
     }
 
@@ -22,7 +23,8 @@ app.service('ThreeService', class ThreeService {
             this.sources.detector,
             this.sources.mtlloader,
             this.sources.objloader,
-            this.sources.orbit
+            this.sources.orbit,
+            this.sources.resize
         ].map(this.LoaderService.loadJS));
         this.loading = false;
         this.loaded = true;
