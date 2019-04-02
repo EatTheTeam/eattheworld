@@ -6,6 +6,9 @@
         bottom: 0;
         right: 0;
         left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
     }
 
     three-viewer .show-help, three-viewer .hide-help {
@@ -38,7 +41,7 @@
 <wrap heading="{{ $ctrl.heading || '3D Viewer' }}">
     <div class="three-view" flex layout-fill=""></div>
     <div class="help-overlay" ng-show="$ctrl.showControls">
-        <ul class="no-list" layout="row" layout-fill="" layout-align="space-around center">
+        <ul class="no-list" layout="row" layout-align="space-around center">
             <li layout="column" layout-align="center center">
                 <md-icon class="material-icons">pan_tool</md-icon>
                 <span class="md-title">Pan</span>

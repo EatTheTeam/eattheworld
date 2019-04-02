@@ -52,13 +52,13 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Render();
         this.isSetup = true;
         this.Load(this.model);
-
-        window.addEventListener('resize', () => this.ResizeView(), false);
     }
 
     $onDestroy() {
         if (this.CurrentAnimationFrame)
             cancelAnimationFrame(this.CurrentAnimationFrame);
+
+        window.addEventListener('resize', this.ResizeListener, false);
 
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
         // https://stackoverflow.com/questions/44736714/vue-deallocating-memory-using-three-js-between-routes?noredirect=1&lq=1
@@ -143,10 +143,14 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     ResizeView() {
-        debugger;
+        for (const child of this.Container.children)
+            child.style.display = "none";
         const clientRect = this.Container.getBoundingClientRect();
         const width = Math.floor(clientRect.width);
         const height = Math.floor(clientRect.height);
+        for (const child of this.Container.children)
+            child.style.display = null;
+
         this.Camera.aspect = width / height;
         this.Camera.updateProjectionMatrix();
         this.Renderer.setSize(width, height);
@@ -198,6 +202,8 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     SetupResizer() {
+        this.ResizeListener = () => this.ResizeView();
+        window.addEventListener('resize', this.ResizeListener, false);
         /*this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
             .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));*/
     }
