@@ -12,6 +12,10 @@
         height: fit-content;
         padding: 5px;
     }
+
+     module > p {
+         text-align: justify
+     }
 </style>
 
 <module title="Food & Drinks">
@@ -35,7 +39,6 @@
     <segment title="National dishes" anchor="National dishes">
 
         <image-hotspots src="resources/images/ethiopianimghotspot.webp" heading="a typical meal">
-             <simple-hotspot x="30" y="50" heading="text" description="1lorem ipsum"></simple-hotspot>
              <simple-hotspot x="36" y="54" heading="text" description="2lorem ipsum"></simple-hotspot>
              <simple-hotspot x="45" y="55" heading="text" description="3lorem ipsum"></simple-hotspot>
              <simple-hotspot x="45" y="63" heading="text" description="4lorem ipsum"></simple-hotspot>
@@ -54,10 +57,14 @@
         </image-hotspots>
 
         <!--<div layout="row" style="flex-wrap: wrap" class="food">-->
-        <h3>Breakfast</h3>
+
+        <md-card style="padding: 15px; background: #39573380; font-weight: bold">
+            <h3 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">Breakfast</h3>
+        </md-card>
+
         <div layout="row" layout-align="space-between start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
 
-            <image-card image="resources\images\ethiopia_food\firfir.jpg" title="Firfir (ፌርፊር)" audio="">
+            <image-card image="resources\images\ethiopia_food\firfir.jpg" title="Firfir (ፌርፊር)" audio="resources/audios/Essen4.wav">
                 <p>
                     <u>description:</u> Torn up injera mixed with Ethiopian butter and berbere
                     <br>
@@ -67,7 +74,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\chechebsa.jpg" title="Chechebsa (ጨጨብሳ)" audio="resources/audios/Popcorn.wav">
+            <image-card image="resources\images\ethiopia_food\chechebsa.jpg" title="Chechebsa (ጨጨብሳ)" audio="resources/audios/Essen31.wav">
                 <p>
                     <u>description:</u>Torn up pita mixed with Ethiopian butter and berbere
                     <br>
@@ -77,7 +84,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\Kinche.png" title="Kinche ()" audio="">
+            <image-card image="resources\images\ethiopia_food\Kinche.png" title="Kinche (ቅንጨ)" audio="resources/audios/Essen32.wav">
                 <p>
                     <u>description:</u> Cracked wheat with Ethiopian butter
                     <br>
@@ -85,7 +92,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\beso.jpg" title="Beso ()" audio="">
+            <image-card image="resources\images\ethiopia_food\beso.jpg" title="Beso (በሶ)" audio="resources/audios/Essen33.wav">
                 <p>
                     <u>description:</u>: Barley with Ethiopian butter
                     <br>
@@ -93,7 +100,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\genfo.jpg" title="Genfo ()">
+            <image-card image="resources\images\ethiopia_food\genfo.jpg" title="Genfo (ገንፎ)" audio="resources/audios/Essen6.wav">
                 <p>
                     <u>description:</u> Flour with Ethiopian butter and berbere
                     <br>
@@ -101,7 +108,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\segatibs.jpg" title="Sega tibs ()" audio="">
+            <image-card image="resources\images\ethiopia_food\segatibs.jpg" title="Sega tibs (ስጋ ጥብስ)" audio="resources/audios/Essen34.wav">
                 <p>
                     <u>description:</u> Cut meat (whole or slightly seared) with onions, garlic, rosemary, green
                     pepperoni and Ethiopian butter which is served with injera or
@@ -112,7 +119,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\kitfo.jpg" title="Kitfo ()" audio="">
+            <image-card image="resources\images\ethiopia_food\kitfo.jpg" title="Kitfo (ክትፎ)" audio="resources/audios/Essen10.wav">
                 <p>
                     <u>description:</u> Minced beef (raw or lightly seared) with Ethiopian butter, mitmita and corrorima
                     <br>
@@ -125,11 +132,14 @@
 
         </div>
 
-        <h3>Lunch and Dinner</h3>
+        <md-card style="padding: 15px; background: #39573380; font-weight: bold">
+            <h3 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">Lunch and Dinner</h3>
+        </md-card>
+
         <div layout="row" layout-align="space-between start" layout-wrap
              style="margin-left: 2%; margin-right: 2%;flex-wrap: wrap" class="food">
 
-            <image-card image="resources\images\ethiopia_food\fasikadorowat.jpg" title="Key Sega Wot ()" audio="">
+            <image-card image="resources\images\ethiopia_food\fasikadorowat.jpg" title="Key Sega Wot (ቀይ ስጋ ወጥ)" >
                 <p>
                     description: Meat, onion, oil, Ethiopian butter, garlic, ginger, berbere, Ethiopian spice mekelesha
                     <br>
@@ -139,7 +149,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopianalechasegawot.jpg" title="Alecha Sega Wot ()" audio="">
+            <image-card image="resources\images\ethiopianalechasegawot.jpg" title="Alecha Sega Wot (አልጫ ስጋ ወጥ)" >
                 <p>
                     description: Meat, onion, oil, Ethiopian butter, garlic, ginger, kurkuma, Ethiopian spice
                     alechakemem
@@ -150,7 +160,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\fasikadorowat.jpg"  title="Key Dorowot ()" audio="">
+            <image-card image="resources\images\ethiopia_food\fasikadorowat.jpg"  title="Key Dorowot (ቀይ ደሮ ወጥ)" >
                 <p>
                     description: Chicken, onion, oil, garlic, ginger, berbere, corrorima, Ethiopian butter, boiled egg,
                     Ethiopian spice mekelesha
@@ -161,7 +171,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopianalechasegawot.jpg"  title="Alecha Dorowot ()" audio="">
+            <image-card image="resources\images\ethiopianalechasegawot.jpg"  title="Alecha Dorowot (አልጫ ደሮ ወጥ)">
                 <p>
                     description: Chicken, onion, oil, garlic, ginger, corrorima, Ethiopian butter, boiled egg, kurkuma,
                     Ethiopian spice alechakemem
@@ -172,8 +182,7 @@
                 </p>
             </image-card>
 
-
-            <image-card image="resources\images\ethiopia_food\keymisirwot.jpg"  title="Key Misir Wot  ()" audio="">
+            <image-card image="resources\images\ethiopia_food\keymisirwot.jpg"  title="Key Misir Wot  (ቀይ ምስር ወጥ)" >
                 <p>
                     description: Split red lintel, onion, oil, garlic powder, ginger powder, corrorima, berbere
                     <br>
@@ -183,7 +192,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\alechamisirwot.jpg"  title="Alecha Misir Wot ()" audio="">
+            <image-card image="resources\images\ethiopia_food\alechamisirwot.jpg"  title="Alecha Misir Wot (አልጫ ምስር ወጥ)" >
                 <p>
                     description: Split red lintel, onion, oil, garlic powder, ginger powder, kurkuma, Ethiopian spice
                     alechakemem
@@ -194,7 +203,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\keykikwot.jpg" title="Key Kik Wot ()" audio="">
+            <image-card image="resources\images\ethiopia_food\keykikwot.jpg" title="Key Kik Wot (ቀይ ክክ ወጥ)" >
                 <p>
                     description: Split lintel, onion, oil, garlic powder, berbere
                     <br>
@@ -204,7 +213,7 @@
                 </p>
             </image-card>
 
-            <image-card  image="resources\images\ethiopia_food\alechakikwot.jpeg"  title="Alecha Kik Wot ()" audio="">
+            <image-card  image="resources\images\ethiopia_food\alechakikwot.jpeg"  title="Alecha Kik Wot (አልጫ ክክ ወጥ)" >
                 <p>
                     description: Split lintel, onion, oil, garlic powder, kurkuma
                     <br>
@@ -214,7 +223,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\gomen.jpg" title="Gomen  ()" audio="">
+            <image-card image="resources\images\ethiopia_food\gomen.jpg" title="Gomen (ጐመን)" >
                 <p>
                     description: pound collard greens, onion, oil, garlic, pepper
                     <br>
@@ -224,7 +233,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\tikelgomen.jpg" title="Tikel Gommen ()" audio="">
+            <image-card image="resources\images\ethiopia_food\tikelgomen.jpg" title="Tikel Gommen (ጥቅል ጐመን)" >
                 <p>
                     description: sliced cabbage, sliced carrot, onion, oil, pepper, cut potatoes, garlic, kurkuma
                     <br>
@@ -234,7 +243,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\shiro.jpg" title="Shiro ()" audio="">
+            <image-card image="resources\images\ethiopia_food\shiro.jpg" title="Shiro (ሽሮ)" audio="resources/audios/Essen11.wav">
                 <p>
                 <h4>Key:</h4>
                 description: onion, oil, garlic powder, chickpea flour served with injera
@@ -264,32 +273,38 @@
 
     <segment title="National drinks" anchor="National drinks">
 
-        <h3>Softdrinks</h3>
+        <md-card style="padding: 15px; background: #39573380; font-weight: bold">
+            <h3 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">Softdrinks</h3>
+        </md-card>
+
         <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
-            <image-card image="resources\images\ethiopia_food\mirinda.jpg" title="Mirinda ()">
+            <image-card image="resources\images\ethiopia_food\mirinda.jpg" title="Mirinda (ሚሪንዳ)">
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\fanta-pineapple-soda.jpg" title="Fanta (pinepple) ">
+            <image-card image="resources\images\ethiopia_food\fanta-pineapple-soda.jpg" title="Fanta (pinepple) (ፍንታ ፓንአፕል) ">
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\fanta-orange-can.jpg" title="Fanta (orange)">
+            <image-card image="resources\images\ethiopia_food\fanta-orange-can.jpg" title="Fanta (orange) (ፍንታ ኦሬንጅ)">
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\coca-cola-classic.jpg" title="CocaCola ()">
+            <image-card image="resources\images\ethiopia_food\coca-cola-classic.jpg" title="CocaCola (ኮካኮላ)">
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\sprite.jpg" title="Sprite ()">
+            <image-card image="resources\images\ethiopia_food\sprite.jpg" title="Sprite (እስፕራይት)">
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\water.jpg" title="Amboha ()">
+            <image-card image="resources\images\ethiopia_food\water.jpg" title="Amboha (አምባ ውሀ)">
             </image-card>
 
         </div>
 
-        <h3>Coffee/Tee</h3>
+        <md-card style="padding: 15px; background: #39573380; font-weight: bold">
+            <h3 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">Coffee/Tee</h3>
+        </md-card>
+
         <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
 
-            <image-card image="resources\images\ethiopia_food\coffee.jpg" title="Buna ()">
+            <image-card image="resources\images\ethiopia_food\coffee.jpg" title="Buna (ቡና)">
                 <p>
                     <u>description:</u>
                     <br>
@@ -301,7 +316,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\shai.jpg" title="Shai ()">
+            <image-card image="resources\images\ethiopia_food\shai.jpg" title="Shai (ሻይ)">
                 <p>
                     <u>description:</u> cardamom, cinnamon, cloves
                     <br>
@@ -316,10 +331,12 @@
 
         </div>
 
+        <md-card style="padding: 15px; background: #39573380; font-weight: bold">
+            <h3 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">Alcohol</h3>
+        </md-card>
 
-        <h3>Alcohol</h3>
         <div layout="row" layout-align="space-between center" layout-wrap style="margin-left: 2%; margin-right: 2%;">
-            <image-card image="resources\images\ethiopia_food\tej.jpg" title="Tetj ()">
+            <image-card image="resources\images\ethiopia_food\tej.jpg" title="Tetj (ጠጅ)" audio="resources/audios/Essen5.wav">
                 <p>
                     description: honey, rhamnus, prinoides, water
                     <br>
@@ -333,7 +350,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\tella.jpg" title="Tella (ጠላ)">
+            <image-card image="resources\images\ethiopia_food\tella.jpg" title="Tella (ጠላ)" audio="resources/audios/Essen21.wav">
                 <p>
                     description: teff flour, sorghum, corn, wheat, rhamnus prinoides, water
                     <br>
@@ -346,7 +363,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\areke.jpg" title="Areke ()">
+            <image-card image="resources\images\ethiopia_food\areke.jpg" title="Areke (አረቄ)" audio="resources/audios/Essen22.wav">
                 <p>
                     description: rhamnus prinoides, corn, water
                     <br>
@@ -358,7 +375,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\berz.jpg" title="Berz ()">
+            <image-card image="resources\images\ethiopia_food\berz.jpg" title="Berz (ብርዝ)">
                 <p>
                     description: honey, water
                     <br>
@@ -370,7 +387,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\bier.jpg" title="Bira ()">
+            <image-card image="resources\images\ethiopia_food\bier.jpg" title="Bira (ቢራ)">
                 <p>
                     most common drank Beers
                     <br>
@@ -387,7 +404,7 @@
     <segment title="Snacks & side dishes" anchor="Snacks & side dishes">
         <div layout="row" layout-align="space-between start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
 
-            <image-card image="resources\images\ethiopia_food\injera.jpg" title="Injera ()" audio="">
+            <image-card image="resources\images\ethiopia_food\injera.jpg" title="Injera (እንጀራ)" audio="resources/audios/Essen8.wav">
                 <p>
                     description: Teff flour, fresh yeast, water, salt
                     <br>
@@ -397,7 +414,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\dabo.jpg" title="Dabo ()" audio="">
+            <image-card image="resources\images\ethiopia_food\dabo.jpg" title="Dabo (ዳቦ)" >
                 <p>
                     description: wheat flour, yeast, coriander, cumin, cardamom, oil, sugar, salt
                     <br>
@@ -405,7 +422,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\ambasha.jpg" title="Ambasha ()" audio="">
+            <image-card image="resources\images\ethiopia_food\ambasha.jpg" title="Ambasha (አምባሻ)" audio="resources/audios/Essen9.wav">
                 <p>
                     description: wheat flour, yeast, sugar, salt, oil, black sesame seeds
                     <br>
@@ -413,7 +430,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\dabokolo.jpg" title="Dabokolo ()" audio="">
+            <image-card image="resources\images\ethiopia_food\dabokolo.jpg" title="Dabokolo (ዳቦቆሎ)" audio="resources/audios/Essen1.wav">
                 <p>
                     description: Flour, berbere (optional), sugar, salt, oil, yeast
                     <br>
@@ -421,7 +438,7 @@
                 </p>
             </image-card>
 
-            <image-card image="resources\images\ethiopia_food\kolo.jpg" title="Kolo ()" audio="">
+            <image-card image="resources\images\ethiopia_food\kolo.jpg" title="Kolo (ቆሎ)" audio="resources/audios/Essen2.wav">
                 <p>
                     description: safflower seeds, chickpea, whole grains wheat and legumes
                     <br>
@@ -434,7 +451,7 @@
 
     <segment title="Seasons-period of feasting" anchor="Seasons">
 
-        <div>
+        <p style="text-align: justify">
             Ethiopia is a highly religious country with the majority of people either Orthodox Christian or Muslim.
             Those who follow Ethiopian Orthodox Christianity are prohibited from eating eating all animal products
             during
@@ -445,12 +462,11 @@
             mild and spicy stews (wot) made with oil instead of ethiopian butter and variations of whole and powdered
             lentils, split peas, chick peas, sunflowers, and broad beans.
             Vegetables include various preparations of beets, Kale, cabbage, potato, and fresh tomatoes.
-        </div>
+        </p>
 
     </segment>
 
     <segment title="Ingredients & Spices" anchor="Ingredients & Spices">
-        <h4>Food</h4>
         <div layout="row" style="flex-wrap: wrap">
 
             <titled-image src="" title="ethiopian butter"></titled-image>
