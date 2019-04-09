@@ -38,18 +38,17 @@
     <segment title="National dishes" anchor="National dishes">
 
         <slideshow heading="Test">
-            <three-viewer model="sushiplate" heading="Sushi Plate">
-            </three-viewer>
-            <wrap heading="Miso Soup">
-                <img
-                        style="width: 100%"
-                        src="https://assets.epicurious.com/photos/576450dde047a6cf1ee8268c/master/pass/miso-soup.jpg"/>
-            </wrap>
-            <wrap heading="Ramen">
-                <img
-                        style="width: 100%"
-                        src="https://cookingwithdog.com/wp-content/uploads/2017/11/yakibuta-ramen-00.jpg"/>
-            </wrap>
+            <div style="height: 50vw; max-height: 600px">
+                <three-viewer model="sushiplate" heading="Sushi Plate">
+                </three-viewer>
+            </div>
+            <div style="height: 50vw; max-height: 600px">
+                <wrap heading="Ramen">
+                    <img
+                            style="width: 100%; height: 100%; object-fit: cover"
+                            src="https://cookingwithdog.com/wp-content/uploads/2017/11/yakibuta-ramen-00.jpg"/>
+                </wrap>
+            </div>
         </slideshow>
 
         <div layout="row" layout-align="space-between start" layout-wrap style="margin-left: 2%; margin-right: 2%;">
@@ -76,7 +75,7 @@
                 and long stripes of vegetables and such. They are then rolled and sliced to multiple pieces, which gives
                 them their cylindrical shape.
             </p></image-card>
-            <image-card title="Miso Soup (みそ汁)" image="https://assets.epicurious.com/photos/576450dde047a6cf1ee8268c/master/pass/miso-soup.jpg"><p>
+            <image-card title="Miso Soup (みそ汁)" image="https://www.thespruceeats.com/thmb/q5pzZZKO021eP9s4x_-Mq6m_I8Q=/4494x3000/filters:fill(auto,1)/basic-miso-soup-3377886_09-5b3f7fb6c9e77c00378bf68f.jpg"><p>
                 This traditional soup is made using miso, which is an ingredient that consists out of fermented
                 soybeans.
                 It often is a part of a typical japanese meal served in a small bowl, and is eaten without a spoon. To
@@ -479,5 +478,18 @@
 
         </div>
 
+    </segment>
+    <segment title="Memorize the foods" anchor="Memorize the foods">
+        <div layout="column" layout-align="start center" layout-wrap style="justify-content: center;">
+            <h2>Seasonal Food</h2>
+            <flashcard
+                questions="[{question: 'Which vegetables are eaten in spring in Japan?', answer:'Bamboo Shoots, Udo, Potato, Shiitake'},{question: 'Which fruits are available in winter in Japan?', answer:'Strawberry, Apple, Yuzu'}]"></flashcard>
+            <h2>Food History</h2>
+            <dialogcard
+                    questions="[{question: 'What is the number one food source in Japan?', answers:[{front: 'Potatoes', back:'Potatoes is incorrect'},
+                    {front: 'Corn', back:'Corn is incorrect'}, {front: 'Common wheat', back:'Common wheat is incorrect'}, {front: 'Rice', back:'Rice is correct!'}]},
+                    {question: 'Why is so much fish eaten in Japan', answers:[{front: 'Because of the geography of Japan', back:'The geography of Japan played a big part on the eating habit of eating fish'},
+                    {front: 'An emperor imposed eating fish', back:'No emperor imposed eating fish on japanese people'}]}]"></dialogcard>
+        </div>
     </segment>
 </module>

@@ -44,6 +44,8 @@ app.controller('threeViewerController', class ThreeViewerController {
             Detector.addGetWebGLMessage();
             return;
         }
+
+        THREE.Cache.enabled = true;
         this.InitScene();
         this.SetupRenderer();
         this.SetupControls();
@@ -58,7 +60,7 @@ app.controller('threeViewerController', class ThreeViewerController {
         if (this.CurrentAnimationFrame)
             cancelAnimationFrame(this.CurrentAnimationFrame);
 
-        window.addEventListener('resize', this.ResizeListener, false);
+        //window.addEventListener('resize', this.ResizeListener, false);
 
         // https://discourse.threejs.org/t/how-to-completely-clean-up-a-three-js-scene-from-a-web-app-once-the-scene-is-no-longer-needed/1549/11
         // https://stackoverflow.com/questions/44736714/vue-deallocating-memory-using-three-js-between-routes?noredirect=1&lq=1
@@ -106,8 +108,11 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     InitScene() {
-        this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, 1, 1000);
-        this.Camera.position.z = 3;
+        this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, .01, 1000);
+        this.Camera.position.z = 1.533
+
+        this.Camera.position.x = 1;
+        this.Camera.position.y = .75;
 
         this.Scene = new THREE.Scene();
         this.Ambient = new THREE.AmbientLight(0xffffff, 1.0);
@@ -124,6 +129,8 @@ app.controller('threeViewerController', class ThreeViewerController {
     }
 
     Load(name) {
+        this.Loading = true;
+        this.$timeout();
         const materialSource = `${name}\\${name}.mtl`;
         const objectSource = `${name}\\${name}.obj`;
         this.MaterialLoader.load(materialSource, materials => {
@@ -138,26 +145,31 @@ app.controller('threeViewerController', class ThreeViewerController {
                 const height = boundingBoxSize.y;
                 object.position.y = -height / 2;
                 this.Scene.add(object);
+
+                this.Loading = false;
+                this.Render();
+                this.$timeout();
             });
         });
     }
 
     ResizeView() {
-        for (const child of this.Container.children)
-            child.style.display = "none";
         const clientRect = this.Container.getBoundingClientRect();
         const width = Math.floor(clientRect.width);
         const height = Math.floor(clientRect.height);
-        for (const child of this.Container.children)
-            child.style.display = null;
 
         this.Camera.aspect = width / height;
         this.Camera.updateProjectionMatrix();
         this.Renderer.setSize(width, height);
+
+        this.Render();
     }
 
     Render() {
-        this.CurrentAnimationFrame = requestAnimationFrame(() => this.Render());
+        if (this.Rendering)
+            return;
+        this.Rendering = true;
+        this.CurrentAnimationFrame = requestAnimationFrame(() => { this.Rendering = false; /* this.Render() */ });
         this.Controls.update();
         this.Renderer.render(this.Scene, this.Camera);
     }
@@ -199,12 +211,16 @@ app.controller('threeViewerController', class ThreeViewerController {
         this.Controls.enableDamping = true;
         this.Controls.dampingFactor = 0.25;
         this.Controls.enableZoom = true;
+        this.Controls.addEventListener('change', () => {
+            if (this && this.Renderer)
+                this.Render();
+        });
     }
 
     SetupResizer() {
-        this.ResizeListener = () => this.ResizeView();
-        window.addEventListener('resize', this.ResizeListener, false);
-        /*this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
-            .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));*/
+        //this.ResizeListener = () => this.ResizeView();
+        //window.addEventListener('resize', this.ResizeListener, false);
+        this.LoaderService.loadJS('../vendor/css-element-queries/ResizeSensor.js')
+            .then(() => new ResizeSensor(this.Container, () => this.ResizeView()));
     }
 });

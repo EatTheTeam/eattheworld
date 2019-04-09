@@ -37,9 +37,19 @@
         margin-bottom: 10px;
         max-width: 200px;
     }
+
+    three-viewer > wrap > md-card {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+        height: 100%;
+    }
 </style>
 <wrap heading="{{ $ctrl.heading || '3D Viewer' }}">
     <div class="three-view" flex layout-fill=""></div>
+    <div ng-show="$ctrl.Loading" style="position: absolute; top: 0; bottom: 0; right: 0; left: 0; display: flex; align-items: center; justify-content: center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
     <div class="help-overlay" ng-show="$ctrl.showControls">
         <ul class="no-list" layout="row" layout-align="space-around center">
             <li layout="column" layout-align="center center">
