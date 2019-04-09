@@ -109,7 +109,10 @@ app.controller('threeViewerController', class ThreeViewerController {
 
     InitScene() {
         this.Camera = new THREE.PerspectiveCamera(45, this.Container.clientWidth / this.Container.clientHeight, .01, 1000);
-        this.Camera.position.z = 3;
+        this.Camera.position.z = 1.533
+
+        this.Camera.position.x = 1;
+        this.Camera.position.y = .75;
 
         this.Scene = new THREE.Scene();
         this.Ambient = new THREE.AmbientLight(0xffffff, 1.0);
