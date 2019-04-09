@@ -1,27 +1,19 @@
 <style>
-    ethiopia-language segment div, segment p {
+    segment div, segment p {
         font-size: 15px;
         line-height: 180%;
     }
 
-    ethiopia-language .play md-card {
-        width: 40vw;
-        height: fit-content;
-        padding: 5px;
+    ethiopia-audio-card {
+        width: 50%;
     }
 
-    ethiopia-language .play p {
-        font-weight: bolder;
-    }
-
-    @media screen and (max-width: 600px) {
-        ethiopia-language .play md-card {
+    @media screen and (max-width: 800px) {
+        ethiopia-audio-card {
             width: 100%;
-            height: fit-content;
-            padding: 5px;
         }
 
-        ethiopia-language table {
+        table {
             width: 100%;
             font-size: 3vmin;
         }
@@ -40,319 +32,335 @@
 
     <segment title="Introduction" anchor="Introduction">
 
-        <text-card image="https://via.placeholder.com/400x200&text=Image">
-            Text
+        <text-card image="https://japanistry-yvxqriqk.netdna-ssl.com/wp-content/uploads/2016/12/Kanji-800x533.jpg">
+            The language spoken in Japan is Japanese. Japanese has its own set of characters for writing, and its grammar
+            is very different from many other languages.<br>
+            At its roots, it does have some things in common with Chinese, but those two languages are highly different.
+            Surprisingly, a lot of Japanese words, especially for imported food, are the same as they would be in English.
         </text-card>
         <md-card style="padding: 15px; background: #ffe0f8">
             <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
                 Special Pronounciations
             </h4>
         </md-card>
-        <div lyout="row">
-            <md-card>
-                adasfs fdsfgdsfgdfgdfgd gfhgfgr sfgdfgdfgf
+        <div lyout="column" layout-align="center stretch">
+            <md-card flex="30" style="display: inline-block; padding: 5px">
+                a - pronounced like "Ah", or like the A in aunt.<br>
+                e - pronounced like "Eh", or like the E in ending.<br>
+                i - pronounced liek "Eee", or like the I in information.
             </md-card>
-            <md-card>
-                adasfsfdsf gdsfgdfgdfgdgfhgfgr sfgdfgdfgf
+            <md-card flex="30" style="display: inline-block; padding: 5px">
+                o - pronounced like "Oh", or like the O in orbit.<br>
+                u - pronounced like "Ooo", or like you would pronounce you.<br>
+                oo, ou - like o and u, but spoken much longer.
             </md-card>
-            <md-card>
-                adasfsfds fgdsfgd fgdfgdgfh gfgrsfgd fgdfgf
+            <md-card flex="30" style="display: inline-block; padding: 5px">
+                ji - pronounced like "Gee", or like you would pronounce jeans.<br>
+                shi - pronounced like "Shee", or like you would pronounce Sheila.<br>
             </md-card>
         </div>
 
     </segment>
 
-    <segment title="General information about Amharic" anchor="General information about Amharic">
-        <div>
-            <h2>Alphabet and pronunciations</h2>
-            <p>
-                The national language of Ethiopia is Amharic which is the second most spoken Semetic language
-                worldwide and has its origin in the Amhara region. It is written with a version of Ge`ze script
-                known as Fidel, which is a syllabary. There are 33 basic Fidels which are being altered in various
-                ways by attaching a vowel.
-            </p>
+    <segment title="Pronouncing the 'R'/'L'" anchor="Pronouncing the R L">
 
-            <table>
-                <tr>
-                    <th>Vowel</th>
-                    <td>ä</td>
-                    <td>u</td>
-                    <td>i</td>
-                    <td>a</td>
-                    <td>e</td>
-                    <td>ï</td>
-                    <td>o</td>
-                </tr>
-                <tr>
-                    <th>Sounds like</th>
-                    <td>again</td>
-                    <td>moon</td>
-                    <td>feet</td>
-                    <td>father</td>
-                    <td>way</td>
-                    <td>pin</td>
-                    <td>War</td>
-                </tr>
-            </table>
+        <md-card style="padding: 15px">
+            In Japan, there is no differentiation between 'L' or 'R', they are the same letter and are pronounced the same way.<br>
+            The Japanese 'R' sounds like a mixture of 'L', 'R' and 'D'.<br>
+            There is a special angle in which you have to place your tongue while making the sound. It takes a lot of practice
+            to get it correctly.
+        </md-card>
 
-            <p>
-                The Amharic syllabary is usually presented as a grid with the vowels in the horizontal axis and
-                the consonants in the vertical axis. Below is the syllabary in the most common ha-hu order:
-            </p>
-            <img src="http://localhost:63342/EatTheWorld/app/resources/images/ethiopia_amharic_alphabet.png"/>
+        <md-card style="overflow: hidden">
+            <img src="https://qph.fs.quoracdn.net/main-qimg-f572574f5655b7a919a04c08cb326cb7">
+        </md-card>
 
+    </segment>
+
+    <segment title="Hello and Goodbye" anchor="Greetings">
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Greeting People
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Hello"
+                    translation="konnich wa"
+                    native="こんにちは"
+                    audio="resources/audios/japan/Konnichiwa.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Welcome"
+                    translation="irasshaimase"
+                    native="いっらしゃいませ"
+                    audio="resources/audios/japan/Irasshaimase.wav"
+                    audio-type="audio/wav" />
+        </div>
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Saying Goodbye
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="See you"
+                    translation="sayounara"
+                    native="さようなら"
+                    audio="resources/audios/japan/Sayounara.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Thanks for the food"
+                    translation="gochisousama deshita"
+                    native="ごちそうさまでした"
+                    audio="resources/audios/japan/GochisousamaDeshita.wav"
+                    audio-type="audio/wav" />
+            <!--ethiopia-audio-card
+                    original="Dinner"
+                    translation="irat"
+                    native="እራት"
+                    audio="resources/audios/Abendessen.wav"
+                    audio-type="audio/wav" /-->
         </div>
     </segment>
 
-    <segment title="Play" anchor="Language">
-        <div layout="row" style="flex-wrap: wrap" class="play">
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Coffee
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <!--
-                    <eat-audio controls flex="66">
-                        <source src="resources/eat-audios/Coffee.wav" type="eat-audio/wav">
-                    </eat-audio>
-                    -->
-                    <eat-audio src="resources/audios/Coffee.wav" type="audio/wav"></eat-audio>
-                    <div flex="70"></div>
-                    <div flex="30">
-                        buna
-                        <br>
-                        ቡና
-                    </div>
-                </div>
-            </md-card>
+    <segment title="In a Restaurant" anchor="In a Restaurant">
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Ordering
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="I'd like to order"
+                    translation="chuumon onegai shimasu"
+                    native="注文お願いします"
+                    audio="resources/audios/japan/ChuumonOnegaiShimasu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="I'd like to pay"
+                    translation="okanjou onegai shimasu"
+                    native="お勘定お願いします"
+                    audio="resources/audios/japan/OkanjouOnegaiShimasu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Menu"
+                    translation="menyuu"
+                    native="メニュー"
+                    audio="resources/audios/japan/Grundbegriffe_15.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Yes"
+                    translation="hai"
+                    native="はい"
+                    audio="resources/audios/japan/Hai.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="No"
+                    translation="iie"
+                    native="いいえ"
+                    audio="resources/audios/japan/Iie.wav"
+                    audio-type="audio/wav" />
+        </div>
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Eating
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Thanks for the food (before eating)"
+                    translation="itadakimasu"
+                    native="いただきます"
+                    audio="resources/audios/japan/Itadakimasu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="The food was delicious (when finished)"
+                    translation="gochisousama deshita"
+                    native="ごちそうさまでした"
+                    audio="resources/audios/japan/GochisousamaDeshita.wav"
+                    audio-type="audio/wav" />
+        </div>
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Thank you
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Thank you (informal)"
+                    translation="doumo"
+                    native="どうも"
+                    audio="resources/audios/japan/Domo.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Thank you"
+                    translation="arigatou"
+                    native="ありがとう"
+                    audio="resources/audios/japan/Arigatou.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Thank you (formal)"
+                    translation="doumo arigatou"
+                    native="どうもありがとう"
+                    audio="resources/audios/japan/DomoArigatou.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Thank you (very formal)"
+                    translation="doumo arigatou gozaimasu"
+                    native="どうもありがとうございます"
+                    audio="resources/audios/japan/DomoArigatouGozaimasu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Please"
+                    translation="onegai shimasu"
+                    native="お願いします"
+                    audio="resources/audios/japan/OnegaiShimasu.wav"
+                    audio-type="audio/wav" />
+        </div>
+    </segment>
 
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Dinner
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Abendessen.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        irat
-                        <br>
-                        እራት
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Bread
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Bread.wav" controls flex="66">
-
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        dabo
-                        <br>
-                        ዳቦ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Breakfast
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Breakfast.wav" controls flex="66">
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        k’uris
-                        <br>
-                        ቁርስ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Bye
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Bye.wav" controls flex="66">
-                    </eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        chawu
-                        <br>
-                        ቻዉ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Cheers
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Cheers.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        let’ēninetachin
-                        <br>
-                        ለጤንነታችን
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Enjoy your meal
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Enjoy_your_meal.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        melikam mēgēb
-                        <br>
-                        መልካም ሜጌብ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Excuse me
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Excuse_me.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        yik’irta
-                        <br>
-                        ይቅርታ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Hallo
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Hallo2.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        selam
-                        <br>
-                        ሰላም
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Menu
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Menu.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        yemigib mazezha
-                        <br>
-                        የምግብ ማዘዣ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        Lunch
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Mittagessen.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        misa
-                        <br>
-                        ምሳ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        no
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/No.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        āyi
-                        <br>
-                        አይ
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        I do not want to
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/No2.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        ālfeligim
-                        <br>
-                        አልፈልግም
-                    </div>
-                </div>
-            </md-card>
-
-            <md-card layout="column" layout-align="space-around">
-                <div flex="66" layout="column">
-                    <p style="padding: 5px;">
-                        popcorn
-                    </p>
-                </div>
-                <div flex="33" style="overflow: hidden;" layout="row">
-                    <eat-audio src="resources/audios/Popcorn.wav" controls flex="66"></eat-audio>
-                    <div flex="10"></div>
-                    <div flex="30">
-                        fandisha
-                        <br>
-                        ፋንድሻ
-                    </div>
-                </div>
-            </md-card>
-
+    <segment title="Food & Drinks" anchor="Food Drinks">
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Ingredients
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Rice"
+                    translation="gohan"
+                    native="ご飯"
+                    audio="resources/audios/japan/Gohan.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Vegetables"
+                    translation="yasai"
+                    native="野菜"
+                    audio="resources/audios/japan/Yasai.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Wasabi"
+                    translation="wasabi"
+                    native="ワサビ"
+                    audio="resources/audios/japan/Wasabi.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Fruit"
+                    translation="kudamono"
+                    native="野菜"
+                    audio="resources/audios/japan/Kudamono.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Meat"
+                    translation="niku"
+                    native="野菜"
+                    audio="resources/audios/japan/Niku.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Wagyuu beef"
+                    translation="wagyuu"
+                    native="野菜"
+                    audio="resources/audios/japan/Wagyuu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Soy sauce"
+                    translation="shouyu"
+                    native="醤油"
+                    audio="resources/audios/japan/Shoyu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Seaweed"
+                    translation="nori"
+                    native="海苔"
+                    audio="resources/audios/japan/Nori.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Raw egg"
+                    translation="nama tamago"
+                    native="生卵"
+                    audio="resources/audios/japan/NamaTamago.wav"
+                    audio-type="audio/wav" />
+                <ethiopia-audio-card
+                        original="Tofu"
+                        translation="tofu"
+                        native="豆腐"
+                        audio="resources/audios/japan/Tofu.wav"
+                        audio-type="audio/wav" />
+    </div>
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Dishes
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Sushi"
+                    translation="sushi"
+                    native="寿司"
+                    audio="resources/audios/japan/Sushi.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Sashimi"
+                    translation="sashimi"
+                    native="刺し身"
+                    audio="resources/audios/japan/Sashimi.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Mocchi"
+                    translation="mocchi"
+                    native="もち"
+                    audio="resources/audios/japan/Mocchi.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Ramen"
+                    translation="ramen"
+                    native="ラーメン"
+                    audio="resources/audios/japan/Ramen.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Miso soup"
+                    translation="misoshiru"
+                    native="みそ汁"
+                    audio="resources/audios/japan/Misoshiru.wav"
+                    audio-type="audio/wav" />
+        </div>
+        <md-card style="padding: 15px; background: #ffe0f8">
+            <h4 class="md-display-0" style="margin-top: 0; margin-bottom: 0; font-size:20px; font-weight: bold">
+                Drinks
+            </h4>
+        </md-card>
+        <div layout="row" layout-align="space-around" layout-wrap="" class="play">
+            <ethiopia-audio-card
+                    original="Water"
+                    translation="omizu"
+                    native="お水"
+                    audio="resources/audios/japan/Omizu.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="(Green) Tea"
+                    translation="occha"
+                    native="お茶"
+                    audio="resources/audios/japan/Occha.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Matcha"
+                    translation="matcha"
+                    native="抹茶"
+                    audio="resources/audios/japan/Matcha.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Rice wine"
+                    translation="sake"
+                    native="ラーメン"
+                    audio="resources/audios/japan/Sake.wav"
+                    audio-type="audio/wav" />
+            <ethiopia-audio-card
+                    original="Ramune"
+                    translation="ramune"
+                    native="ラムネ"
+                    audio="resources/audios/japan/Ramune.wav"
+                    audio-type="audio/wav" />
         </div>
     </segment>
 
